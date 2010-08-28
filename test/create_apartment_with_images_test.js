@@ -9,15 +9,13 @@ var app = require('../server'),
   sys = require('sys'),
   querystring = require('querystring'),
   helpers = require('./helpers');
-  
-
 
 module.exports = {
   'POST /apartments stores images': function(assert) {
     var doc, google_query;
     couchdb.saveDoc = function(_doc, callback) {
       doc = _doc; 
-      callback();
+      callback(null, {});
     };
     
     var hl_http_client = _(module.moduleCache).detect(function(_, name) {return name.match('highlevel_http_client.js')});
