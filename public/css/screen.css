@@ -84,7 +84,7 @@ body,textarea,input {
 #s:input {
   background:none;
 }
-label[for$="s"] { 
+label[for="s"] { 
   display:none; 
 }
 #map_container {
