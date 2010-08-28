@@ -23,25 +23,25 @@
 	<div id="filters">
 		<ul>
 			<li>
-				<input type="checkbox" name="shared" />
+				<input type="checkbox" name="shared" class="reload_apartments shared" />
 				<label for="shared">Shared Apartment</label>
 				
-				<input type="checkbox" name="entire" />
+				<input type="checkbox" name="entire" class="reload_apartments entire" />
 				<label for="entire">Entire Apartment</label>
 			</li>
 			<li>
 				<label for="price_amount">Price range:</label>
-				<input type="text" id="price_amount" />
+				<input type="text" id="price_amount" class="reload_apartments" />
 				<div id="price_range"></div>
 			</li>
 			<li>
 				<label for="space_amount">Space range:</label>
-				<input type="text" id="space_amount" />
+				<input type="text" id="space_amount" class="reload_apartments" />
 				<div id="space_range"></div>
 			</li>
 			<li>
 			  <label for="tags">Tags:</label>
-			  <textarea name="tags"></textarea>
+			  <textarea name="tags" id="tags" class="reload_apartments"></textarea>
 			</li>
 		</ul>
 	</div>

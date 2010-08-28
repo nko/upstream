@@ -12,7 +12,7 @@ $(function() {
 		step: 50,
 		values: [10, 2000],
 		slide: function(event, ui) {
-			$("#price_amount").val('$' + ui.values[0] + ' - $' + ui.values[1]);			
+			$("#price_amount").val('$' + ui.values[0] + ' - $' + ui.values[1]);
 		}
 	});
 	
@@ -35,4 +35,8 @@ $(function() {
 	var min = space_slider.slider("values", 0),
 	  max = space_slider.slider("values", 1);
 	$("#space_amount").val('$' + min + ' - $' + max);
+	
+	$('.reload_apartments').change(function() {
+	  w4lls.load_apartments();
+	});
 });
