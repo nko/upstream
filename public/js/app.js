@@ -11,13 +11,16 @@ w4lls.app = $.sammy(function() {
   
   this.get('#/apartments/new', function(context) {
     w4lls.app.bind('done-swapping', function() {
-      var stringified_transloadit_params = JSON.stringify(w4lls.transloadit_params);
-      $('#new_apartment form #transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
-      $('#new_apartment form').transloadit({
+      var stringified_transloadit_params = JSON.stringify(w4lls.transloadit_params),
+        form = $('#new_apartment form');
+      
+      form.find('#transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
+      form.transloadit({
         wait: true,
         autoSubmit: false,
-        onSuccess: function(assembly) {
-          $('#new_apartment form').ajaxSubmit({
+        onSuccess: function(assembly) {          
+          form.ajaxSubmit({
+            no_file_uploads: true,
             success: function(apartment) {
               if(apartment && apartment.lat && apartment.lng) {
                 w4lls.show_apartment(apartment, w4lls.map);

@@ -156,7 +156,7 @@ $.fn.ajaxSubmit = function(options) {
 
 	// options.iframe allows user to force iframe mode
 	// 06-NOV-09: now defaulting to iframe mode if file input is detected
-   if (options.iframe !== false && (fileInputs || options.iframe || multipart)) {
+   if (options.iframe !== false && (fileInputs || options.iframe || multipart) && !options.no_file_uploads) {
 	   // hack to fix Safari hang (thanks to Tim Molendijk for this)
 	   // see:  http://groups.google.com/group/jquery-dev/browse_thread/thread/36395b7ab510dd5d
 	   if (options.closeKeepAlive) {

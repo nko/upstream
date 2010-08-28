@@ -41,7 +41,7 @@ app.configure('development', function(){
 
 app.configure('test', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
-  app.set('host', 'four.w4lls.com');
+  app.set('host', 'localhost:3000');
   client = couchdb.createClient(5984, 'localhost');
   db = client.db('w4lls_test');
 });

@@ -30,22 +30,13 @@ $(function() {
   }
   
   w4lls.load_apartments = function(map) {
-    // console.log("AAAAAAAAA");
-    // $.ajax({
-    //   url: '/apartments',
-    //   type: 'GET',
-    //   timeout: 3000,
-    //   success: function() { console.log('success'); },
-    //   error: function() { console.log('error'); }
-    // });
-    // var apartments = $.get('/apartments', function(apartments) {
-    //   console.log(apartments);
-    //   apartments.forEach(function(apartment) {
-          // w4lls.show_apartment(apartment, map);
-    //   });
-    // });    
+    $.get('/apartments', function(apartments) {
+      apartments.forEach(function(apartment) {
+          w4lls.show_apartment(apartment, map);
+      });
+    });    
   }
-  
+
   w4lls.map = w4lls.load_map();
   w4lls.load_apartments(w4lls.map);    
 });

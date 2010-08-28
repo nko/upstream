@@ -19,14 +19,14 @@ module.exports = {
       url: '/',
       method: 'GET',
       headers: {
-          'Host': 'nko-upstrea.heroku.com'
+          'Host': 'nko-upstream.heroku.com'
         },
       },
       {
         status: 301
       },
       function(res) {
-        assert.equal(res.headers.location, 'http://four.w4lls.com/');
+        assert.equal(res.headers.location, 'http://localhost:3000/');
       });
   },
   'GET / with correct host renders': function(assert) {
@@ -34,7 +34,7 @@ module.exports = {
       url: '/',
       method: 'GET',
       headers: {
-          'Host': 'four.w4lls.com'
+          'Host': 'localhost:3000'
         },
       },
       {
