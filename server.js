@@ -55,10 +55,24 @@ app.get('/', function(req, res){
   res.render('index.ejs');
 });
 
+app.post('/apartments', function(req, res) {
+  db.saveDoc(null, req.body);
+  res.send(201);
+});
+
+app.get('/apartments', function(req, res) {
+  db.view('apartment', 'all', function(err, results) {
+    res.send(results.rows);
+  });
+});
+
 
 function send_error(res, er) {
   res.send(JSON.stringify(er), 500);
 };
 
 // Only listen on $ node app.js
-app.listen(parseInt(process.env.PORT || 3000, 10));
+if(!module.parent) {
+  app.listen(parseInt(process.env.PORT || 3000, 10));
+}
+
