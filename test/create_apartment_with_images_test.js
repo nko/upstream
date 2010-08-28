@@ -11,7 +11,7 @@ var app = require('../server'),
   helpers = require('./helpers');
 
 module.exports = {
-  'POST /apartments gets position and stores doc': function(assert){
+  'POST /apartments stores images': function(assert) {
     var doc, google_query;
     couchdb.saveDoc = function(_doc, callback) {
       doc = _doc; 
@@ -27,15 +27,14 @@ module.exports = {
     assert.response(app, {
       url: '/apartments',
       method: 'POST',
-      data: 'title=test+apartment&address=broadway+5&post_code=10999',
+      data: 'transloadit=' + JSON.stringify({results: {thumb: [{url: 'http://transloadit.com/test.jpg'}]}}),
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       },
       {status: 201},
       function(res) {
-        assert.equal(querystring.unescape(google_query), '/maps/api/geocode/json?address=broadway 5, 10999, Berlin, Germany&sensor=false');
-        assert.eql(doc, {title: 'test apartment', address: 'broadway 5', city: 'Berlin', country: 'Germany', post_code: '10999', lat: 37.4217080, lng: -122.0829964});
+        assert.eql(doc.images, {thumb: 'http://transloadit.com/test.jpg'});
       });
   }
 };
