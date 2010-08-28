@@ -17,6 +17,24 @@ body {
 body,textarea,input {
   font-family: Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
 }
+
+/* Headings
+-------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6 { font-weight: normal; color: #111; }
+
+h1 { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+h2 { font-size: 2em; margin-bottom: 0.75em; }
+h3 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+h6 { font-size: 1em; font-weight: bold; }
+
+h1 img, h2 img, h3 img,
+h4 img, h5 img, h6 img {
+  margin: 0;
+}
+
 .hide { display: none;}
 #wrapper {
   min-height: 100%;
@@ -55,7 +73,7 @@ body,textarea,input {
 
 .nav {
   float: right;
-  font-size: 11px;
+  font-size: .875em;
   color: #777;
   font-style: italic;
   margin-top: 24px;
@@ -367,13 +385,31 @@ label[for="s"] {
 	margin-top: 48px;
 }
 
+.footer_content {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.transloadit {
+  width: 200px;
+  float: left;
+}
+
 #new_apartment {
   margin: 0 auto 1.5em auto;
 }
 
 #new_apartment label {
   display: inline-block;
-  width: 120px;
+  width: 140px;
+  padding-right: 16px;
+  text-align: right;
+}
+
+#new_apartment input[type="text"],
+#new_apartment textarea {
+  width: 220px;
 }
 
 
@@ -381,16 +417,50 @@ label[for="s"] {
 input[type="text"], 
 input[type="password"], 
 textarea, 
-select,
-.text_field input, 
-.password_field input, 
-.text_area textarea {
-  border: 1px solid #999;
-  color: #666;
-  background: #E3E2DD;
+select {
+  border: 1px solid #BBB;
   padding: 6px;
+<<<<<<< HEAD
+  font-size: 1em;
+  -moz-border-radius: .25em;
+  -webkit-border-radius: .25em;
+  border-radius: .25em;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus, 
+textarea:focus, 
+select:focus {
+  border: 1px solid #0095BC;
+  color: #0095BC;
+  -moz-box-shadow: inset 0 2px 3px #999;
+  -webkit-box-shadow: inset 0 2px 3px #999;
+  box-shadow: inset 0 2px 3px #999;
+}
+
+form ul {
+  list-style: none;
+}
+
+form ul li {
+  clear: both;
+  margin-bottom: .5em;
+}
+
+.checkbox {
+  padding-left: 156px;
+}
+
+.checkbox label {
+  width: auto;
+  text-align: left;
+}
+
+
+=======
   font-size: 1.3333em; /* 16px */
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
+>>>>>>> a6346e5676c038bb90861bdb8fd4e1bb0a80bdf9
