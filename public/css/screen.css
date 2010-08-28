@@ -76,6 +76,7 @@ h4 img, h5 img, h6 img {
   font-size: .875em;
   color: #777;
   font-style: italic;
+  margin-top: 24px;
 }
 
 .logo {
