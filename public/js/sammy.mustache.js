@@ -440,5 +440,9 @@ if (!window.Mustache) {
     app.helper(method_alias, mustache);
 
   };
+  
+  w4lls.mustache = function(template, data) {
+    return Mustache.to_html(template, data);
+  };
 
 })(jQuery);

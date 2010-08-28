@@ -1,11 +1,21 @@
+/* colors */
+/*
+#0095BC - blue
+#D16A3C - orange-red
+#4C3E4A - dark grey
+#D0CFC5 - background beige
+*/
+
 html, body {
 	height: 100%; 
 }
 body { 
-	background: url(../img/bg.gif) repeat;
+	background: #D0CFC5 url(../img/w4lls_bg.png) repeat;
+	color: #4C3E4A;
+	text-shadow: 1px 1px 1px #FFF;
 }
 body,textarea,input {
-  font-family: "myriad pro",myriad,"myriad-pro-1","myriad-pro-2","helvetica neue",helvetica,arial,sans-serif;
+  font-family: Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
 }
 .hide { display: none;}
 #wrapper {
@@ -21,15 +31,94 @@ body,textarea,input {
 }
 #header {
   height: 56px;
-  padding-top: 24px;
+  padding-top: 18px;
   position: relative;
 }
+
+#header.header_frontpage {
+  height: auto;
+}
+
+.page_intro {
+  margin: 4.5em auto 0 auto;
+  padding-bottom: 3em;
+  width: 50%;
+  text-align: center;
+}
+
+.page_intro_desc {
+  padding: 1em 2em;
+  margin-bottom: 3em;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
+}
+
 .nav {
   float: right;
   font-size: 11px;
   color: #777;
   font-style: italic;
 }
+
+.logo {
+  width: 184px;
+  margin: 0 0 0 0;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+
+.logo a {
+  width: 184px;
+  height: 43px;
+  margin-bottom: 0;
+  background: transparent url(../img/w4lls_logo_small.png) no-repeat 0 0;
+  text-indent: -9999px;
+  display: block; 
+}
+
+/* links */
+
+a, 
+a:link, 
+a:visited {
+  color: #0095BC;
+  text-decoration: none;
+}
+
+a:hover, 
+a:active, 
+a:focus {
+  color: #0095BC;
+  text-decoration: underline;
+}
+
+.logo a:focus, .logo a:hover, .logo a:active {
+  outline: none;
+}
+
+.logo_big {
+  width: 100%;
+  height: 256px;
+  background: transparent url(../img/w4lls_logo_big.png) no-repeat 50% 0;
+  display: block;
+  float: none;
+  margin: 0 auto 4.5em auto;
+}
+
+.logo_big strong {
+  display: block;
+  text-indent: -9999px;
+}
+
+.logo_big em {
+  font-family: Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.5em;
+  display: block;
+  margin-top: 3em;
+}
+
 .nav li {
   float:left;
   border-right: 1px solid #fff;
@@ -54,7 +143,7 @@ body,textarea,input {
   transition: background-color color 0.5s ease-in;
 }
 .nav a:hover {
-  background-color:#0C608D;
+  background-color:#0095BC;
   color:#fff;
   padding: 3px 7px;
   margin: 0 3px;
@@ -148,7 +237,7 @@ label[for="s"] {
   -moz-border-radius-bottomleft: 6px;
   -o-border-bottom-left-radius: 6px;
   border-bottom-left-radius: 6px;
-  background: #f1f1f1 url(../img/bg.gif) repeat;
+  background: #D0CFC5 url(../img/w4lls_bg.png) repeat;
   border: 2px solid #fff;
   overflow: visible;
   height: 370px;
@@ -215,7 +304,7 @@ label[for="s"] {
   border-bottom: 1px solid #E0DFDF;
   padding: 6px 6px;
   height: 48px;
-  background: #f1f1f1 url(../img/bg.gif) repeat;
+  background: #D0CFC5 url(../img/w4lls_bg.png) repeat;
   overflow: hidden;
 }
 #filters li:first-child {
