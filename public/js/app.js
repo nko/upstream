@@ -18,7 +18,10 @@ w4lls.app = $.sammy(function() {
         autoSubmit: false,
         onSuccess: function(assembly) {
           $('#new_apartment form').ajaxSubmit({
-            success: function() {
+            success: function(apartment) {
+              if(apartment && apartment.lat && apartment.lng) {
+                w4lls.show_apartment(apartment, w4lls.map);
+              }
               $('#new_apartment').remove();
               context.redirect('#/');
             }
