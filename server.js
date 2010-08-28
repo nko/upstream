@@ -50,7 +50,7 @@ app.configure('test', function(){
 app.configure('production', function(){
   app.use(connect.errorHandler());
   app.set('host', 'four.w4lls.com');
-  couch_client = couchdb.createClient(443, 'langalex.couchone.com', 'w4lls_production', process.env.COUCHONE_PASSWORD);
+  couch_client = couchdb.createClient(80, 'langalex.couchone.com', 'w4lls_production', process.env.COUCHONE_PASSWORD);
   db = couch_client.db('w4lls_production');
 });
 
