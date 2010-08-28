@@ -35,7 +35,7 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
   app.set('host', 'localhost:3000');
-  couch_client = couchdb.createClient(5984, 'localhost');
+  couch_client = couchdb.createClient(80, 'langalex.couchone.com', 'w4lls', 'upstream');
   db = couch_client.db('w4lls_development');
 });
 
@@ -125,6 +125,9 @@ app.get('/apartments', function(req, res) {
   };
   if(req.query.size_min) {
     query += 'size<float>:[' + req.query.size_min + ' TO ' + req.query.size_max + ']';
+  };
+  if(req.query.rooms_min) {
+    query += 'rooms<int>:[' + req.query.rooms_min + ' TO ' + req.query.rooms_max + ']';
   };
   
   if(query.length > 0) {
