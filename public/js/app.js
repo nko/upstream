@@ -19,6 +19,7 @@ w4lls.app = $.sammy(function() {
         wait: true,
         autoSubmit: false,
         onSuccess: function(assembly) {          
+          form.prepend($('<input type="hidden" name="transloadit"/>').val(JSON.stringify(assembly)));
           form.ajaxSubmit({
             no_file_uploads: true,
             success: function(apartment) {
@@ -51,7 +52,8 @@ $(function() {
     steps: {
       small: {robot: '/image/resize', width: 220, height: 140, use: ':original'},
       middle: {robot: '/image/resize', width: 320, height: 240, use: ':original'},
-      big: {robot: '/image/resize', width: 640, height: 480, use: ':original'}
+      big: {robot: '/image/resize', width: 640, height: 480, use: ':original'},
+      store: {robot: '/s3/store', use: ['small', 'middle', 'big']}
     },
     redirect_url: 'http://' + w4lls.host + '/apartments'
   }
