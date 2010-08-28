@@ -36,58 +36,44 @@
     <div id="wrapper">
 		
 			<div id="header" class="wrapper">
-				
 				<ul class="nav">
 					<li><a href="">about</a></li>
 					<li><a href="">blah</a></li>
 					<li><a href="">blah</a></li>
 				</ul>
-			
 				<form role="search" action="" id="searchform" method="get">
 					<label for="s" accesskey="1">Search:</label>
 					<input type="search" onfocus="if (this.value == 'Search…')  
-						{this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search…';}" id="s" name="s" results="5" autosave="com.letsbrain.blog" value="Search…"> 
+						{this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search…';}" id="s" name="s" results="5" autosave="" value="Search…"> 
 					<input type="hidden" id="searchsubmit"> 
 				</form>
-			
 			</div>
-			
-			
-			
-			
-			
 
 			<div id="map_container">
 				<div id="filters">
 					<ul>
-						<li></li>
-						<li></li>
+						<li>checkbox</li>
+						<li>
+							<label for="amount">Price range:</label>
+							<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
+							<div id="slider-range"></div>
+						</li>
+						<li>größe</li>
+						<li>x</li>
+						<li>y</li>
+						<li>z</li>
 					</ul>
+					<a class="view_indicator" href="">
+
+					</a>
 				</div>
+
 				<div id="map"></div>
 			</div>
 			
-			
-		<div class="wrapper">
-			
-			<div class="demo">
-
-			<p>
-			<label for="amount">Price range:</label>
-			<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
-			</p>
-
-			<div id="slider-range"></div>
-
-			</div><!-- End demo -->
-
-			<div class="demo-description">
-
-			<p>Set the <code>range</code> option to true to capture a range of values with two drag handles.  The space between the handles is filled with a different background color to indicate those values are selected.</p>
-
-			</div><!-- End demo-description -->
-		</div>
-
+			<div id="bookmarks">
+				
+			</div>
 			<div class="push"></div>
       
     </div>
