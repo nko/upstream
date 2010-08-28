@@ -37,14 +37,15 @@ h4 img, h5 img, h6 img {
 
 .hide { display: none;}
 
-li.item {
+form ul li,
+.item {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #aaa;
 }
-li.item:first-child {
+.item:first-child {
   border-top:none;
 }
- li.item:last-child {
+.item:last-child {
   border-bottom:none;
 }
 #wrapper {
@@ -446,11 +447,13 @@ select:focus {
 
 form ul {
   list-style: none;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #FFF;
 }
 
 form ul li {
   clear: both;
-  margin-bottom: .5em;
+  padding: .5em 0;
 }
 
 .btn_wrap,
