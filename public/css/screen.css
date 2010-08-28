@@ -15,7 +15,7 @@ body {
 	text-shadow: 1px 1px 1px #FFF;
 }
 body,textarea,input {
-  font-family: Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;;
 }
 
 /* Headings
@@ -36,6 +36,17 @@ h4 img, h5 img, h6 img {
 }
 
 .hide { display: none;}
+
+li.item {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #aaa;
+}
+li.item:first-child {
+  border-top:none;
+}
+ li.item:last-child {
+  border-bottom:none;
+}
 #wrapper {
   min-height: 100%;
 	height: auto !important;
@@ -269,6 +280,7 @@ label[for="s"] {
 }
 #filters {
   font-size: .75em;
+  line-height:1;
 }
 #filters ul {
   float: left;
@@ -324,8 +336,6 @@ label[for="s"] {
   border-right-color: transparent;
 }
 #filters li {
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #E0DFDF;
   padding: 6px 6px;
   height: 48px;
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
@@ -342,35 +352,29 @@ label[for="s"] {
   text-align: center;
   clear:left;
   font-size: .75em;
+  padding:0;
+  margin-top:6px;
 }
 #filters .tag_search {
   height: 200px;
-}
-
-
-#filters li:first-child {
-  border-top:none;
-}
-#filters li:last-child {
-  border-bottom:none;
 }
 #price_range,#space_range {
   width: 180px;
   float: left;
   margin: 0 16px;
-  margin-top: 14px;
+  margin-top: 8px;
 }
 .small,.big {
   float:left;
-  width: 12px;
+  width: 10px;
   font-weight: 800;
 }
 .big {
   font-size: 2em;
-
+  margin-top:0px;
 }
 .small {
-  margin-top: 12px;
+  margin-top: 10px;
     text-align: right;
 }
 
