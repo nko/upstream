@@ -113,7 +113,7 @@ app.get('/apartments', function(req, res) {
     if(err) {
       send_error(res, err);
     } else {
-      res.send(results.rows);
+      res.send(results.rows.map(function(row) {return row.doc}));
     }
   });
 });
