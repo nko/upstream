@@ -34,14 +34,13 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
-  host = 'localhost:3000';
-  app.set('host', host);
+  app.set('host', 'localhost:3000');
   client = couchdb.createClient(5984, 'localhost');
   db = client.db('w4lls_development');
 });
 
 app.configure('test', function(){
-  app.use(connect.errorHandler());
+  app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
   app.set('host', 'four.w4lls.com');
   client = couchdb.createClient(5984, 'localhost');
   db = client.db('w4lls_test');
@@ -49,10 +48,13 @@ app.configure('test', function(){
 
 app.configure('production', function(){
   app.use(connect.errorHandler());
-  host = 'four.w4lls.com';
-  app.set('host', host);
+  app.set('host', 'four.w4lls.com');
   client = couchdb.createClient(443, 'langalex.cloudant.com', 'langalex', process.env.CLOUDANT_PASSWORD);
   db = client.db('w4lls_production');
+});
+
+app.helpers({
+  host: app.settings.host
 });
 
 app.db = db;
@@ -76,13 +78,21 @@ app.get('/', function(req, res){
 });
 
 app.post('/apartments', function(req, res) {
-  var address = querystring.stringify({address: req.body.address + ', ' + req.body.post_code + ', Berlin, Germany', sensor: 'false'});
+  var address = querystring.stringify({address: req.body.apartment.street + ', ' + req.body.apartment.post_code + ', Berlin, Germany', sensor: 'false'});
+
   hl_http_client.get('maps.google.com', '/maps/api/geocode/json?' + address, function(err, body) {
     if(err) {
       send_error(res, err);
     } else {
       var location = JSON.parse(body).results[0].geometry.location;
-      var doc = _(req.body).extend({lat: location.lat, lng: location.lng, city: 'Berlin', country: 'Germany'});
+      var doc = _(req.body.apartment).extend({lat: location.lat, lng: location.lng, city: 'Berlin', country: 'Germany'});
+      if(req.body.transloadit) {
+        var json = JSON.parse(req.body.transloadit);
+        doc.images = _(json.results).reduce(function(memo, images, name) {
+          memo[name] = images[0].url;
+          return memo;
+        }, {});
+      };
       db.saveDoc(doc, function(err, results) {
         if(err) {
           send_error(res, err);
