@@ -12,9 +12,10 @@ html, body {
 body { 
 	background: #D0CFC5 url(../img/w4lls_bg.png) repeat;
 	color: #4C3E4A;
+	text-shadow: 1px 1px 1px #FFF;
 }
 body,textarea,input {
-  font-family: "myriad pro",myriad,"myriad-pro-1","myriad-pro-2","helvetica neue",helvetica,arial,sans-serif;
+  font-family: Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
 }
 .hide { display: none;}
 #wrapper {
@@ -33,6 +34,20 @@ body,textarea,input {
   padding-top: 18px;
   position: relative;
 }
+
+.header_big {
+  margin: 4.5em auto 3em auto;
+  width: 50%;
+  text-align: center;
+}
+
+.page_intro {
+  padding: 1em 2em;
+  margin-bottom: 3em;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
+}
+
 .nav {
   float: right;
   font-size: 11px;
@@ -57,8 +72,46 @@ body,textarea,input {
   display: block; 
 }
 
+/* links */
+
+a, 
+a:link, 
+a:visited {
+  color: #0095BC;
+  text-decoration: none;
+}
+
+a:hover, 
+a:active, 
+a:focus {
+  color: #0095BC;
+  text-decoration: underline;
+}
+
 .logo a:focus, .logo a:hover, .logo a:active {
   outline: none;
+}
+
+.logo_big {
+  width: 100%;
+  height: 256px;
+  background: transparent url(../img/w4lls_logo_big.png) no-repeat 50% 0;
+  display: block;
+  float: none;
+  margin: 0 auto 4.5em auto;
+}
+
+.logo_big strong {
+  display: block;
+  text-indent: -9999px;
+}
+
+.logo_big em {
+  font-family: Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.5em;
+  display: block;
+  margin-top: 3em;
 }
 
 .nav li {
