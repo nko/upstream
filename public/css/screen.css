@@ -320,6 +320,7 @@ label[for="s"] {
   width: 260px;
   text-align: center;
   clear:left;
+  font-size: .75em;
 }
 #filters .tag_search {
   height: 200px;
