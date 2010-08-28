@@ -27,7 +27,7 @@ module.exports = {
     assert.response(app, {
       url: '/apartments',
       method: 'POST',
-      data: 'transloadit=' + JSON.stringify({results: {thumb: [{url: 'http://transloadit.com/test.jpg'}]}}),
+      data: 'apartment[street]=x&transloadit=' + JSON.stringify({results: {thumb: [{url: 'http://transloadit.com/test.jpg'}]}}),
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
