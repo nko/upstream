@@ -26,7 +26,25 @@ $(function() {
       title: apartment.title
     });
 
-    marker.setMap(map);    
+    function build_info_window() {
+      var content = w4lls.mustache(w4lls.show_template, apartment);
+      var infowindow = new google.maps.InfoWindow({ content: content });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+      });      
+    }
+    
+    if(w4lls.show_template) {
+      build_info_window();
+    } else {
+      $.get('/views/apartments/show.mustache', function(template) {
+        w4lls.show_template = template;
+        build_info_window();
+      });
+    }
+    
+    marker.setMap(map);
   }
   
   w4lls.load_apartments = function(map) {
