@@ -4,7 +4,16 @@ $(function() {
     var myOptions = {
       zoom: 11,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      center: initialLocation
+      center: initialLocation,
+      scrollwheel: false,
+      navigationControl: true,
+      navigationControlOptions: {
+        position: google.maps.ControlPosition.RIGHT
+      },
+      scaleControl: true,
+      scaleControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM
+      }
     };
     var map = new google.maps.Map(document.getElementById("map"), myOptions);
     

@@ -34,10 +34,10 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
-  app.set('host', 'localhost:3000');
+  host = 'localhost:3000';
+  app.set('host', host);
   client = couchdb.createClient(5984, 'localhost');
   db = client.db('w4lls_development');
-  google_maps_key = 'ABQIAAAASOw3kHJFc2xCpxnZ-dtD6hT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSwIsS_zx3Hbvv6Z-pT42CPLo0Qg';
 });
 
 app.configure('test', function(){
@@ -49,7 +49,8 @@ app.configure('test', function(){
 
 app.configure('production', function(){
   app.use(connect.errorHandler());
-  app.set('host', 'four.w4lls.com');
+  host = 'four.w4lls.com';
+  app.set('host', host);
   client = couchdb.createClient(443, 'langalex.cloudant.com', 'langalex', process.env.CLOUDANT_PASSWORD);
   db = client.db('w4lls_production');
 });
