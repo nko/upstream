@@ -17,7 +17,8 @@ var couchdb = require('couchdb'), couch_client, db;
 var couch_views = require('./lib/couch_views');
 var view_helpers = require('./lib/view_helpers');
 
-var Apartment = require('./models/apartment').Apartment;
+var Apartment = require('./models/apartment').Apartment,
+  Query = require('./models/query').Query;
 
 sys.puts('RUNNING IN ' + (process.env.EXPRESS_ENV || 'development') + ' environemtn')
 
@@ -35,7 +36,7 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
   app.set('host', 'localhost:3000');
-  couch_client = couchdb.createClient(5984, 'localhost');
+  couch_client = couchdb.createClient(80, 'langalex.couchone.com', 'w4lls', 'upstream');
   db = couch_client.db('w4lls_development');
 });
 
@@ -49,7 +50,7 @@ app.configure('test', function(){
 app.configure('production', function(){
   app.use(connect.errorHandler());
   app.set('host', 'four.w4lls.com');
-  couch_client = couchdb.createClient(443, 'langalex.couchone.com', 'w4lls_production', process.env.COUCHONE_PASSWORD);
+  couch_client = couchdb.createClient(80, 'langalex.couchone.com', 'w4lls_production', process.env.COUCHONE_PASSWORD);
   db = couch_client.db('w4lls_production');
 });
 
@@ -116,17 +117,7 @@ app.post('/apartments', function(req, res) {
 });
 
 app.get('/apartments', function(req, res) {
-  var query = '';
-  if(req.query.north) {
-    query += 'lat<float>:[' + req.query.south + ' TO ' + req.query.north + '] AND lng<float>:[' + req.query.west + ' TO ' + req.query.east + ']';
-  };
-  if(req.query.price_min) {
-    query += 'price<float>:[' + req.query.price_min + ' TO ' + req.query.price_max + ']';
-  };
-  if(req.query.size_min) {
-    query += 'size<float>:[' + req.query.size_min + ' TO ' + req.query.size_max + ']';
-  };
-  
+  var query = Query.build(req.query);
   if(query.length > 0) {
     db.request('/_fti/_design/apartment/by_filters', {q: query, include_docs: true}, function(err, results) {
       if(err) {
