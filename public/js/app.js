@@ -34,6 +34,10 @@ w4lls.app = $.sammy(function() {
 });
 
 $(function() {
+  $(window).resize(function() {
+    $('#map').height($(window).height());
+  });
+  
   w4lls.app.run('#/');
   
   w4lls.transloadit_params = {
