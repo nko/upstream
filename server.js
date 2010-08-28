@@ -96,11 +96,11 @@ app.post('/apartments', function(req, res) {
           return memo;
         }, {});
       };
-      db.saveDoc(doc, function(_err, results) {
+      db.saveDoc(doc, function(_err, ok) {
         if(_err) {
           send_error(res, _err);
         } else {
-          res.send(201);
+          res.send(doc, 201);
         }
       });
     }

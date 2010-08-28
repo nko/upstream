@@ -1,7 +1,11 @@
 module.exports = {
   google_geo_request: function(options, test_callback) {
+    options = options || {};
     return function(host, query, callback) {
-      test_callback(query);
+      if(test_callback) {
+        test_callback(query);
+      };
+      
       callback(null, JSON.stringify(
         {
           "results": [ {
