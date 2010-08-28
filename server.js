@@ -83,6 +83,16 @@ app.get('/about', function(req, res) {
   res.render('about.ejs');  
 });
 
+app.get('/tags', function(req, res) {
+  db.view('apartment', 'by_tags', {startkey: req.query.q, endkey: req.query.q + "\u9999", limit: 20, group: true}, function(err, results) {
+    if(err) {
+      send_error(res, err);
+    } else {
+      res.send(results.rows.map(function(row) {return row.key}));
+    }
+  })
+});
+
 app.post('/apartments', function(req, res) {
   var address = querystring.stringify({address: req.body.apartment.street + ', ' + req.body.apartment.postcode + ', Berlin, Germany', sensor: 'false'});
 
