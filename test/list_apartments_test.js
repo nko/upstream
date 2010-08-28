@@ -13,7 +13,7 @@ module.exports = {
     couchdb.view = function(design, view, query, callback) {
       callback(null, {
         rows: [
-          {_id: 'apartment-1', title: 'my apartment'}
+          {doc: {_id: 'apartment-1', title: 'my apartment'}}
           ]
       })
     };

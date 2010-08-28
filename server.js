@@ -12,7 +12,6 @@ var express = require('express/index'),
 
 var app = module.exports = express.createServer();
 
-
 var couchdb = require('couchdb'), client, db;
 
 var couch_views = require('./lib/couch_views');
@@ -52,12 +51,11 @@ app.configure('production', function(){
   db = client.db('w4lls_production');
 });
 
+app.db = db;
+
 app.helpers({
   host: app.settings.host
 });
-
-app.db = db;
-app.hl_http_client = hl_http_client;
 
 if(!process.env.SKIP_UPDATE_VIEWS) {
   sys.puts('updating view. set SKIP_UPDATE_VIEWS to skip this');
@@ -113,7 +111,7 @@ app.get('/apartments', function(req, res) {
     if(err) {
       send_error(res, err);
     } else {
-      res.send(results.rows);
+      res.send(results.rows.map(function(row) {return row.doc}));
     }
   });
 });
