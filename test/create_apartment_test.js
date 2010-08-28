@@ -49,28 +49,5 @@ module.exports = {
         assert.equal(querystring.unescape(google_query), '/maps/api/geocode/json?address=broadway 5, 10999, Berlin, Germany&sensor=false')
         assert.eql(doc, {title: 'test apartment', address: 'broadway 5', city: 'Berlin', country: 'Germany', post_code: '10999', lat: 37.4217080, lng: -122.0829964});
       });
-  },
-  'GET /apartments': function(assert) {
-    couchdb.view = function(design, view, callback) {
-      callback(null, {
-        rows: [
-          {_id: 'apartment-1', title: 'my apartment'}
-          ]
-      })
-    };
-    
-    assert.response(app, {
-      url: '/apartments',
-      method: 'GET',
-      headers: {
-          'Content-Type': 'application/json'
-        },
-      },
-      {
-        status: 200
-      },
-      function(res) {
-        assert.eql(JSON.parse(res.body), [{_id: 'apartment-1', title: 'my apartment'}]);
-      });
   }
 };
