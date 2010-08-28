@@ -420,7 +420,6 @@ textarea,
 select {
   border: 1px solid #BBB;
   padding: 6px;
-<<<<<<< HEAD
   font-size: 1em;
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
@@ -455,12 +454,3 @@ form ul li {
   width: auto;
   text-align: left;
 }
-
-
-=======
-  font-size: 1.3333em; /* 16px */
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
->>>>>>> a6346e5676c038bb90861bdb8fd4e1bb0a80bdf9
