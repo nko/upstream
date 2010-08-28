@@ -1,0 +1,68 @@
+html, body {
+	height: 100%; 
+}
+body { 
+	margin:0;
+	background: url(../img/bg.gif) repeat;
+	font-family: "myriad pro",myriad,"myriad-pro-1","myriad-pro-2","helvetica neue",helvetica,arial,sans-serif;
+}
+#wrapper {
+	width: 700px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -48px;
+}
+#footer,.push {
+	height: 48px;
+	font-size: 11px;
+	color: #999;;
+	margin-top: 48px;
+}
+h1 {
+	font: 200 normal 144px/1 "myriad-pro-condensed-1","myriad-pro-condensed-2","myriad pro",myriad,"myriad-pro-1","myriad-pro-2","helvetica neue",helvetica,arial,sans-serif;
+	color: #fff;
+	text-transform: uppercase ;
+	text-shadow: 1px 2px 4px #666;
+	border-bottom:1px solid #fff;
+	padding-top: 100px;
+}
+h1 em {
+	font-weight: 600;
+	font-style: normal;
+}
+h2 {
+	border-top: 1px solid #E0DFDF;
+	padding-top: 1em;
+	padding-bottom: 1.5em;
+	color: #0C608D;
+	text-shadow: 1px 2px 1px #fff;
+	font-style: italic;
+	font-size: 24px;
+}
+h1,h2,p,#footer {
+	text-align: center;
+	margin:0;
+}
+a {
+	color: #0C608D;
+}
+p {
+	color: #777;
+	font-weight: 200;
+	padding-top: 4em;
+	margin-bottom: 1.5em;
+}
+#logo {
+	margin-top: 24px;
+	width: 273px;
+}
+.hide {
+  display: none;
+}
+#map {
+  background: #fff;
+  border: 3px solid #fff;
+  width: 700px; 
+  height: 400px;
+}
