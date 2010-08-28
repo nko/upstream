@@ -27,7 +27,7 @@ module.exports = {
     assert.response(app, {
       url: '/apartments',
       method: 'POST',
-      data: querystring.stringify({'apartment[title]': 'test apartment', 'apartment[street]': 'broadway 5', 'apartment[post_code]': '10999'}),
+      data: querystring.stringify({'apartment[title]': 'test apartment', 'apartment[street]': 'broadway 5', 'apartment[postcode]': '10999'}),
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
@@ -35,7 +35,7 @@ module.exports = {
       {status: 201},
       function(res) {
         assert.equal(querystring.unescape(google_query), '/maps/api/geocode/json?address=broadway 5, 10999, Berlin, Germany&sensor=false');
-        assert.eql(doc, {type: 'apartment', title: 'test apartment', street: 'broadway 5', city: 'Berlin', country: 'Germany', post_code: '10999', lat: 37.4217080, lng: -122.0829964});
+        assert.eql(doc, {type: 'apartment', title: 'test apartment', street: 'broadway 5', city: 'Berlin', country: 'Germany', postcode: '10999', lat: 37.4217080, lng: -122.0829964});
       });
   }
 };

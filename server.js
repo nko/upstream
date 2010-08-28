@@ -80,7 +80,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/apartments', function(req, res) {
-  var address = querystring.stringify({address: req.body.apartment.street + ', ' + req.body.apartment.post_code + ', Berlin, Germany', sensor: 'false'});
+  var address = querystring.stringify({address: req.body.apartment.street + ', ' + req.body.apartment.postcode + ', Berlin, Germany', sensor: 'false'});
 
   hl_http_client.get('maps.google.com', '/maps/api/geocode/json?' + address, function(err, body) {
     if(err) {
