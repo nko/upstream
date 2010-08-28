@@ -364,3 +364,31 @@ label[for="s"] {
 	color: #999;;
 	margin-top: 48px;
 }
+
+#new_apartment {
+  margin: 0 auto 1.5em auto;
+}
+
+#new_apartment label {
+  display: inline-block;
+  width: 120px;
+}
+
+
+/* forms */
+input[type="text"], 
+input[type="password"], 
+textarea, 
+select,
+.text_field input, 
+.password_field input, 
+.text_area textarea {
+  border: 1px solid #999;
+  color: #666;
+  background: #E3E2DD;
+  padding: 6px;
+  font-size: 1.3333em; /* 16px */
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
