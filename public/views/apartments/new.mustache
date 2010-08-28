@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="new_apartment">
   <h2>New Apartment</h2>
 
@@ -83,4 +84,90 @@
       <input type="submit" value="add apartment" />
     </p>
   </form>
+=======
+<div class="wrapper">
+  <div id="new_apartment">
+    <h2>New Apartment</h2>
+
+    <form action="http://api2.transloadit.com/assemblies" enctype="multipart/form-data" method="POST">
+      <input type="hidden" id="transloadit_params" name="params" />
+
+      <ul>
+        <li>
+          <label for="apartment_title">Title</label>
+          <input type="text" name="apartment[title]" id="apartment_title" />
+        </li>
+
+        <li>
+          <label for="apartment_description">Description</label>
+          <textarea name="apartment[description]" id="apartment_description"></textarea>
+        </li>
+
+        <li>
+          <label for="apartment_street">Street</label>
+          <input type="text" name="apartment[street]" id="apartment_street" />
+        </li>
+
+        <li>
+          <label for="apartment_postcode">Postcode</label>
+          <input type="text" name="apartment[postcode]" id="apartment_postcode" />
+        </li>
+
+        <li>
+          <label for="apartment_city">City</label>
+          <input type="text" disabled="disabled" name="apartment[city]" id="apartment_city" value="Berlin" />
+        </li>
+
+        <li>
+          <label for="apartment_price">Price</label>
+          <input type="text" name="apartment[price]" id="apartment_price" />
+        </li>
+
+        <li>
+          <label for="apartment_number_of_rooms">Number of Rooms</label>
+          <input type="text" name="apartment[number_of_rooms]" id="apartment_number_of_rooms" />
+        </li>
+
+        <li>
+          <label for="apartment_size">Size</label>
+          <input type="text" name="apartment[size]" id="apartment_size" />
+        </li>
+
+        <li>
+          <label for="apartment_availability">Date of Availability</label>
+          <input type="text" name="apartment[availability]" id="apartment_availability" />
+        </li>
+
+        <li>
+          <label for="apartment_duration">Duration</label>
+          <input type="text" name="apartment[duration]" id="apartment_duration" />
+        </li>
+
+        <li class="checkbox">
+          <input type="checkbox" name="apartment[shared_apartment]" id="apartment_shared_apartment" />
+          <label for="apartment_shared_apartment">Shared Apartment</label>
+        </li>
+
+        <li>
+          <label for="apartment_email">Email</label>
+          <input type="text" name="apartment[email]" id="apartment_email" />
+        </li>
+
+        <li>
+          <label for="apartment_phone">Phone</label>
+          <input type="text" name="apartment[phone]" id="apartment_phone" />
+        </li>
+
+        <li>
+          <label for="apartment_photos">Photos</label>
+          <input type="file" multiple="multiple" name="apartment[photos]" id="apartment_photos" />
+        </li>
+      </ul>
+
+      <p>
+        <input type="submit" value="add apartment" />
+      </p>
+    </form>
+  </div>
+>>>>>>> d25ff7d568fac61dc38d92bcb22b568a56239305
 </div>
