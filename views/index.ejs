@@ -20,13 +20,14 @@
 
 
 <div id="map_container">
-	<div id="filters" class="">
+	<div id="filters">
 		<ul>
 			<li>
-				<label for="wg"></label>
-				<input class="ui-button" id="flat_type" type="checkbox" name="wg" value="">WG
-				<label for="einzel"></label>
-				<input type="checkbox" name="einzel" value="">Einzel
+				<input type="checkbox" name="shared" />
+				<label for="shared">Shared Apartment</label>
+				
+				<input type="checkbox" name="entire" />
+				<label for="entire">Entire Apartment</label>
 			</li>
 			<li>
 				<label for="price_amount">Price range:</label>
@@ -34,17 +35,17 @@
 				<div id="price_range"></div>
 			</li>
 			<li>
-				<label for="space_amount">space range:</label>
+				<label for="space_amount">Space range:</label>
 				<input type="text" id="space_amount" />
 				<div id="space_range"></div>
 			</li>
-			<li>tags</li>
-			<li>y</li>
-			<li>z</li>
+			<li>
+			  <label for="tags">Tags:</label>
+			  <textarea name="tags"></textarea>
+			</li>
 		</ul>
-		<a class="view_indicator" href="">
-		</a>
 	</div>
+	
 	<div id="details_container" class="hidden">
 		<div id="details_centering">
 			<div id="details_rightflow">
