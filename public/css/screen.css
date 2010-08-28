@@ -224,7 +224,6 @@ label[for="s"] {
   margin-top: 24px;
 }
 #filters {
-  width: 300px;
   left: -3px;
   -moz-box-shadow: 1px 3px 3px #999;
   -webkit-box-shadow: 1px 3px 3px #999;
@@ -284,7 +283,6 @@ label[for="s"] {
 }
 #filters ul {
   float: left;
-  width: 272px;
   border-right: 1px solid #E0DFDF;
 }
 #filters .view_indicator {
@@ -336,8 +334,7 @@ label[for="s"] {
   border-right-color: transparent;
 }
 #filters li {
-  padding: 6px 6px;
-  height: 48px;
+  padding: 12px 24px;
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
   overflow: hidden;
 }
@@ -348,12 +345,13 @@ label[for="s"] {
   border:none;
   outline:none;
   background: transparent;
-  width: 260px;
+  width: 99%;
   text-align: center;
   clear:left;
   font-size: .75em;
   padding:0;
-  margin-top:6px;
+  padding-top:6px;
+  display: block;
 }
 #filters .tag_search {
   height: 200px;
