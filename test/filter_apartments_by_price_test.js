@@ -34,7 +34,7 @@ module.exports = {
       },
       function(res) {
         assert.equal('/_fti/_design/apartment/by_filters', path);
-        assert.eql({q: 'price:[5 TO 100]', include_docs: true}, query);
+        assert.eql({q: 'price<float>:[5 TO 100]', include_docs: true}, query);
         assert.eql(JSON.parse(res.body), [{_id: 'apartment-1', title: 'my apartment'}]);
       });
   }

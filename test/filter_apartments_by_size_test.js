@@ -9,21 +9,21 @@ var app = require('../server'),
   sys = require('sys');
 
 module.exports = {
-  'GET /apartments with no parameters lists all': function(assert) {
-    var query;
+  'GET /apartments with price filters apartments by price': function(assert) {
+    var path, query;
     
-    couchdb.view = function(design, view, _query, callback) {
+    couchdb.request = function(_path, _query, callback) {
+      path = _path;
       query = _query;
       callback(null, {
         rows: [
           {doc: {_id: 'apartment-1', title: 'my apartment'}}
-        ]
+          ]
       })
     };
-    
 
     assert.response(app, {
-      url: '/apartments',
+      url: '/apartments?size_min=5&size_max=100',
       method: 'GET',
       headers: {
           'Content-Type': 'application/json'
@@ -33,7 +33,8 @@ module.exports = {
         status: 200
       },
       function(res) {
-        assert.eql({include_docs: true}, query);
+        assert.equal('/_fti/_design/apartment/by_filters', path);
+        assert.eql({q: 'size<float>:[5 TO 100]', include_docs: true}, query);
         assert.eql(JSON.parse(res.body), [{_id: 'apartment-1', title: 'my apartment'}]);
       });
   }

@@ -42,14 +42,14 @@ app.configure('development', function(){
 app.configure('test', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
   app.set('host', 'localhost:3000');
-  couch_client = couchdb.createClient(5984, 'localhost');
+  couch_client = couchdb.createClient(80, 'langalex.couchone.com', 'w4lls', 'upstream');
   db = couch_client.db('w4lls_test');
 });
 
 app.configure('production', function(){
   app.use(connect.errorHandler());
   app.set('host', 'four.w4lls.com');
-  couch_client = couchdb.createClient(443, 'langalex.cloudant.com', 'langalex', process.env.CLOUDANT_PASSWORD);
+  couch_client = couchdb.createClient(443, 'langalex.couchone.com', 'w4lls_production', process.env.COUCHONE_PASSWORD);
   db = couch_client.db('w4lls_production');
 });
 
@@ -121,18 +121,31 @@ app.get('/apartments', function(req, res) {
     query += 'lat<float>:[' + req.query.south + ' TO ' + req.query.north + '] AND lng<float>:[' + req.query.west + ' TO ' + req.query.east + ']';
   };
   if(req.query.price_min) {
-    query += 'price:[' + req.query.price_min + ' TO ' + req.query.price_max + ']';
+    query += 'price<float>:[' + req.query.price_min + ' TO ' + req.query.price_max + ']';
   };
-  if(query.length == 0) {
-    query = '*';
+  if(req.query.size_min) {
+    query += 'size<float>:[' + req.query.size_min + ' TO ' + req.query.size_max + ']';
   };
-  db.request('/_fti/_design/apartment/by_filters', {q: query, include_docs: true}, function(err, results) {
-    if(err) {
-      send_error(res, err);
-    } else {
-      res.send(results.rows.map(function(row) {return row.doc}));
-    }
-  });
+  
+  if(query.length > 0) {
+    db.request('/_fti/_design/apartment/by_filters', {q: query, include_docs: true}, function(err, results) {
+      if(err) {
+        send_error(res, err);
+      } else {
+        console.log(results);
+        res.send(results.rows.map(function(row) {return row.doc}));
+      }
+    });
+  } else {
+    db.view('apartment', 'all', {include_docs: true}, function(err, results) {
+      if(err) {
+        send_error(res, err);
+      } else {
+        res.send(results.rows.map(function(row) {return row.doc}));
+      }
+    })
+  };
+  
 });
 
 function send_error(res, er) {
