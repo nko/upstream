@@ -99,7 +99,6 @@ label[for$="s"] {
   width: 300px;
   position: absolute;
   z-index: 99;
-  background: #f1f1f1 url(../img/bg.gif) repeat;
   border: 2px solid #fff;
   -moz-box-shadow: 1px 3px 3px #999;
   -webkit-box-shadow: 1px 3px 3px #999;
@@ -123,7 +122,7 @@ label[for$="s"] {
 #filters .view_indicator {
   width: 26px;
   float: left;
-  background: #777;
+  background: rgba(0,0,0,.5);
   height: 370px;
   -webkit-border-top-right-radius: 6px;
   -moz-border-radius-topright: 6px;
@@ -134,12 +133,24 @@ label[for$="s"] {
   -o-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px;
   border-left: 1px solid #fff;
+  position: relative;
+}
+#filters .view_indicator:after {
+  content:"";
+  position: absolute;
+  top:45%;
+  right:0;
+  border-top: 20px solid transparent;
+  border-right: 14px solid #fff;
+  border-bottom: 20px solid transparent;
 }
 #filters li {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #E0DFDF;
   padding: 6px 6px;
   height: 48px;
+  background: #f1f1f1 url(../img/bg.gif) repeat;
+  
 }
 #filters li:first-child {
   border-top:none;
