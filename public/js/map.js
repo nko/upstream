@@ -54,12 +54,29 @@ $(function() {
     });
   };
   
-  w4lls.load_apartments = function(map) {
-    $.get('/apartments', function(apartments) {
+  w4lls.load_apartments = function(map, filters) {
+    map = map || w4lls.map;
+    
+    var url = '/apartments',
+      bounds = map.getBounds();
+    if(bounds) {
+      var shared = $('#filters .shared'),
+        entire = $('#filters .entire'),
+        min_price = $("#price_range").slider("values", 0),
+        max_price = $("#price_range").slider("values", 1),
+        min_space = $('#space_range').slider("values", 0),
+        max_space = $('#space_range').slider("values", 1),
+        tags = $('#filters #tags').val(),
+        url = '/apartments?sw=' + bounds.sw + '&ne=' + bounds.ne;  
+    }
+    
+    w4lls.clear_apartments();
+
+    $.get(url, function(apartments) {
       apartments.forEach(function(apartment) {
           w4lls.show_apartment(apartment, map);
       });
-    });    
+    });
   };
 
   w4lls.map = w4lls.load_map();
