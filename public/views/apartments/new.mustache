@@ -1,7 +1,7 @@
 <div id="new_apartment">
   <h2>New Apartment</h2>
 
-  <form method="POST" action="#/apartments">
+  <form method="POST" action="/apartments" enctype="multipart/form-data">
     <p>
       <label for="apartment_title">Title</label>
       <input type="text" name="apartment[title]" id="apartment_title" />
@@ -60,6 +60,11 @@
     <p>
       <label for="apartment_phone">Phone</label>
       <input type="text" name="apartment[phone]" id="apartment_phone" />
+    </p>
+    
+    <p>
+      <label for="apartment_photos">Photos</label>
+      <input type="file" multiple="multiple" name="apartment[photos]" id="apartment_photos" />
     </p>
     
     <p>
