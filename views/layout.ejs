@@ -1,13 +1,74 @@
 <html>
   <head>
     <title>four.w4lls</title>
+		<script type="text/javascript" src="http://use.typekit.com/wif6msx.js"></script>
     <script type="text/javascript" charset="utf-8" src="/js/underscore.js"></script>
     <script type="text/javascript" charset="utf-8" src="/js/jquery.js"></script>
     <script type="text/javascript" charset="utf-8" src="/js/app.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<style>
+		html,body {
+			height: 100%; 
+		}
+		body { 
+			margin:0;
+			background: url(img/bg.gif) repeat;
+			font-family: "myriad pro",myriad,"myriad-pro-1","myriad-pro-2","helvetica neue",helvetica,arial,sans-serif;
+			}
+			#wrapper {
+				width: 800px;
+				min-height: 100%;
+				height: auto !important;
+				height: 100%;
+				margin: 0 auto -48px;
+			}
+			#footer,.push {
+				height: 48px;
+				font-size: 11px;
+				color: #999;;
+			}
+			h1 {
+				font: 200 normal 144px/1 "myriad-pro-condensed-1","myriad-pro-condensed-2","myriad pro",myriad,"myriad-pro-1","myriad-pro-2","helvetica neue",helvetica,arial,sans-serif;
+				color: #fff;
+				text-transform: uppercase ;
+				text-shadow: 1px 2px 4px #666;
+				border-bottom:1px solid #fff;
+				padding-top: 100px;
+			}
+			h1 em {
+				font-weight: 600;
+				font-style: normal;
+			}
+			h2 {
+				border-top: 1px solid #E0DFDF;
+				padding-top: 1em;
+				padding-bottom: 1.5em;
+				color: #0C608D;
+				text-shadow: 1px 2px 1px #fff;
+				font-style: italic;
+			}
+			h1,h2,p,#footer {
+				text-align: center;
+				margin:0;
+			}
+			a {
+				color: #0C608D;
+			}
+			p {
+				color: #777;
+				font-weight: 200;
+				padding-top: 4em;
+			}
+			img {
+				margin-top: 24px;
+				width: 273px;
+			}
+		</style>
   </head>
   <body>
     <div id="wrapper">
         <%- body %>
+				<div class="push"></div>
     </div>
     
     <div id="footer" class="container prepend-top append-bottom">
