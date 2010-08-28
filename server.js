@@ -35,7 +35,7 @@ app.configure(function(){
 app.configure('development', function(){
     app.use(connect.errorHandler({ dumpExceptions: true, showStack: true })); 
     client = couchdb.createClient(5984, 'localhost');
-    db = client.db('w4lls_test');
+    db = app.db = client.db('w4lls_test');
 });
 
 app.configure('production', function(){
@@ -53,8 +53,13 @@ app.put('/update_views', function(req, res) {
   res.send(201);
 });
 
-app.get('/', function(req, res){
+app.get('/', function(req, res) {
     res.render('index.ejs');
+});
+
+app.post('/apartments', function(req, res) {
+  db.saveDoc(null, req.body);
+  res.send(201);
 });
 
 
@@ -63,4 +68,7 @@ function send_error(res, er) {
 };
 
 // Only listen on $ node app.js
-app.listen(parseInt(process.env.PORT || 3000, 10));
+if(!module.parent) {
+  app.listen(parseInt(process.env.PORT || 3000, 10));
+}
+
