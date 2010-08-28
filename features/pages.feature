@@ -7,5 +7,10 @@ Feature: Start page
     When I go to the start page
     Then I should see "four.w4lls"
   
+  Scenario: view about pahe
+    When I go to the start page
+      And I follow "About us"
+    Then I should see "About us"
+  
   
   

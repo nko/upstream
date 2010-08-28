@@ -10,7 +10,7 @@ html, body {
 	height: 100%; 
 }
 body { 
-	background: #D0CFC5 url(../img/w4lls_bg.png) repeat;
+	background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
 	color: #4C3E4A;
 	text-shadow: 1px 1px 1px #FFF;
 }
@@ -72,7 +72,7 @@ body,textarea,input {
   width: 184px;
   height: 43px;
   margin-bottom: 0;
-  background: transparent url(../img/w4lls_logo_small.png) no-repeat 0 0;
+  background: transparent url(/img/w4lls_logo_small.png) no-repeat 0 0;
   text-indent: -9999px;
   display: block; 
 }
@@ -100,7 +100,7 @@ a:focus {
 .logo_big {
   width: 100%;
   height: 256px;
-  background: transparent url(../img/w4lls_logo_big.png) no-repeat 50% 0;
+  background: transparent url(/img/w4lls_logo_big.png) no-repeat 50% 0;
   display: block;
   float: none;
   margin: 0 auto 4.5em auto;
@@ -168,7 +168,7 @@ a:focus {
   margin: 0;
   padding: 0 8px;
   width: 260px;
-  background: #fff url(../img/google.png) no-repeat 180px 5px;
+  background: #fff url(/img/google.png) no-repeat 180px 5px;
 }
 #s:input {
   background:none;
@@ -177,7 +177,7 @@ label[for="s"] {
   display:none; 
 }
 #map_container {
-  background: #fff url(../img/map_top.png) repeat-x;
+  background: #fff url(/img/map_top.png) repeat-x;
   padding-top: 11px;
   position: relative;
   z-index:0;
@@ -246,6 +246,9 @@ label[for="s"] {
   width:902px;
   padding: 24px;
 }
+#filters {
+  font-size: .75em;
+}
 #filters ul {
   float: left;
   width: 272px;
@@ -304,15 +307,51 @@ label[for="s"] {
   border-bottom: 1px solid #E0DFDF;
   padding: 6px 6px;
   height: 48px;
-  background: #D0CFC5 url(../img/w4lls_bg.png) repeat;
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
   overflow: hidden;
 }
+#filters .flat_type {
+  height: 20px;
+}
+#filters .ui_slider input {
+  border:none;
+  outline:none;
+  background: transparent;
+  width: 260px;
+  text-align: center;
+  clear:left;
+}
+#filters .tag_search {
+  height: 200px;
+}
+
+
 #filters li:first-child {
   border-top:none;
 }
 #filters li:last-child {
   border-bottom:none;
 }
+#price_range,#space_range {
+  width: 180px;
+  float: left;
+  margin: 0 16px;
+  margin-top: 14px;
+}
+.small,.big {
+  float:left;
+  width: 12px;
+  font-weight: 800;
+}
+.big {
+  font-size: 2em;
+
+}
+.small {
+  margin-top: 12px;
+    text-align: right;
+}
+
 #bookmarks {
   padding-top: 11px;
   min-height: 60px;
