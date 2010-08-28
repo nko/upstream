@@ -15,10 +15,14 @@ w4lls.app = $.sammy(function() {
       $('#new_apartment form #transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
       $('#new_apartment form').transloadit({
         wait: true,
-        autoSubmit: true,
+        autoSubmit: false,
         onSuccess: function(assembly) {
-          $('#new_apartment').remove();
-          context.redirect('#/');        
+          $('#new_apartment form').ajaxSubmit({
+            success: function() {
+              $('#new_apartment').remove();
+              context.redirect('#/');
+            }
+          });
         }
       });      
     });
