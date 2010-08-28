@@ -115,10 +115,31 @@ label[for$="s"] {
   -o-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+#filters ul {
+  float: left;
+  width: 272px;
+  border-right: 1px solid #E0DFDF;
+}
+#filters .view_indicator {
+  width: 26px;
+  float: left;
+  background: #777;
+  height: 370px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -o-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -o-border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-left: 1px solid #fff;
+}
 #filters li {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #E0DFDF;
-  padding: 12px 12px;
+  padding: 6px 6px;
+  height: 48px;
 }
 #filters li:first-child {
   border-top:none;
