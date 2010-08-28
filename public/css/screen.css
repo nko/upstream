@@ -35,13 +35,18 @@ body,textarea,input {
   position: relative;
 }
 
-.header_big {
-  margin: 4.5em auto 3em auto;
+#header.header_frontpage {
+  height: auto;
+}
+
+.page_intro {
+  margin: 4.5em auto 0 auto;
+  padding-bottom: 3em;
   width: 50%;
   text-align: center;
 }
 
-.page_intro {
+.page_intro_desc {
   padding: 1em 2em;
   margin-bottom: 3em;
   border-top: 1px solid #FFF;
