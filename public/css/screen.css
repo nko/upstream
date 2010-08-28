@@ -1,0 +1,116 @@
+html, body {
+	height: 100%; 
+}
+body { 
+	background: url(../img/bg.gif) repeat;
+	font-family: "myriad pro",myriad,"myriad-pro-1","myriad-pro-2","helvetica neue",helvetica,arial,sans-serif;
+}
+#wrapper {
+  min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin-bottom: -48px;
+}
+.wrapper {
+	width: 950px;
+	margin:0 auto;
+}
+#header {
+  height: 56px;
+  padding-top: 24px;
+  overflow: auto;
+}
+.nav {
+  float: right;
+  font-size: 11px;
+  color: #777;
+  font-style: italic;
+}
+.nav li {
+  float:left;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #E0DFDF;
+  list-style:none;
+}
+.nav li:first-child {
+  border-left:0;
+}
+.nav li:last-child {
+  border-right:0;
+}
+.nav a {
+  padding: 3px 10px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -moz-transition: background-color color 0.5s ease-in;
+  -webkit-transition: background-color color 0.5s ease-in;
+  -o-transition: background-color color 0.5s ease-in;
+  transition: background-color color 0.5s ease-in;
+}
+.nav a:hover {
+  background-color:#0C608D;
+  color:#fff;
+  padding: 3px 7px;
+  margin: 0 3px;
+}
+#s {
+  -moz-border-radius: 12px 12px 12px 12px;
+  -moz-box-shadow: 0 1px 3px #999999;
+  -o-border-radius: 12px 12px 12px 12px;
+  -o-box-shadow: 0 1px 3px #999999;
+  border: 2px solid #FFFFFF;
+  color: #999999;
+  font-size: 11px;
+  margin: 0;
+  padding: 0 4px;
+  width: 200px;
+  background: #fff url(../img/google.png) no-repeat right 1px;
+}
+#s:input {
+  background:none;
+}
+label[for$="s"] { 
+  display:none; 
+}
+#map_container {
+  
+}
+#map {
+  background: #fff;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  width: 100%; 
+  height: 500px;
+  position: relative;
+}
+
+#filters {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  z-index: 99;
+  background-color: #f1f1f1;
+  border: 2px solid #fff;
+  -moz-box-shadow: 1px 3px 3px #999;
+  -webkit-box-shadow: 1px 3px 3px #999;
+  -o-box-shadow: 1px 3px 3px #999;
+  box-shadow: 1px 3px 3px #999;
+  margin: 50px 0 0 -3px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -o-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -o-border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+#footer,.push {
+	height: 48px;
+	font-size: 11px;
+	color: #999;;
+	margin-top: 48px;
+}
