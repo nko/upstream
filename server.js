@@ -17,7 +17,8 @@ var couchdb = require('couchdb'), couch_client, db;
 var couch_views = require('./lib/couch_views');
 var view_helpers = require('./lib/view_helpers');
 
-var Apartment = require('./models/apartment').Apartment;
+var Apartment = require('./models/apartment').Apartment,
+  Query = require('./models/query').Query;
 
 sys.puts('RUNNING IN ' + (process.env.EXPRESS_ENV || 'development') + ' environemtn')
 
@@ -116,20 +117,7 @@ app.post('/apartments', function(req, res) {
 });
 
 app.get('/apartments', function(req, res) {
-  var query = '';
-  if(req.query.north) {
-    query += 'lat<float>:[' + req.query.south + ' TO ' + req.query.north + '] AND lng<float>:[' + req.query.west + ' TO ' + req.query.east + ']';
-  };
-  if(req.query.price_min) {
-    query += 'price<float>:[' + req.query.price_min + ' TO ' + req.query.price_max + ']';
-  };
-  if(req.query.size_min) {
-    query += 'size<float>:[' + req.query.size_min + ' TO ' + req.query.size_max + ']';
-  };
-  if(req.query.rooms_min) {
-    query += 'rooms<int>:[' + req.query.rooms_min + ' TO ' + req.query.rooms_max + ']';
-  };
-  
+  var query = Query.build(req.query);
   if(query.length > 0) {
     db.request('/_fti/_design/apartment/by_filters', {q: query, include_docs: true}, function(err, results) {
       if(err) {
