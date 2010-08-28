@@ -10,7 +10,7 @@ var app = require('../server'),
 
 module.exports = {
   'GET /apartments': function(assert) {
-    couchdb.view = function(design, view, callback) {
+    couchdb.view = function(design, view, query, callback) {
       callback(null, {
         rows: [
           {_id: 'apartment-1', title: 'my apartment'}
