@@ -95,7 +95,6 @@ label[for="s"] {
 }
 #map {
   width: 100%; 
-  height: 500px;
 }
 #filters,#details_container {
   position: absolute;
@@ -125,6 +124,9 @@ label[for="s"] {
 #details_container {
   width: 100%;
   position: absolute;
+}
+#details_container.hidden {
+  display: none;
 }
 #details_centering {
   width: 950px;
