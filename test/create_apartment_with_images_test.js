@@ -9,6 +9,8 @@ var app = require('../server'),
   sys = require('sys'),
   querystring = require('querystring'),
   helpers = require('./helpers');
+  
+
 
 module.exports = {
   'POST /apartments stores images': function(assert) {

@@ -60,7 +60,10 @@ app.helpers({
 app.db = db;
 app.hl_http_client = hl_http_client;
 
-couch_views.update_views(db, _);
+if(!process.env.SKIP_UPDATE_VIEWS) {
+  sys.puts('updating view. set SKIP_UPDATE_VIEWS to skip this');
+  couch_views.update_views(db, _);
+};
 
 // Routes
 
@@ -85,7 +88,7 @@ app.post('/apartments', function(req, res) {
       send_error(res, err);
     } else {
       var location = JSON.parse(body).results[0].geometry.location;
-      var doc = _(req.body.apartment).extend({lat: location.lat, lng: location.lng, city: 'Berlin', country: 'Germany'});
+      var doc = _(req.body.apartment).extend({type: 'apartment', lat: location.lat, lng: location.lng, city: 'Berlin', country: 'Germany'});
       if(req.body.transloadit) {
         var json = JSON.parse(req.body.transloadit);
         doc.images = _(json.results).reduce(function(memo, images, name) {
@@ -93,9 +96,9 @@ app.post('/apartments', function(req, res) {
           return memo;
         }, {});
       };
-      db.saveDoc(doc, function(err, results) {
-        if(err) {
-          send_error(res, err);
+      db.saveDoc(doc, function(_err, results) {
+        if(_err) {
+          send_error(res, _err);
         } else {
           res.send(201);
         }
@@ -105,8 +108,12 @@ app.post('/apartments', function(req, res) {
 });
 
 app.get('/apartments', function(req, res) {
-  db.view('apartment', 'all', function(err, results) {
-    res.send(results.rows);
+  db.view('apartment', 'all', {include_docs: true}, function(err, results) {
+    if(err) {
+      send_error(res, err);
+    } else {
+      res.send(results.rows);
+    }
   });
 });
 
