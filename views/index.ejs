@@ -1,8 +1,22 @@
-<div id="header" class="wrapper">
-	<ul class="nav">
-		<li><a href="#/apartments/new">add apartment</a></li>
-		<li><a href="http://www.twitter.com/fourw4lls">follow us</a></li>
-	</ul>
+<div id="header" class="wrapper header_frontpage">
+
+  <ul class="nav">
+  	<li><a href="#/apartments/new">add apartment</a></li>
+  	<li><a href="http://www.twitter.com/fourw4lls">follow us</a></li>
+  </ul>
+
+  <div class="page_intro">
+    <h1 class="logo logo_big">
+      <strong>Four Walls</strong>
+      <em>Find your flat today. Simple, quick &amp; no commissions.</em>
+    </h1>
+
+    <p class="page_intro_desc">
+    	Please, be patient and <a href="http://www.twitter.com/fourw4lls">follow us</a> or <a href="#/apartments/new" class="big_btn">add an apartment</a>.
+    </p>
+
+  </div>
+
 	<form role="search" action="" id="searchform" method="get">
 		<label for="s" accesskey="1">Search:</label>
 		<input type="search" onfocus="if (this.value == 'Search…')  
@@ -16,18 +30,22 @@
 	<div id="filters" class="">
 		<ul>
 			<li>
-				<label for="amount"></label>
-				<input type="checkbox" name="" value="">WG
-				<label for="amount"></label>
-				<input type="checkbox" name="" value="">Einzel
+				<label for="wg"></label>
+				<input class="ui-button" id="flat_type" type="checkbox" name="wg" value="">WG
+				<label for="einzel"></label>
+				<input type="checkbox" name="einzel" value="">Einzel
 			</li>
 			<li>
-				<label for="amount">Price range:</label>
-				<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
-				<div id="slider-range"></div>
+				<label for="price_amount">Price range:</label>
+				<input type="text" id="price_amount" />
+				<div id="price_range"></div>
 			</li>
-			<li>größe</li>
-			<li>x</li>
+			<li>
+				<label for="space_amount">space range:</label>
+				<input type="text" id="space_amount" />
+				<div id="space_range"></div>
+			</li>
+			<li>tags</li>
 			<li>y</li>
 			<li>z</li>
 		</ul>
