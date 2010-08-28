@@ -62,6 +62,12 @@ app.post('/apartments', function(req, res) {
   res.send(201);
 });
 
+app.get('/apartments', function(req, res) {
+  db.view('apartment', 'all', function(err, results) {
+    res.send(results.rows);
+  });
+});
+
 
 function send_error(res, er) {
   res.send(JSON.stringify(er), 500);

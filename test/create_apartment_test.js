@@ -44,8 +44,30 @@ module.exports = {
         status: 201
       },
       function(res) {
-        sys.puts(doc);
         assert.eql(doc, {title: 'test apartment'});
+      });
+  },
+  'GET /apartments': function(assert){
+    couchdb.view = function(design, view, callback) {
+      callback(null, {
+        rows: [
+          {_id: 'apartment-1', title: 'my apartment'}
+          ]
+      })
+    };
+    
+    assert.response(app, {
+      url: '/apartments',
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+        },
+      },
+      {
+        status: 200
+      },
+      function(res) {
+        assert.eql(JSON.parse(res.body), [{_id: 'apartment-1', title: 'my apartment'}]);
       });
   }
 };
