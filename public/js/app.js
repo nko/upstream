@@ -16,7 +16,6 @@ w4lls.app = $.sammy(function() {
       
       form.find('#transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
       form.find('#apartment_availability').datepicker();
-      // form.find('#apartment_tags').autocomplete('/tags?q=');
       
       form.transloadit({
         wait: true,

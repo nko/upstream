@@ -4,6 +4,18 @@ $(function() {
   });
   $(window).trigger("resize");
 
+  var reload_with_given_address = function(evt) {
+    $.get('/geolocation?q=' + $('#searchform #s').val(), function(geolocation) {
+      var location = new google.maps.LatLng(geolocation.lat, geolocation.lng);
+      w4lls.map.setCenter(location);
+      w4lls.map.setZoom(15);
+    });
+    evt.preventDefault();
+    evt.stopPropagation();
+  };
+  $('#searchform').submit(reload_with_given_address);
+  $('#searchform #s').change(reload_with_given_address);
+  
   var price_slider = $("#price_range");
 	price_slider.slider({
 		range: true,
