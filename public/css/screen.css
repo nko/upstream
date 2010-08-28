@@ -122,7 +122,7 @@ label[for$="s"] {
 #filters .view_indicator {
   width: 26px;
   float: left;
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,0.5);
   height: 370px;
   -webkit-border-top-right-radius: 6px;
   -moz-border-radius-topright: 6px;
@@ -141,8 +141,14 @@ label[for$="s"] {
   top:45%;
   right:0;
   border-top: 20px solid transparent;
-  border-right: 14px solid #fff;
+  border-right: 14px solid transparent;
   border-bottom: 20px solid transparent;
+}
+#filters .view_indicator:hover {
+  cursor: w-resize;
+}
+#filters .view_indicator:hover:after {
+  border-right: 14px solid #fff;
 }
 #filters li {
   border-top: 1px solid #fff;
@@ -150,7 +156,6 @@ label[for$="s"] {
   padding: 6px 6px;
   height: 48px;
   background: #f1f1f1 url(../img/bg.gif) repeat;
-  
 }
 #filters li:first-child {
   border-top:none;
