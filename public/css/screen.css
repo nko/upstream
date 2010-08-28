@@ -216,7 +216,6 @@ label[for="s"] {
 }
 #map {
   width: 100%;
-  min-height: 800px;
 }
 #filters,#details_container {
   position: absolute;
@@ -383,10 +382,8 @@ label[for="s"] {
   
 }
 #footer,.push {
-	height: 120px;
 	font-size: 11px;
 	color: #999;;
-	margin-top: 120px;
 }
 
 #footer .wrapper {
