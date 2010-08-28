@@ -183,12 +183,13 @@ label[for="s"] {
   z-index:0;
 }
 #map {
-  width: 100%; 
+  width: 100%;
+  min-height: 800px;
 }
 #filters,#details_container {
   position: absolute;
   z-index: 99;
-  margin-top: 50px;
+  margin-top: 24px;
 }
 #filters {
   width: 300px;
@@ -240,7 +241,6 @@ label[for="s"] {
   background: #D0CFC5 url(../img/w4lls_bg.png) repeat;
   border: 2px solid #fff;
   overflow: visible;
-  height: 370px;
 }
 #details {
   width:902px;
