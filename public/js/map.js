@@ -20,22 +20,32 @@ $(function() {
     return map;
   }
   
+  w4lls.show_apartment = function(apartment, map) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(apartment.lat, apartment.lng),
+      title: apartment.title
+    });
+
+    marker.setMap(map);    
+  }
+  
   w4lls.load_apartments = function(map) {
-    // get the apartments from the server
-    var apartments = [];
-    
-    // var bounds = map.getBounds();
-    // var southWest = bounds.getSouthWest();
-    // var northEast = bounds.getNorthEast();
-    // var lngSpan = northEast.lng() - southWest.lng();
-    // var latSpan = northEast.lat() - southWest.lat();
-    // for (var i = 0; i < 10; i++) {
-    //   var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
-    //       southWest.lng() + lngSpan * Math.random());
-    //   map.addOverlay(new GMarker(point));
-    // }
+    // console.log("AAAAAAAAA");
+    // $.ajax({
+    //   url: '/apartments',
+    //   type: 'GET',
+    //   timeout: 3000,
+    //   success: function() { console.log('success'); },
+    //   error: function() { console.log('error'); }
+    // });
+    // var apartments = $.get('/apartments', function(apartments) {
+    //   console.log(apartments);
+    //   apartments.forEach(function(apartment) {
+          // w4lls.show_apartment(apartment, map);
+    //   });
+    // });    
   }
   
   w4lls.map = w4lls.load_map();
-  w4lls.load_apartments(w4lls.map);
+  w4lls.load_apartments(w4lls.map);    
 });
