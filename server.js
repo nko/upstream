@@ -1,6 +1,3 @@
-/**
- * Module dependencies.
- */
 var _ = require('./public/js/underscore')._;
 
 require.paths.unshift('vendor');
@@ -20,6 +17,8 @@ var couchdb = require('couchdb'), client, db;
 
 var couch_views = require('./lib/couch_views');
 var view_helpers = require('./lib/view_helpers');
+
+sys.puts('RUNNING IN ' + (process.env.EXPRESS_ENV || 'development') + ' environemtn')
 
 // Configuration
 
@@ -96,11 +95,13 @@ app.post('/apartments', function(req, res) {
           return memo;
         }, {});
       };
-      db.saveDoc(doc, function(_err, results) {
+      db.saveDoc(doc, function(_err, ok) {
         if(_err) {
           send_error(res, _err);
         } else {
-          res.send(201);
+          doc._id = ok.id;
+          doc._rev = ok.rev;
+          res.send(doc, 201);
         }
       });
     }
