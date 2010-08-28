@@ -79,6 +79,10 @@ app.get('/', function(req, res){
   };
 });
 
+app.get('/about', function(req, res) {
+  res.render('about.ejs');  
+});
+
 app.post('/apartments', function(req, res) {
   var address = querystring.stringify({address: req.body.apartment.street + ', ' + req.body.apartment.postcode + ', Berlin, Germany', sensor: 'false'});
 
