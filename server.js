@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -35,12 +34,22 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
+  app.set('host', 'localhost:3000');
+  client = couchdb.createClient(5984, 'localhost');
+  db = client.db('w4lls_development');
+  google_maps_key = 'ABQIAAAASOw3kHJFc2xCpxnZ-dtD6hT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSwIsS_zx3Hbvv6Z-pT42CPLo0Qg';
+});
+
+app.configure('test', function(){
+  app.use(connect.errorHandler());
+  app.set('host', 'four.w4lls.com');
   client = couchdb.createClient(5984, 'localhost');
   db = client.db('w4lls_test');
 });
 
 app.configure('production', function(){
   app.use(connect.errorHandler());
+  app.set('host', 'four.w4lls.com');
   client = couchdb.createClient(443, 'langalex.cloudant.com', 'langalex', process.env.CLOUDANT_PASSWORD);
   db = client.db('w4lls_production');
 });
@@ -58,7 +67,11 @@ app.put('/update_views', function(req, res) {
 });
 
 app.get('/', function(req, res){
-  res.render('index.ejs');
+  if(req.headers.host != app.settings.host) {
+    res.redirect('http://' + app.settings.host + '/', 301);
+  } else {
+    res.render('index.ejs');  
+  };
 });
 
 app.post('/apartments', function(req, res) {
