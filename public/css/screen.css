@@ -40,7 +40,7 @@ h4 img, h5 img, h6 img {
   min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin-bottom: -48px;
+	margin-bottom: -120px;
 	overflow: hidden;
 }
 .wrapper {
@@ -122,6 +122,7 @@ a:focus {
   display: block;
   float: none;
   margin: 0 auto 4.5em auto;
+  font-size: 1em;
 }
 
 .logo_big strong {
@@ -134,7 +135,7 @@ a:focus {
   font-style: italic;
   font-size: 1.5em;
   display: block;
-  margin-top: 3em;
+  margin-top: 3.5em;
 }
 
 .nav li {
@@ -378,10 +379,14 @@ label[for="s"] {
   
 }
 #footer,.push {
-	height: 48px;
+	height: 120px;
 	font-size: 11px;
 	color: #999;;
-	margin-top: 48px;
+	margin-top: 120px;
+}
+
+#footer .wrapper {
+  padding-top: 6em;
 }
 
 .footer_content {
@@ -419,7 +424,6 @@ textarea,
 select {
   border: 1px solid #BBB;
   padding: 6px;
-<<<<<<< HEAD
   font-size: 1em;
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
@@ -450,16 +454,9 @@ form ul li {
   padding-left: 156px;
 }
 
-.checkbox label {
+
+#new_apartment .checkbox label {
   width: auto;
   text-align: left;
 }
 
-
-=======
-  font-size: 1.3333em; /* 16px */
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
->>>>>>> a6346e5676c038bb90861bdb8fd4e1bb0a80bdf9
