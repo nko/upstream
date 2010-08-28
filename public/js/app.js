@@ -36,12 +36,7 @@ w4lls.app = $.sammy(function() {
   });
 });
 
-$(function() {
-  $(window).resize(function() {
-    $('#map').height($(window).height() - $("#header").height() - $("#footer").height() - $("#bookmarks").height());
-  });
-  $(window).trigger("resize");
-  
+$(function() {  
   w4lls.app.run('#/');
   
   w4lls.transloadit_params = {
@@ -55,21 +50,4 @@ $(function() {
     },
     redirect_url: 'http://' + w4lls.host + '/apartments'
   }
-  // sliders
-  $(function() {
-		$("#slider-range").slider({
-			range: true,
-			min: 10,
-			max: 2000,
-			step: 50,
-			values: [10, 2000],
-			slide: function(event, ui) {
-				$("#amount").val('$' + ui.values[0] + ' - $' + ui.values[1]);
-			}
-		});
-		$("#amount").val('$' + $("#slider-range").slider("values", 0) + ' - $' + $("#slider-range").slider("values", 1));
-	});
-  
-  $("form#ui input").filter(":checkbox,:radio").checkbox();
-  
 });
