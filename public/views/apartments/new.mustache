@@ -1,7 +1,9 @@
 <div id="new_apartment">
   <h2>New Apartment</h2>
 
-  <form method="POST" action="/apartments" enctype="multipart/form-data">
+  <form action="http://api2.transloadit.com/assemblies" enctype="multipart/form-data" method="POST">
+    <input type="hidden" id="transloadit_params" name="params" />
+    
     <p>
       <label for="apartment_title">Title</label>
       <input type="text" name="apartment[title]" id="apartment_title" />
@@ -70,5 +72,5 @@
     <p>
       <input type="submit" value="add apartment" />
     </p>
-  </form>  
+  </form>
 </div>
