@@ -9,7 +9,7 @@ var app = require('../server'),
   sys = require('sys');
 
 module.exports = {
-  'GET /apartments with lat/lng filters apartments by geo location': function(assert) {
+  'GET /apartments with no parameters lists all': function(assert) {
     var path, query;
     
     couchdb.request = function(_path, _query, callback) {
@@ -23,7 +23,7 @@ module.exports = {
     };
 
     assert.response(app, {
-      url: '/apartments?north=5.0&south=3.0&east=6.0&west=1.0',
+      url: '/apartments',
       method: 'GET',
       headers: {
           'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ module.exports = {
       },
       function(res) {
         assert.equal('/_fti/_design/apartment/by_filters', path);
-        assert.eql({q: 'lat<float>:[3.0 TO 5.0] AND lng<float>:[1.0 TO 6.0]', include_docs: true}, query);
+        assert.eql({q: '*', include_docs: true}, query);
         assert.eql(JSON.parse(res.body), [{_id: 'apartment-1', title: 'my apartment'}]);
       });
   }

@@ -116,7 +116,13 @@ app.post('/apartments', function(req, res) {
 });
 
 app.get('/apartments', function(req, res) {
-  var query = 'lat<float>:[' + req.query.south + ' TO ' + req.query.north + '] AND lng<float>:[' + req.query.west + ' TO ' + req.query.east + ']';
+  var query = '';
+  if(req.query.north) {
+    query += 'lat<float>:[' + req.query.south + ' TO ' + req.query.north + '] AND lng<float>:[' + req.query.west + ' TO ' + req.query.east + ']';
+  };
+  if(query.length == 0) {
+    query = '*';
+  };
   db.request('/_fti/_design/apartment/by_filters', {q: query, include_docs: true}, function(err, results) {
     if(err) {
       send_error(res, err);
