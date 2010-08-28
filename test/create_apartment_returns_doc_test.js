@@ -25,14 +25,14 @@ module.exports = {
     assert.response(app, {
       url: '/apartments',
       method: 'POST',
-      data: querystring.stringify({'apartment[title]': 'test apartment', 'apartment[street]': 'broadway 5', 'apartment[post_code]': '10999'}),
+      data: querystring.stringify({'apartment[title]': 'test apartment', 'apartment[street]': 'broadway 5', 'apartment[postcode]': '10999'}),
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       },
       {status: 201},
       function(res) {
-        assert.eql(JSON.parse(res.body), {_id: '72e', _rev: '1-23', type: 'apartment', title: 'test apartment', street: 'broadway 5', city: 'Berlin', country: 'Germany', post_code: '10999', lat: 1, lng: 1});
+        assert.eql(JSON.parse(res.body), {_id: '72e', _rev: '1-23', type: 'apartment', title: 'test apartment', street: 'broadway 5', city: 'Berlin', country: 'Germany', postcode: '10999', lat: 1, lng: 1});
       });
   }
 };
