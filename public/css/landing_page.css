@@ -66,3 +66,12 @@ p {
   width: 700px; 
   height: 400px;
 }
+hr {
+  height: 2px;
+  width: 100%;
+  margin-bottom: 22px;
+  border:0;
+  border-bottom: 1px solid #E0DFDF;
+  background-color:#fff;
+  outline:0;
+}
