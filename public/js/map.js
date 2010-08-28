@@ -15,9 +15,13 @@ $(function() {
         position: google.maps.ControlPosition.BOTTOM
       }
     };
-    var map = new google.maps.Map(document.getElementById("map"), myOptions);
     
-    return map;
+    w4lls.map = new google.maps.Map(document.getElementById("map"), myOptions);
+    google.maps.event.addListener(w4lls.map, 'dragend', function() {
+      w4lls.load_apartments();
+    });
+    
+    w4lls.load_apartments();
   };
   
   w4lls.show_apartment = function(apartment, map) {
@@ -67,7 +71,8 @@ $(function() {
         min_space = $('#space_range').slider("values", 0),
         max_space = $('#space_range').slider("values", 1),
         tags = $('#filters #tags').val(),
-        url = '/apartments?sw=' + bounds.sw + '&ne=' + bounds.ne;  
+        url = '/apartments?north=' + bounds.T.b + '&south=' + bounds.T.c + 
+          '&west=' + bounds.L.b + '&east=' + bounds.L.c;
     }
     
     w4lls.clear_apartments();
@@ -79,6 +84,5 @@ $(function() {
     });
   };
 
-  w4lls.map = w4lls.load_map();
-  w4lls.load_apartments(w4lls.map);    
+  w4lls.load_map();
 });
