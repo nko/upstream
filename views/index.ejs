@@ -16,18 +16,22 @@
 	<div id="filters" class="">
 		<ul>
 			<li>
-				<label for="amount"></label>
-				<input type="checkbox" name="" value="">WG
-				<label for="amount"></label>
-				<input type="checkbox" name="" value="">Einzel
+				<label for="wg"></label>
+				<input class="ui-button" id="flat_type" type="checkbox" name="wg" value="">WG
+				<label for="einzel"></label>
+				<input type="checkbox" name="einzel" value="">Einzel
 			</li>
 			<li>
-				<label for="amount">Price range:</label>
-				<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
-				<div id="slider-range"></div>
+				<label for="price_amount">Price range:</label>
+				<input type="text" id="price_amount" />
+				<div id="price_range"></div>
 			</li>
-			<li>größe</li>
-			<li>x</li>
+			<li>
+				<label for="space_amount">space range:</label>
+				<input type="text" id="space_amount" />
+				<div id="space_range"></div>
+			</li>
+			<li>tags</li>
 			<li>y</li>
 			<li>z</li>
 		</ul>

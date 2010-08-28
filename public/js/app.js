@@ -38,7 +38,7 @@ w4lls.app = $.sammy(function() {
 
 $(function() {
   $(window).resize(function() {
-    $('#map').height($(window).height() - $("#header").height() - $("#footer").height() - $("#bookmarks").height());
+    $('#map').height($(window).height() - $("#header").height() - $("#bookmarks").height() - $("#footer").height());
   });
   $(window).trigger("resize");
   
@@ -57,19 +57,17 @@ $(function() {
   }
   // sliders
   $(function() {
-		$("#slider-range").slider({
+		$("#price_range").slider({
 			range: true,
 			min: 10,
 			max: 2000,
 			step: 50,
 			values: [10, 2000],
 			slide: function(event, ui) {
-				$("#amount").val('$' + ui.values[0] + ' - $' + ui.values[1]);
+				$("#price_amount").val('$' + ui.values[0] + ' - $' + ui.values[1]);
 			}
 		});
-		$("#amount").val('$' + $("#slider-range").slider("values", 0) + ' - $' + $("#slider-range").slider("values", 1));
+		$("#price_amount").val('$' + $("#price_range").slider("values", 0) + ' - $' + $("#price_range").slider("values", 1));
 	});
-  
-  $("form#ui input").filter(":checkbox,:radio").checkbox();
-  
+    
 });
