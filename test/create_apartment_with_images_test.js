@@ -17,7 +17,7 @@ module.exports = {
     var doc, google_query;
     couchdb.saveDoc = function(_doc, callback) {
       doc = _doc; 
-      callback();
+      callback(null, {});
     };
     
     var hl_http_client = _(module.moduleCache).detect(function(_, name) {return name.match('highlevel_http_client.js')});
