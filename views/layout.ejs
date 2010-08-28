@@ -1,17 +1,39 @@
 <html>
   <head>
     <title>four.w4lls</title>
+    <script type="text/javascript" charset="utf-8">
+      w4lls = {};
+    </script>
+
+		<script type="text/javascript" charset="utf-8" src="http://use.typekit.com/wif6msx.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script type="text/javascript" charset="utf-8" src="/js/underscore.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/js/jquery.js"></script>
+		<!-- caching -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	  <script>!window.jQuery && document.write('<script src="/js/jquery.js"><\/script>')</script>
+	  <script type="text/javascript" charset="utf-8" src="/js/sammy.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/sammy.mustache.js"></script>
     <script type="text/javascript" charset="utf-8" src="/js/app.js"></script>
+		<!-- caching -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery.ui.js"></script>
+	  <script>!window.jQuery && document.write('<script src="/js/jquery.ui.js"><\/script>')</script>		
+		
+		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<%= google_maps_key %>&sensor=false"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/map.js"></script>
+		<link rel="stylesheet" href="/css/style.css" type="text/css" title="base stylesheet" charset="utf-8">
   </head>
   <body>
     <div id="wrapper">
-        <%- body %>
+      <%- body %>
+			<div class="push"></div>
+      
     </div>
     
     <div id="footer" class="container prepend-top append-bottom">
       &copy; <%= new Date().getFullYear() %> Team <a href="http://upstre.am">upstream</a> at node knockout
+      <a href="http://nodeknockout.com/teams/upstream" target="nko" title="Help me win Node.js KO!">
+        <img style="position: fixed; top: 5px; right: 5px; border: 0px;" src="http://nodeknockout.com/images/voteko.png" alt="Help me win Node.js KO!" />
+      </a>
     </div>
   </body>
 </html>
