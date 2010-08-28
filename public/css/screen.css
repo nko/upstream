@@ -463,8 +463,7 @@ form ul li {
 
 
 #filters .ui-widget-content {
-  background-color: #fff !important;
-  background-image: none !important;
+  background-color: !important;
 }
 #filters .ui-corner-all {
   -moz-border-radius:3px;
@@ -476,10 +475,15 @@ form ul li {
 #filters .ui-slider-handle {
   width: 10px;
   height: 16px;
+  margin-left:-3px;
+  top:-3px;
   background: url(/img/w4lls_slider_button.png) no-repeat;
 }
-#filters .ui-slider-horizontal {
-  height: 10px;
+#filters .ui-slider {
+  height: 12px;
+  background: url(/img/w4lls_slider_bg.png) repeat-x;
+  
+  
 }
 #filters .ui-slider-range {
   background-color: rgba(198,112,72,.5);
