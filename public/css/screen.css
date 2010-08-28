@@ -1,8 +1,16 @@
+/* colors */
+/*
+#0095BC - blue
+#D16A3C - orange-red
+#4C3E4A - dark grey
+#D0CFC5 - background beige
+*/
+
 html, body {
 	height: 100%; 
 }
 body { 
-	background: url(../img/bg.gif) repeat;
+	background: url(../img/w4lls_bg.png) repeat;
 }
 body,textarea,input {
   font-family: "myriad pro",myriad,"myriad-pro-1","myriad-pro-2","helvetica neue",helvetica,arial,sans-serif;
@@ -155,7 +163,7 @@ label[for$="s"] {
   border-bottom: 1px solid #E0DFDF;
   padding: 6px 6px;
   height: 48px;
-  background: #f1f1f1 url(../img/bg.gif) repeat;
+  background: #f1f1f1 url(../img/w4lls_bg.png) repeat;
 }
 #filters li:first-child {
   border-top:none;
