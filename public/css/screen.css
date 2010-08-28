@@ -58,6 +58,7 @@ body,textarea,input {
   font-size: 11px;
   color: #777;
   font-style: italic;
+  margin-top: 24px;
 }
 
 .logo {
