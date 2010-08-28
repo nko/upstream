@@ -12,7 +12,7 @@ var express = require('express/index'),
 
 var app = module.exports = express.createServer();
 
-var couchdb = require('couchdb'), client, db;
+var couchdb = require('couchdb'), couch_client, db;
 
 var couch_views = require('./lib/couch_views');
 var view_helpers = require('./lib/view_helpers');
@@ -35,22 +35,22 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
   app.set('host', 'localhost:3000');
-  client = couchdb.createClient(5984, 'localhost');
-  db = client.db('w4lls_development');
+  couch_client = couchdb.createClient(5984, 'localhost');
+  db = couch_client.db('w4lls_development');
 });
 
 app.configure('test', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
   app.set('host', 'localhost:3000');
-  client = couchdb.createClient(5984, 'localhost');
-  db = client.db('w4lls_test');
+  couch_client = couchdb.createClient(5984, 'localhost');
+  db = couch_client.db('w4lls_test');
 });
 
 app.configure('production', function(){
   app.use(connect.errorHandler());
   app.set('host', 'four.w4lls.com');
-  client = couchdb.createClient(443, 'langalex.cloudant.com', 'langalex', process.env.CLOUDANT_PASSWORD);
-  db = client.db('w4lls_production');
+  couch_client = couchdb.createClient(443, 'langalex.cloudant.com', 'langalex', process.env.CLOUDANT_PASSWORD);
+  db = couch_client.db('w4lls_production');
 });
 
 app.db = db;
@@ -116,7 +116,8 @@ app.post('/apartments', function(req, res) {
 });
 
 app.get('/apartments', function(req, res) {
-  db.view('apartment', 'all', {include_docs: true}, function(err, results) {
+  var query = 'lat<float>:[' + req.query.south + ' TO ' + req.query.north + '] AND lng<float>:[' + req.query.west + ' TO ' + req.query.east + ']';
+  db.request('/_fti/_design/apartment/by_filters', {q: query, include_docs: true}, function(err, results) {
     if(err) {
       send_error(res, err);
     } else {
