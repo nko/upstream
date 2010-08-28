@@ -463,3 +463,30 @@ form ul li {
   text-align: left;
 }
 
+
+#filters .ui-widget-content {
+  background-color: #fff !important;
+  background-image: none !important;
+}
+#filters .ui-corner-all {
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  -0-border-radius:3px;
+  border-radius:3px;
+}
+
+#filters .ui-slider-handle {
+  width: 10px;
+  height: 16px;
+  background: url(/img/w4lls_slider_button.png) no-repeat;
+}
+#filters .ui-slider-horizontal {
+  height: 10px;
+}
+#filters .ui-slider-range {
+  background-color: rgba(198,112,72,.5);
+  background-image: none;
+}
+#filters .ui-state-default {
+  border-color: #666;
+}
