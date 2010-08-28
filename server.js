@@ -17,6 +17,8 @@ var couchdb = require('couchdb'), client, db;
 var couch_views = require('./lib/couch_views');
 var view_helpers = require('./lib/view_helpers');
 
+var Apartment = require('./models/apartment').Apartment;
+
 sys.puts('RUNNING IN ' + (process.env.EXPRESS_ENV || 'development') + ' environemtn')
 
 // Configuration
@@ -85,14 +87,7 @@ app.post('/apartments', function(req, res) {
       send_error(res, err);
     } else {
       var location = JSON.parse(body).results[0].geometry.location;
-      var doc = _(req.body.apartment).extend({type: 'apartment', lat: location.lat, lng: location.lng, city: 'Berlin', country: 'Germany'});
-      if(req.body.transloadit) {
-        var json = JSON.parse(req.body.transloadit);
-        doc.images = _(json.results).reduce(function(memo, images, name) {
-          memo[name] = images[0].url;
-          return memo;
-        }, {});
-      };
+      var doc = Apartment.from_params(req.body.apartment, location, req.body.transloadit);
       db.saveDoc(doc, function(_err, ok) {
         if(_err) {
           send_error(res, _err);
