@@ -37,14 +37,12 @@ app.configure('development', function(){
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
   client = couchdb.createClient(5984, 'localhost');
   db = client.db('w4lls_test');
-  google_maps_key = 'ABQIAAAASOw3kHJFc2xCpxnZ-dtD6hT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSwIsS_zx3Hbvv6Z-pT42CPLo0Qg';
 });
 
 app.configure('production', function(){
   app.use(connect.errorHandler());
   client = couchdb.createClient(443, 'langalex.cloudant.com', 'langalex', process.env.CLOUDANT_PASSWORD);
   db = client.db('w4lls_production');
-  google_maps_key = 'ABQIAAAASOw3kHJFc2xCpxnZ-dtD6hR15wBhbV13WKy4ngoz4HO3VX_ujxTlVBbiZ9bLAmtBqCtkWQEiBmzmoQ';
 });
 
 app.db = db;

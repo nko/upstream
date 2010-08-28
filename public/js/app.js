@@ -8,25 +8,15 @@ w4lls.app = $.sammy(function() {
     this.$element().append(content);
   };
   
-  this.get('#/apartments/new', function() {
+  this.get('#/apartments/new', function(context) {
     this.partial('../views/apartments/new.mustache');
-  });
-  
-  this.post('#/apartments', function() {
-    var params = {};
-    for(attribute in this.params) {
-      if(typeof(this.params[attribute]) !== "function") {
-        params[attribute] = this.params[attribute];
-      }
-    }
-    $.ajax({
-      url: 'http://localhost:3000/apartments',
-      type: 'POST',
-      data: params
-    });    
     
-    this.$element().find('#new_apartment').remove();
-    this.redirect('#/');
+    $('#new_apartment form').ajaxForm({
+      success: function() {
+        $('#new_apartment').remove();
+        context.redirect('#/');
+      }
+    });
   });
 });
 

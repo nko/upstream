@@ -1,11 +1,14 @@
 $(function() {
   w4lls.load_map = function() {
-    if(GBrowserIsCompatible()) {
-      var map = new GMap2(document.getElementById("map"));
-      map.setCenter(new GLatLng(52.52, 13.37), 11);
-      map.setUIToDefault();
-      return map;
+    var initialLocation = new google.maps.LatLng(52.52, 13.37);
+    var myOptions = {
+      zoom: 11,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: initialLocation
     };
+    var map = new google.maps.Map(document.getElementById("map"), myOptions);
+    
+    return map;
   }
   
   w4lls.load_apartments = function(map) {
