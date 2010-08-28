@@ -12,15 +12,21 @@ w4lls.app = $.sammy(function() {
     this.partial('../views/apartments/new.mustache');
   });
   
-  this.post('#/apartments', function() {    
-    // $.ajax({
-    //   url: '',
-    //   data: this.params,
-    //   success: function() {},
-    //   
-    // });    
-    // 
-    // this.$element().find('#new_apartment').remove();
+  this.post('#/apartments', function() {
+    var params = {};
+    for(attribute in this.params) {
+      if(typeof(this.params[attribute]) !== "function") {
+        params[attribute] = this.params[attribute];
+      }
+    }
+    $.ajax({
+      url: 'http://localhost:3000/apartments',
+      type: 'POST',
+      data: params
+    });    
+    
+    this.$element().find('#new_apartment').remove();
+    this.redirect('#/');
   });
 });
 

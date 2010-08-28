@@ -12,19 +12,18 @@ $(function() {
     // get the apartments from the server
     var apartments = [];
     
-    var bounds = map.getBounds();
-    var southWest = bounds.getSouthWest();
-    var northEast = bounds.getNorthEast();
-    var lngSpan = northEast.lng() - southWest.lng();
-    var latSpan = northEast.lat() - southWest.lat();
-    for (var i = 0; i < 10; i++) {
-      var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
-          southWest.lng() + lngSpan * Math.random());
-      map.addOverlay(new GMarker(point));
-    }
+    // var bounds = map.getBounds();
+    // var southWest = bounds.getSouthWest();
+    // var northEast = bounds.getNorthEast();
+    // var lngSpan = northEast.lng() - southWest.lng();
+    // var latSpan = northEast.lat() - southWest.lat();
+    // for (var i = 0; i < 10; i++) {
+    //   var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
+    //       southWest.lng() + lngSpan * Math.random());
+    //   map.addOverlay(new GMarker(point));
+    // }
   }
   
   w4lls.map = w4lls.load_map();
   w4lls.load_apartments(w4lls.map);
-  
 });
