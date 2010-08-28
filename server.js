@@ -120,6 +120,9 @@ app.get('/apartments', function(req, res) {
   if(req.query.north) {
     query += 'lat<float>:[' + req.query.south + ' TO ' + req.query.north + '] AND lng<float>:[' + req.query.west + ' TO ' + req.query.east + ']';
   };
+  if(req.query.price_min) {
+    query += 'price:[' + req.query.price_min + ' TO ' + req.query.price_max + ']';
+  };
   if(query.length == 0) {
     query = '*';
   };
