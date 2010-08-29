@@ -5,7 +5,7 @@
 .jcarousel-skin-bookmarks .jcarousel-container-horizontal {
     width: 950px;
     margin: 0 auto;
-    padding: 20px 40px;
+    padding: 0;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-container-vertical {
@@ -25,14 +25,11 @@
 }
 
 .jcarousel-skin-bookmarks .jcarousel-item {
-  width: 200px;
-  height: 100px;
-  position: relative;
+
 }
 
 .jcarousel-skin-bookmarks .jcarousel-item-horizontal {
-  margin-left: 0;
-  margin-right: 0;
+
 }
 
 .jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-item-horizontal {
@@ -54,18 +51,23 @@
  */
 .jcarousel-skin-bookmarks .jcarousel-next-horizontal {
     position: absolute;
-    top: 43px;
-    right: 5px;
-    width: 32px;
-    height: 32px;
+    top: 0;
+    right: -26px;
+    width: 26px;
+    height: 100px;
     cursor: pointer;
-    background: transparent url(next-horizontal.png) no-repeat 0 0;
+    background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
+    background-repeat: no-repeat, repeat;
+    background-position: 7px 50%, 0 0;
+    background-color: transparent;
+    cursor: pointer;
+    text-indent: -9999px;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-next-horizontal {
-    left: 5px;
+    left: -26px;
     right: auto;
-    background-image: url(prev-horizontal.png);
+    background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
 }
 
 .jcarousel-skin-bookmarks .jcarousel-next-horizontal:hover {
@@ -85,12 +87,12 @@
 
 .jcarousel-skin-bookmarks .jcarousel-prev-horizontal {
     position: absolute;
-    top: 43px;
-    left: 5px;
-    width: 32px;
-    height: 32px;
+    top: 0;
+    left: -26px;
+    width: 26px;
+    height: 100px;
     cursor: pointer;
-    background: transparent url(prev-horizontal.png) no-repeat 0 0;
+    background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
 }
 
 .jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-prev-horizontal {
