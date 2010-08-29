@@ -426,8 +426,8 @@ label[for="s"] {
 #details {
   width: 950px;
   overflow: hidden;
-  
 }
+
 #filters {
   font-size: .75em;
   line-height: 1;
@@ -436,6 +436,12 @@ label[for="s"] {
   float: left;
   border-right: 1px solid #E0DFDF;
 }
+#filters p {
+  width: 250px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
 
 .slide_left_out {
   border-left: 1px solid #fff;
