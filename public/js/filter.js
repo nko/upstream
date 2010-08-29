@@ -19,7 +19,7 @@ $(function() {
 		step: 50,
 		values: [10, 2000],
 		slide: function(event, ui) {
-			$("#price_amount").text('€' + ui.values[0] + ' - €' + ui.values[1]);
+			$("#price_amount").text('€ ' + ui.values[0] + ' - € ' + ui.values[1]);
 			w4lls.load_apartments();
 		}
 	});
@@ -39,7 +39,7 @@ $(function() {
 	
 	var min = price_slider.slider("values", 0),
 	  max = price_slider.slider("values", 1);
-	$("#price_amount").text('€' + min + ' - €' + max);
+	$("#price_amount").text('€ ' + min + ' - € ' + max);
 
 	var min = space_slider.slider("values", 0),
 	  max = space_slider.slider("values", 1);
