@@ -555,7 +555,24 @@ label[for="s"] {
 #bookmarks_container {
   background: url(../img/map_bottom.png) repeat-x;
   padding-top: 36px;
-  overflow: hidden;
+  overflow: hidden; 
+}
+
+.jcarousel-container {
+  -moz-box-shadow: 1px 3px 3px #999;
+  -webkit-box-shadow: 1px 3px 3px #999;
+  -o-box-shadow: 1px 3px 3px #999;
+  box-shadow: 1px 3px 3px #999;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -o-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -o-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  border: 2px solid #fff;
+  border-bottom: 0;
 }
 
 /*
@@ -627,6 +644,11 @@ label[for="s"] {
 }
 
 .bookmark {
+  width: 200px;
+  height: 100px;
+  position: relative;
+  margin-left: 0;
+  
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
   padding: 6px;
   border-left: 1px solid #FFF;
