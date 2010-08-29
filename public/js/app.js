@@ -63,6 +63,8 @@ $(function() {
             w4lls.show_apartment(apartment, w4lls.map);
           }
           $("#top_slider").slideUp("normal");
+          form.find('input:text:enabled, input:checkbox:enabled, input:radio:enabled, input:file:enabled').val('');
+          form.find('ul.tagEditor *').remove();
         }
       });
     },
