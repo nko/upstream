@@ -41,6 +41,18 @@ $(function() {
     return false;
   });
   
+  $('.view_indicator').click(function() {
+    filters = $('#filters');
+    if(filters.hasClass('hidden')) {
+      filters.removeClass('hidden');
+      filters.animate({left: '-3px'});
+    } else {
+      filters.animate({left: '-305px'});
+      filters.addClass('hidden');
+    }
+    return false;
+  });
+  
   w4lls.remember_this = function(apartment) {
     var remembered_apartments = $.jStorage.get("w4lls.apartments", []);
     remembered_apartments.push(apartment);

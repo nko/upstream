@@ -6,7 +6,6 @@ $(function() {
 
   var reload_with_given_address = function(evt) {
     $.get('/geolocation?q=' + escape($('#searchform #s').val()), function(geolocation) {
-      console.log(geolocation);
       var location = new google.maps.LatLng(geolocation.lat, geolocation.lng);
       w4lls.map.setCenter(location);
       w4lls.map.setZoom(15);
