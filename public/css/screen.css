@@ -326,7 +326,6 @@ label[for="s"] {
 #filters,#details_container {
   position: absolute;
   z-index: 99;
-  margin-top: 24px;
 }
 #filters {
   left: -3px;
