@@ -21,9 +21,9 @@ $(function() {
         }
       });
     });
+
+    $('#bookmarks').bind('bookmarks-loaded', function() {
+      $("#bookmarks").jcarousel();
+    });
   }
-  
-  $('#bookmarks').bind('bookmarks-loaded', function() {
-    $("#bookmarks").jcarousel();
-  });
 });
