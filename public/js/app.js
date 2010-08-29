@@ -2,7 +2,7 @@ $(function() {
   // tag editor
   (function() {
     var tag_editor_options = {
-      separator: ' ',
+      separator: ',',
       completeOnSeparator: true
     };
     
