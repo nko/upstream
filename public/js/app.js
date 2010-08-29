@@ -17,6 +17,10 @@ $(function() {
     
     $("#apartment_tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#tags_for_apartment'}));
     $("#tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#tags_for_search'}));
+    
+    $("#tags").bind('tags-changed', function() {
+      $(window).trigger('reload-apartments');
+    });
   })();
          
   // transloadit

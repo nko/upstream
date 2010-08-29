@@ -45,7 +45,11 @@ $(function() {
 	  max = space_slider.slider("values", 1);
 	$("#space_amount").text(min + ' m²' + ' - ' + max + ' m²');
 	
-	$('.reload_apartments').change(function() {
+  $('.reload_apartments').change(function() {
+    w4lls.load_apartments();
+  });
+	
+	$(window).bind('reload-apartments', function() {
 	  w4lls.load_apartments();
-	});
+  });
 });

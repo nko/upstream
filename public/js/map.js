@@ -49,7 +49,7 @@ $(function() {
   
   w4lls.load_apartments = function(map, filters) {
     map = map || w4lls.map;
-    
+
     var url = '/apartments',
       bounds = map.getBounds();
     if(bounds) {
@@ -59,14 +59,14 @@ $(function() {
         max_price = $("#price_range").slider("values", 1),
         min_space = $('#space_range').slider("values", 0),
         max_space = $('#space_range').slider("values", 1),
-        tags = $('.tagEditor li').map(function() { return $(this).text(); }).toArray().join(','),
-        url = '/apartments?north=' + bounds.T.b + '&south=' + bounds.T.c + 
-          '&west=' + bounds.L.b + '&east=' + bounds.L.c +
-          '&price_min=' + min_price + '&price_max=' + max_price +
-          '&size_min=' + min_space + '&size_max=' + max_space +
-          '&tags=' + tags;
-    }
-    
+        tags = $('.tagEditor li').map(function() { return $(this).text(); }).toArray().join(',');
+      url = '/apartments?north=' + bounds.T.b + '&south=' + bounds.T.c + 
+        '&west=' + bounds.L.b + '&east=' + bounds.L.c +
+        '&price_min=' + min_price + '&price_max=' + max_price +
+        '&size_min=' + min_space + '&size_max=' + max_space +
+        '&tags=' + tags;
+    };
+
     $.get(url, function(apartments) {
       w4lls.clear_apartments();
       apartments.forEach(function(apartment) {
