@@ -44,13 +44,6 @@ $(function() {
   form.find('#apartment_availability').datepicker();
 
 
-  // Uploader.prototype.start = function() {
-    // if(this._options.beforeStart) {
-    //   if(!this._options.beforeStart()) { return false; }
-    // }
-  // }
-
-  // TODO: how to validate when transloadit seems to be always first?
   form.transloadit({
     wait: true,
     autoSubmit: false,
@@ -69,18 +62,31 @@ $(function() {
       });
     },
     beforeStart: function() {
-      this._errors = [];
+      var errors = [];
+      var error = function(id, msg) {
+        errors.push({id: id, msg: msg});
+        $(id).addClass('error');
+      }
       
-      if($('#apartment_street').val().length === 0) { this._errors.push('Street missing.'); }
-      if($('#apartment_price').val().length === 0) { this._errors.push('Price missing.'); }
+      if($('#apartment_title').val().length === 0) { error('#apartment_title', 'Title missing.'); }
+      if($('#apartment_street').val().length === 0) { error('#apartment_street', 'Street missing.'); }
+      if($('#apartment_price').val().length === 0) { error('#apartment_price', 'Price missing.'); }
       if($('#apartment_email').val().length === 0 && $('#apartment_phone').val().length === 0) {
-        this._errors.push('Please provide either an email or a phone number.');
+        error('#apartment_email', 'Please provide either an email or a phone number.');
       }
       if($('#apartment_photos').attr('files').length === 0) {
-        this._errors.push('You need to provide at least one photo.');
+        error('#apartment_photos', 'You need to provide at least one photo.');
       }
       
-      return this._errors.length === 0;
+      if(errors.length > 0) {
+        $('#new_apartment .form_wrapper').prepend('<ul id="errors"></ul>');
+        var errors_ul = $('#new_apartment #errors');
+        errors.forEach(function(error) {
+          errors_ul.append('<li>' + error.msg + '</li>');
+        });
+      }
+      
+      return errors.length === 0;
     }
   });
   
@@ -120,15 +126,14 @@ $(function() {
       $('#bookmarks ul .bookmark:last a.details').click(function() {
         w4lls.show_details(apartment);
       });
-    //   $('#bookmarks ul .bookmark:last a.delete_bookmark').click(function() {
-    //     var remembered_apartments = $.jStorage.get("w4lls.apartments", []),
-    //       index = remembered_apartments.indexOf(apartment);
-    //     if(index >= 0) {
-    //       remembered_apartments.splice(index, 1);
-    //     }
-    //     $.jStorage.set("w4lls.apartments", remembered_apartments);
-    //     
-    //   });
+      $('#bookmarks ul .bookmark:last a.delete_bookmark').click(function() {
+        var remembered_apartments = $.jStorage.get("w4lls.apartments", []),
+          index = remembered_apartments.indexOf(apartment);
+        if(index >= 0) {
+          remembered_apartments.splice(index, 1);
+        }
+        $.jStorage.set("w4lls.apartments", remembered_apartments);        
+      });
       $('#bookmarks').show();
     });
   };
