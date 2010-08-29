@@ -89,6 +89,7 @@
             <li>
               <label for="apartment_tags">Tags</label>
               <input name="apartment[tags]" id="apartment_tags" class=""/>
+							<div id="chosen_apartment_tags"></div>
             </li>          
           </ul>
         </div>
@@ -117,8 +118,7 @@
 
 	<form role="search" action="" id="searchform" method="get">
 		<label for="s" accesskey="1">Search:</label>
-		<input type="search" onfocus="if (this.value == 'Search flat')  
-			{this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search flat';}" id="s" name="s" results="5" autosave="" value="Search flat"> 
+		<input type="search" id="s" name="s" results="5" autosave="" value="Search flat"> 
 		<input type="hidden" id="searchsubmit"> 
 	</form>
 </div>
@@ -144,8 +144,8 @@
 				<input type="text" id="space_amount" class="reload_apartments" />
 			</li>
 			<li class="tag_search item">
-			  <label for="tags">Tags:</label>
-			  <input type="text" name="tags" id="tags" class="reload_apartments"/>
+					<em>Chosen Tags</em><input type="text" name="tags" id="tags" class="reload_apartments"/><hr>
+				<div id="chosen_tags"></div>
 			</li>
 		</ul>
 		<a href="" class="view_indicator"></a>
@@ -157,6 +157,8 @@
 
 <div id="bookmarks_container">
 	<div id="bookmarks">
-		
+		<ul>
+			<li>item 1</li>
+    </ul>
 	</div>
 </div>

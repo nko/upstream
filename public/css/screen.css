@@ -68,6 +68,7 @@ h4 img, h5 img, h6 img {
 .item {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #aaa;
+  list-style:none;
 }
 .item:first-child {
   border-top: none;
@@ -325,7 +326,6 @@ label[for="s"] {
 #filters,#details_container {
   position: absolute;
   z-index: 99;
-  margin-top: 24px;
 }
 #filters {
   left: -3px;
@@ -380,7 +380,7 @@ label[for="s"] {
   font-size: .75em;
   line-height: 1;
 }
-#filters ul {
+#filters > ul {
   float: left;
   border-right: 1px solid #E0DFDF;
 }
@@ -433,7 +433,7 @@ label[for="s"] {
   border-left: 14px solid #fff;
   border-right-color: transparent;
 }
-#filters li {
+#filters > ul > li {
   padding: 12px 24px;
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
   overflow: hidden;
@@ -524,8 +524,13 @@ label[for="s"] {
 }
 
 #new_apartment {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
   margin: -1.5em auto 1.5em auto;
   font-size: .75em;
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
+  
   border: 2px solid #FFF;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -610,7 +615,6 @@ form ul li {
   text-align: left;
 }
 
-
 #filters .ui-widget-content {
   background-color: !important;
 }
@@ -646,4 +650,28 @@ form ul li {
   width: 33.3%;
   float: left;
   overflow: hidden;
+}
+
+#tags {
+  width: 150px;
+  padding: 4px;
+  float: left;
+}
+#tags:after {
+  content:"";
+  border-right: 1px solid #aaa;
+  margin-left: 12px;
+}
+.tag_search em {
+  font-style: italic;
+  display: block; 
+  float: right;
+  width: 80px;
+  text-align: right;
+  border-left: 1px solid #aaa;
+  
+}
+#filters .tagEditor {
+  float: none;
+  clear: both;
 }

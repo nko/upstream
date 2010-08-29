@@ -11,12 +11,11 @@ $(function() {
   		scroll: true
   	});
     
-    $("#apartment_tags").tagEditor(tag_editor_options);
-    $("#tags").tagEditor(tag_editor_options);
+    $("#apartment_tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#chosen_apartment_tags'}));
+    $("#tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#chosen_tags'}));
   })();
          
   // transloadit
-  
   var transloadit_params = {
     auth: {
       key: '4c791226c09040dd98af27d472ec3211'
@@ -93,10 +92,25 @@ $(function() {
     });
   };
   
+  $(window).resize(function() {
+    var map = $('#map'),
+      filters = $('#filters'),
+      details_container = $('#details_container'),
+      map_height = $(window).height() - $("#header").height() - $("#footer").height() - $("#bookmarks").height(),
+      filter_height = filters.height();
+      
+    map.height(map_height);
+    filters.css('margin-top', (map_height - parseInt(filters.css('height'), 10)) / 2);
+    details_container.css('margin-top', 24).css('height', map_height - 48);
+  });
+  $(window).trigger("resize");
+  
+  var filters = $('#filters');
+  filters.find('.view_indicator').css('height', filters.find('ul').css('height'));
+  
   var details_container = $('#details_container');
   var width = details_container.css('width');
   details_container.css('right', '-' + width);
-  
   w4lls.show_details = function(apartment) {
     var show_big_details = function() {
       var filters = $('#filters'),
