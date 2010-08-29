@@ -119,6 +119,8 @@ h4 img, h5 img, h6 img {
   padding: 3px 10px;
   border: none;
   border-radius: 12px;
+  cursor: pointer;
+  
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   -o-border-radius: 12px;
@@ -133,6 +135,7 @@ h4 img, h5 img, h6 img {
   -o-transition: background-color color 0.5s ease-in;
   transition: background-color color 0.5s ease-in;
 }
+
 .btn:hover,
 .btn:focus,
 .btn:active,
@@ -204,6 +207,20 @@ a:focus {
   color: #0095BC;
   text-decoration: underline;
   outline: none;
+}
+
+.cancel_link {
+  width: 28px;
+  height: 32px;
+  display: block;
+  text-indent: -9999px;
+  background: transparent url(/img/w4lls_cancel_link.png) no-repeat 0 50%;
+}
+
+.cancel_link:hover,
+.cancel_link:focus,
+.cancel_link:active {
+  background-position: 100% 0;
 }
 
 .logo a:focus, .logo a:hover, .logo a:active {
@@ -522,13 +539,12 @@ label[for="s"] {
 }
 
 #new_apartment {
+  width: 950px;
   position: fixed;
   top: 0;
   z-index: 1000;
   margin: -1.5em auto 1.5em auto;
-  font-size: .75em;
-  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
-  
+  font-size: .75em;  
   border: 2px solid #FFF;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -539,27 +555,28 @@ label[for="s"] {
   box-shadow: 1px 3px 3px #999;
 }
 
+#new_apartment .form_wrapper {
+  overflow: hidden;
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
+}
+
 #new_apartment label {
-  display: inline-block;
-  float: left;
-  width: 72px;
-  padding-right: 1em;
-  text-align: right;
+  display: block;
 }
 
 #new_apartment input[type="text"],
 #new_apartment textarea {
-  width: 210px;
+  width: 100%;
 }
 
 
 /* forms */
 input[type="text"],
-input[type="password"],
+input[type="file"],
 textarea,
 select {
   border: 1px solid #BBB;
-  padding: 10px;
+  padding: .25em;
   font-size: 1em;
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
@@ -591,26 +608,51 @@ form ul li {
   padding-left: 156px;
 }
 
-#new_apartment h2,
+.new_apartment_form_head,
 .btn_wrap {
-  text-align: center;
-  clear: both;
-  padding: .5em;
-  font-size: 2em;
-  border-top: 2px solid #FFF;
-  background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
-}
-
-#new_apartment h2 {
+  position: relative;
   border-top: none;
   border-bottom: 2px solid #FFF;
   text-align: center;
   padding-top: 1em;
+  padding: .5em;
+  text-align: center;
+  background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
+}
+
+.new_apartment_form_head {
+  padding-top: 1.5em;
+}
+
+.btn_wrap {
+  clear: both;
+  padding: .5em;
+  border-top: 2px solid #FFF;
+  border-bottom: none;
+}
+
+.btn_wrap .btn {
+  font-size: 2em;
+}
+
+#new_apartment .cancel_link {
+  position: absolute;
+  top: 1em;
+  right: .5em;
+}
+
+#new_apartment .new_apartment_form_head .cancel_link {
+  top: 2em;
 }
 
 #new_apartment .checkbox label {
   width: auto;
   text-align: left;
+}
+
+#new_apartment ul {
+  padding: 0 2em;
+  margin-bottom: 1.5em;
 }
 
 #filters .ui-widget-content {
