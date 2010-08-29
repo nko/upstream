@@ -5,8 +5,8 @@ $(function() {
       separator: ',',
       completeOnSeparator: true
     };
-    $("#apartment_tags").tagEditor(_(options).extend({appendTagsTo: '#partment_tags_div'}));
-    $("#tags").tagEditor(_(options).extend({appendTagsTo: '#tags_div'}));
+    $("#apartment_tags").tagEditor(_(options).extend({appendTagsTo: '#tags_for_apartment'}));
+    $("#tags").tagEditor(_(options).extend({appendTagsTo: '#tags_for_search'}));
   })();
          
   // transloadit
