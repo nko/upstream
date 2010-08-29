@@ -186,7 +186,7 @@ $(function() {
   
   var details_container = $('#details_container');
   var width = details_container.css('width');
-  details_container.css('right', '-' + width);
+  details_container.css('right', '-2000px');
   w4lls.show_details = function(apartment, callback) {
     var show_big_details = function() {
       var filters = $('#filters'),
@@ -198,11 +198,15 @@ $(function() {
 
       details_container.html(Mustache.to_html(w4lls.big_details_template, apartment));
       w4lls.hide_filters(filters);
+      details_container.css('right', '-' + width);
       details_container.animate({right: '-3px'});
 
       w4lls.close_details_container = function() {
         w4lls.show_filters(filters);
         details_container.animate({right: '-' + width});
+        setTimeout(function() {
+          details_container.css('right', '-2000px');
+        }, 500);
         details_container.unbind('click');
       }
       details_container.click(w4lls.close_details_container);
