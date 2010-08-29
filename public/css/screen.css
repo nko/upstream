@@ -573,7 +573,6 @@ label[for="s"] {
 
 /* forms */
 input[type="text"],
-input[type="file"],
 textarea,
 select {
   border: 1px solid #BBB;
@@ -605,6 +604,23 @@ form ul li {
   padding: .5em 0;
 }
 
+.placeholder {
+  color: #AAA !important;
+}
+
+#new_apartment .title_inputs {
+}
+
+#new_apartment .inline_inputs label {
+  display: inline;
+  width: 100px;
+}
+
+#new_apartment .inline_inputs input[type="text"] {
+  width: 584px;
+  margin-right: 3em;
+}
+
 .checkbox {
   padding-left: 156px;
 }
@@ -624,6 +640,10 @@ form ul li {
 .new_apartment_form_head {
   padding-top: 1.5em;
   background-color: #FFF;
+}
+
+#new_apartment h2 {
+  margin-bottom: 0;
 }
 
 .btn_wrap {
@@ -740,7 +760,8 @@ form ul li {
   border: 2px solid #fff;
   background-color: #2394B9;
   display: block;
-  float:right;
+  float: right;
+  clear: none;
 	background-image: url(/img/minus_small.png);
 	background-position: right center;
 	background-repeat: no-repeat;
@@ -764,43 +785,48 @@ form ul li {
 	border-top:0;
 	margin-top: -1px;
 }
-
 .ac_results ul {
 	list-style-position: outside;
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
-
 .ac_results li {
 	margin: 0px;
 	padding: 2px 5px;
 	cursor: default;
 	display: block;
 	/* 
-	if width will be 100% horizontal scrollbar will apear 
+	if width will be 100% horizontal scrollbar will appear 
 	when scroll mode will be used
 	*/
 	/*width: 100%;*/
 	font: menu;
 	font-size: 12px;
 	/* 
-	it is very important, if line-height not setted or setted 
+	it is very important, if line-height not set or set 
 	in relative units scroll will be broken in firefox
 	*/
 	line-height: 16px;
 	overflow: hidden;
 }
-
 .ac_loading {
 	background: white url('/img/indicator.gif') 106px center no-repeat;
 }
-
 .ac_over {
 	background-color: #fff;
 	border-color: #0095BC;
 }
+#details h2 {
+  line-height: 1;
+}
+.thumbs {
+  float: left;
+  margin: 0 24px 24px 0;
+  border: 3px solid #fff;
+}
 
 
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
-.clearfix, .container {display:block;}
+.clearfix {display:block;}
+.hide { display: none !important; }

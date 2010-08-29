@@ -31,8 +31,10 @@ $(function() {
     w4lls.apartments.push(marker);
 
     google.maps.event.addListener(marker, 'click', function() {
-      w4lls.show_details(apartment);
-      $('.remember_this').click(function() { w4lls.remember_this(apartment); });
+      w4lls.show_details(apartment, function(apartment) {
+        $('.remember_this').click(function(evt) { w4lls.remember_this(apartment); evt.stopPropagation(); });
+        $('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); });
+      });
     });
     
     marker.setMap(map);
