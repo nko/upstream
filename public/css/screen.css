@@ -573,7 +573,6 @@ label[for="s"] {
 
 /* forms */
 input[type="text"],
-input[type="file"],
 textarea,
 select {
   border: 1px solid #BBB;
@@ -605,6 +604,23 @@ form ul li {
   padding: .5em 0;
 }
 
+.placeholder {
+  color: #AAA !important;
+}
+
+#new_apartment .title_inputs {
+}
+
+#new_apartment .inline_inputs label {
+  display: inline;
+  width: 100px;
+}
+
+#new_apartment .inline_inputs input[type="text"] {
+  width: 584px;
+  margin-right: 3em;
+}
+
 .checkbox {
   padding-left: 156px;
 }
@@ -624,6 +640,10 @@ form ul li {
 .new_apartment_form_head {
   padding-top: 1.5em;
   background-color: #FFF;
+}
+
+#new_apartment h2 {
+  margin-bottom: 0;
 }
 
 .btn_wrap {
@@ -776,14 +796,14 @@ form ul li {
 	cursor: default;
 	display: block;
 	/* 
-	if width will be 100% horizontal scrollbar will apear 
+	if width will be 100% horizontal scrollbar will appear 
 	when scroll mode will be used
 	*/
 	/*width: 100%;*/
 	font: menu;
 	font-size: 12px;
 	/* 
-	it is very important, if line-height not setted or setted 
+	it is very important, if line-height not set or set 
 	in relative units scroll will be broken in firefox
 	*/
 	line-height: 16px;
@@ -807,4 +827,5 @@ form ul li {
 
 
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
-.clearfix, .container {display:block;}
+.clearfix {display:block;}
+.hidden { display: none !important; }
