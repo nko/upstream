@@ -71,8 +71,8 @@ $(function() {
     }
     
     $.get(url, function(apartments) {
+      w4lls.clear_apartments();
       apartments.forEach(function(apartment) {
-          w4lls.clear_apartments();
           w4lls.show_apartment(apartment, map);
       });
     });
