@@ -1016,8 +1016,24 @@ form ul li {
 .clearfix {display:block;}
 .hide { display: none !important; }
 
-.send_request {
-  font-size: 11px;
-  color: #333 !important;
-  text-decoration: underline !important;
+#contact_request {
+  padding: 24px;
+  width: 320px;
+  
+}
+
+#contact_request .btn {
+  float: left;
+}
+#contact_request label {
+  display: block;
+  margin-bottom: 12px;
+}
+#contact_request textarea {
+  width: 100%;
+  margin-bottom: 12px;
+} 
+#contact_request .close_request {
+  float: right;
+  margin-bottom: 24px;
 }
