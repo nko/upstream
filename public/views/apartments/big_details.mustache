@@ -1,10 +1,15 @@
 <div id="details_centering">
 	<div id="details_rightflow">
 		<div id="details">
-      <p>
+			<div class="thumbs">
+        {{#images}}
+          <img src="{{middle}}" />
+        {{/images}}
+      </div>
+      <h2>
         {{title}}<br />
         {{description}}
-      </p>
+      </h2>
 
       <p>
         {{street}}<br />
@@ -19,11 +24,7 @@
         Duration: {{duration}}
       </p>
 
-      <p>
-        {{#images}}
-          <img src="{{middle}}" />
-        {{/images}}
-      </p>
+
 
       <p>
         <a href="#" class="send_request">Send request</a>
