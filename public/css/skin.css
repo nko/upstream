@@ -7,25 +7,11 @@
     padding: 0;
 }
 
-/*
-.jcarousel-skin-bookmarks .jcarousel-container-vertical {
-    width: 75px;
-    height: 245px;
-    padding: 40px 20px;
-}
-*/
 
 .jcarousel-skin-bookmarks .jcarousel-clip-horizontal {
     width:  950px;
     height: 100px;
 }
-
-/*
-.jcarousel-skin-bookmarks .jcarousel-clip-vertical {
-    width:  75px;
-    height: 245px;
-}
-*/
 
 .jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-item-horizontal {
   margin-left: 10px;
@@ -73,82 +59,30 @@
     border-right: none;
 }
 
+
+.jcarousel-skin-bookmarks .jcarousel-next-horizontal:active,
 .jcarousel-skin-bookmarks .jcarousel-next-horizontal:hover {
+    background-position: -296px 50%, 0 0;
     
 }
 
-.jcarousel-skin-bookmarks .jcarousel-next-horizontal:active {
-}
 
 .jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal,
 .jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal:hover,
 .jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal:active {
     cursor: default;
+    background-position: -175px 50%, 0 0;
 }
 
+.jcarousel-skin-bookmarks .jcarousel-prev-horizontal:active,
 .jcarousel-skin-bookmarks .jcarousel-prev-horizontal:hover {
+  background-position: -232px 50%, 0 0;
 }
 
-.jcarousel-skin-bookmarks .jcarousel-prev-horizontal:active {
-}
 
 .jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal,
 .jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal:hover,
 .jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal:active {
     cursor: default;
+    background-position: -110px 50%, 0 0;
 }
-
-/**
- *  Vertical Buttons
- */
- /*
-.jcarousel-skin-bookmarks .jcarousel-next-vertical {
-    position: absolute;
-    bottom: 5px;
-    left: 43px;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    background: transparent url(next-vertical.png) no-repeat 0 0;
-}
-
-.jcarousel-skin-bookmarks .jcarousel-next-vertical:hover {
-    background-position: 0 -32px;
-}
-
-.jcarousel-skin-bookmarks .jcarousel-next-vertical:active {
-    background-position: 0 -64px;
-}
-
-.jcarousel-skin-bookmarks .jcarousel-next-disabled-vertical,
-.jcarousel-skin-bookmarks .jcarousel-next-disabled-vertical:hover,
-.jcarousel-skin-bookmarks .jcarousel-next-disabled-vertical:active {
-    cursor: default;
-    background-position: 0 -96px;
-}
-
-.jcarousel-skin-bookmarks .jcarousel-prev-vertical {
-    position: absolute;
-    top: 5px;
-    left: 43px;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    background: transparent url(prev-vertical.png) no-repeat 0 0;
-}
-
-.jcarousel-skin-bookmarks .jcarousel-prev-vertical:hover {
-    background-position: 0 -32px;
-}
-
-.jcarousel-skin-bookmarks .jcarousel-prev-vertical:active {
-    background-position: 0 -64px;
-}
-
-.jcarousel-skin-bookmarks .jcarousel-prev-disabled-vertical,
-.jcarousel-skin-bookmarks .jcarousel-prev-disabled-vertical:hover,
-.jcarousel-skin-bookmarks .jcarousel-prev-disabled-vertical:active {
-    cursor: default;
-    background-position: 0 -96px;
-}
- */

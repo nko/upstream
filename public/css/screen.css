@@ -565,46 +565,6 @@ label[for="s"] {
   border-top: 2px solid #FFF;
 }
 
-/*
-
-.carousel-control {
-  display: inline-block;
-  width: 26px;
-  height: 100px;
-  background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
-  background-repeat: no-repeat, repeat;
-  background-position: 7px 50%, 0 0;
-  background-color: transparent;
-  cursor: pointer;
-  text-indent: -9999px;
-}
-
-.previous {
-}
-
-.next {
-  background-position: -55px 50%, 0 0;
-}
-
-.previous.hover {
-  background-position: -232px 50%, 0 0;
-  
-}
-
-.next.hover {
-  background-position: -296px 50%, 0 0;
-}
-
-.previous.disabled {
-  background-position: -110px 50%, 0 0;
-  
-}
-
-.next.disabled {
-  background-position: -175px 50%, 0 0;
-}
-
-*/
 
 #bookmarks {
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
@@ -612,7 +572,7 @@ label[for="s"] {
 }
 
 .bookmark {
-  width: 400px;
+  width: 100px;
   height: 100px;
   position: relative;
   margin-left: 0;
