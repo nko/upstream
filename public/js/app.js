@@ -2,8 +2,11 @@ $(function() {
   // tag editor
   (function() {
     var tag_editor_options = {
-      separator: ' ',
-      completeOnSeparator: true
+      separator: ',',
+      completeOnSeparator: true,
+      afterAppend: function() {
+        $('#filters .view_indicator').css('height', $('#filters ul').css('height'));
+      }
     };
     
     $("#apartment_tags, #tags").autocomplete("/tags", {
