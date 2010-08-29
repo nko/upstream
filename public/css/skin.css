@@ -44,76 +44,64 @@
 /**
  *  Horizontal Buttons
  */
-.jcarousel-skin-bookmarks .jcarousel-next-horizontal {
+.jcarousel-skin-bookmarks .jcarousel-next-horizontal,
+.jcarousel-skin-bookmarks .jcarousel-prev-horizontal {
     position: absolute;
-    top: 0;
-    right: -26px;
+    top: -2px;
     width: 26px;
+    
     height: 100px;
     cursor: pointer;
     background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
     background-repeat: no-repeat, repeat;
-    background-position: 7px 50%, 0 0;
+    background-position: -59px 50%, 0 0;
     background-color: transparent;
     cursor: pointer;
     text-indent: -9999px;
+    border: 2px solid #FFF;
+} 
+ 
+ 
+.jcarousel-skin-bookmarks .jcarousel-next-horizontal {
+    right: -28px;
+    border-left: none;
 }
 
-.jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-next-horizontal {
-    left: -26px;
-    right: auto;
-    background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
+.jcarousel-skin-bookmarks .jcarousel-prev-horizontal {
+    left: -28px;
+    background-position: 7px 50%, 0 0;
+    border-right: none;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-next-horizontal:hover {
-    background-position: -32px 0;
+    
 }
 
 .jcarousel-skin-bookmarks .jcarousel-next-horizontal:active {
-    background-position: -64px 0;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal,
 .jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal:hover,
 .jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal:active {
     cursor: default;
-    background-position: -96px 0;
-}
-
-.jcarousel-skin-bookmarks .jcarousel-prev-horizontal {
-    position: absolute;
-    top: 0;
-    left: -26px;
-    width: 26px;
-    height: 100px;
-    cursor: pointer;
-    background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
-}
-
-.jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-prev-horizontal {
-    left: auto;
-    right: 5px;
-    background-image: url(next-horizontal.png);
 }
 
 .jcarousel-skin-bookmarks .jcarousel-prev-horizontal:hover {
-    background-position: -32px 0;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-prev-horizontal:active {
-    background-position: -64px 0;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal,
 .jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal:hover,
 .jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal:active {
     cursor: default;
-    background-position: -96px 0;
 }
 
 /**
  *  Vertical Buttons
  */
+ /*
 .jcarousel-skin-bookmarks .jcarousel-next-vertical {
     position: absolute;
     bottom: 5px;
@@ -163,3 +151,4 @@
     cursor: default;
     background-position: 0 -96px;
 }
+ */
