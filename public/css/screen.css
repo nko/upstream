@@ -550,13 +550,15 @@ label[for="s"] {
   text-align: right;
 }
 
-/* bopkmarks */
+/* bookmarks */
 
-/*#bookmarks_container {
+#bookmarks_container {
   background: url(../img/map_bottom.png) repeat-x;
   padding-top: 36px;
   overflow: hidden;
 }
+
+/*
 
 #bookmarks {
   width: 940px;
@@ -617,31 +619,16 @@ label[for="s"] {
   background-position: -175px 50%, 0 0;
 }
 
+*/
 
-.carousel-wrap {
-  display: inline-block;
-  width: 877px;
-  background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
-}
-
-.carousel-wrap ul {
-  overflow: hidden;
-  list-style: none;
+#bookmarks {
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
-  height: 92px;
-}
-
-.carousel-wrap ul li {
-  display: block;
-  float: left;
-  padding: 6px;
-  height: 92px;
-  width: 100px;
-  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
-  position: relative;
+  
 }
 
 .bookmark {
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
+  padding: 6px;
   border-left: 1px solid #FFF;
   border-right: 1px solid #AAA; 
   text-align: center; 
@@ -656,8 +643,8 @@ label[for="s"] {
 .bookmark .cancel_link {
   position: absolute;
   z-index: 100;
-  top: -.875em;
-  right: -.875em;
+  top: .25em;
+  right: .25em;
   overflow: visible !important;
 }
 
@@ -665,7 +652,7 @@ label[for="s"] {
   border: 2px solid #FFF;
   width: 75%;
 }
-*/
+
 
 /* footer */
 
