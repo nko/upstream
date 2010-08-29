@@ -173,14 +173,19 @@ Joost Elfering
             }
             textBase.after(hiddenText);
 
+            
             listBase = jQuery(document.createElement('ul'));
             listBase.attr('class', options.className);
-            if (options.tagsBeforeField) {
-                jQuery(this).before(listBase);
+            if(options.appendTagsTo) {
+              jQuery(options.appendTagsTo).append(listBase);
             } else {
-                jQuery(this).after(listBase);
-            }
-
+              if (options.tagsBeforeField) {
+                  jQuery(this).before(listBase);
+              } else {
+                  jQuery(this).after(listBase);
+              }
+            };
+            
             for (var i = 0; i < options.items.length; i++) {
                 addTag(jQuery.trim(options.items[i]));
             }

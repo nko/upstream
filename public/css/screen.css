@@ -343,7 +343,6 @@ label[for="s"] {
 #filters,#details_container {
   position: absolute;
   z-index: 99;
-  margin-top: 24px;
 }
 #filters {
   left: -3px;
@@ -398,7 +397,7 @@ label[for="s"] {
   font-size: .75em;
   line-height: 1;
 }
-#filters ul {
+#filters > ul {
   float: left;
   border-right: 1px solid #E0DFDF;
 }
@@ -451,7 +450,7 @@ label[for="s"] {
   border-left: 14px solid #fff;
   border-right-color: transparent;
 }
-#filters li {
+#filters > ul > li {
   padding: 12px 24px;
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
   overflow: hidden;
@@ -693,4 +692,28 @@ form ul li {
   width: 33.3%;
   float: left;
   overflow: hidden;
+}
+
+#tags {
+  width: 150px;
+  padding: 4px;
+  float: left;
+}
+#tags:after {
+  content:"";
+  border-right: 1px solid #aaa;
+  margin-left: 12px;
+}
+.tag_search em {
+  font-style: italic;
+  display: block; 
+  float: right;
+  width: 80px;
+  text-align: right;
+  border-left: 1px solid #aaa;
+  
+}
+#filters .tagEditor {
+  float: none;
+  clear: both;
 }

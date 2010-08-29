@@ -1,9 +1,4 @@
 $(function() {
-  $(window).resize(function() {
-    $('#map').height(Math.max($('#filters').height() + 100, $(window).height() - $("#header").height() - $("#footer").height() - $("#bookmarks").height()));
-  });
-  $(window).trigger("resize");
-
   var reload_with_given_address = function(evt) {
     $.get('/geolocation?q=' + escape($('#searchform #s').val()), function(geolocation) {
       var location = new google.maps.LatLng(geolocation.lat, geolocation.lng);

@@ -5,8 +5,8 @@ $(function() {
       separator: ',',
       completeOnSeparator: true
     };
-    $("#apartment_tags").tagEditor(options);
-    $("#tags").tagEditor(options);
+    $("#apartment_tags").tagEditor(_(options).extend({appendTagsTo: '#tags_for_apartment'}));
+    $("#tags").tagEditor(_(options).extend({appendTagsTo: '#tags_for_search'}));
   })();
          
   // transloadit
@@ -86,10 +86,25 @@ $(function() {
     });
   };
   
+  $(window).resize(function() {
+    var map = $('#map'),
+      filters = $('#filters'),
+      details_container = $('#details_container'),
+      map_height = $(window).height() - $("#header").height() - $("#footer").height() - $("#bookmarks").height(),
+      filter_height = filters.height();
+      
+    map.height(map_height);
+    filters.css('margin-top', (map_height - parseInt(filters.css('height'), 10)) / 2);
+    details_container.css('margin-top', 24).css('height', map_height - 48);
+  });
+  $(window).trigger("resize");
+  
+  var filters = $('#filters');
+  filters.find('.view_indicator').css('height', filters.find('ul').css('height'));
+  
   var details_container = $('#details_container');
   var width = details_container.css('width');
   details_container.css('right', '-' + width);
-  
   w4lls.show_details = function(apartment) {
     var show_big_details = function() {
       var filters = $('#filters'),

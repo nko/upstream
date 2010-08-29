@@ -94,9 +94,11 @@
               <li>
                 <label for="apartment_tags">Tags</label>
                 <input name="apartment[tags]" id="apartment_tags" class=""/>
+                <div id="tags_for_apartment"></div>
               </li>          
             </ul>
           </div>
+
         </div>
 
         <p class="btn_wrap">
@@ -150,8 +152,8 @@
 				<input type="text" id="space_amount" class="reload_apartments" />
 			</li>
 			<li class="tag_search item">
-			  <label for="tags">Tags:</label>
-			  <input type="text" name="tags" id="tags" class="reload_apartments"/>
+					<em>Chosen Tags</em><input type="text" name="tags" id="tags" class="reload_apartments"/>
+				<div id="tags_for_search"></div>
 			</li>
 		</ul>
 		<a href="" class="view_indicator"></a>
