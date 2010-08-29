@@ -19,5 +19,5 @@ $(function() {
     $('#bookmarks').show();
   }
   
-  $("#bookmarks").carousel({ dispItems: 3 });
+  $("#bookmarks").loopedCarousel();
 });

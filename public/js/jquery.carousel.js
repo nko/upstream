@@ -1,5 +1,323 @@
-/* jQuery Carousel 0.9.5
-Copyright 2008-2009 Thomas Lanciaux and Pierre Bertet.
-This software is licensed under the CC-GNU LGPL <http://creativecommons.org/licenses/LGPL/2.1/>
-*/
-(function(c){c.fn.carousel=function(j){var j=c.extend({direction:"horizontal",loop:false,dispItems:1,pagination:false,paginationPosition:"inside",nextBtn:'<a role="button">Next</a>',prevBtn:'<a role="button">Previous</a>',btnsPosition:"inside",nextBtnInsert:"appendTo",prevBtnInsert:"prependTo",nextBtnInsertFn:false,prevBtnInsertFn:false,autoSlide:false,autoSlideInterval:3000,delayAutoSlide:false,combinedClasses:false,effect:"slide",slideEasing:"swing",animSpeed:"normal",equalWidths:"true",verticalMargin:0,callback:function(){},useAddress:false,adressIdentifier:"carousel",tabLabel:function(k){return k},showEmptyItems:true},j);if(j.btnsPosition=="outside"){j.prevBtnInsert="insertBefore";j.nextBtnInsert="insertAfter"}j.delayAutoSlide=j.delayAutoSlide||j.autoSlideInterval;return this.each(function(){var k={$elts:{},params:j,launchOnLoad:[]};k.$elts.carousel=c(this).addClass("js");k.$elts.content=c(this).children().css({position:"absolute",top:0});k.$elts.wrap=k.$elts.content.wrap('<div class="carousel-wrap"></div>').parent().css({overflow:"hidden",position:"relative"});k.steps={first:0,count:k.$elts.content.children().length};k.steps.last=k.steps.count-1;if(c.isFunction(k.params.prevBtnInsertFn)){k.$elts.prevBtn=k.params.prevBtnInsertFn(k.$elts)}else{k.$elts.prevBtn=c(j.prevBtn)[j.prevBtnInsert](k.$elts.carousel)}if(c.isFunction(k.params.nextBtnInsertFn)){k.$elts.nextBtn=k.params.nextBtnInsertFn(k.$elts)}else{k.$elts.nextBtn=c(j.nextBtn)[j.nextBtnInsert](k.$elts.carousel)}k.$elts.nextBtn.addClass("carousel-control next carousel-next");k.$elts.prevBtn.addClass("carousel-control previous carousel-previous");a(k);if(k.params.pagination){i(k)}h(k);c(function(){var n=k.$elts.content.children();var m=0;n.each(function(){$item=c(this);$itemHeight=$item.outerHeight();if($itemHeight>m){m=$itemHeight}});if(k.params.verticalMargin>0){m=m+k.params.verticalMargin}n.height(m);var l=k.$elts.content.children(":first");k.itemWidth=l.outerWidth();if(j.direction=="vertical"){k.contentWidth=k.itemWidth}else{if(j.equalWidths){k.contentWidth=k.itemWidth*k.steps.count}else{k.contentWidth=(function(){var o=0;k.$elts.content.children().each(function(){o+=c(this).outerWidth()});return o})()}}k.$elts.content.width(k.contentWidth);k.itemHeight=m;if(j.direction=="vertical"){k.$elts.content.css({height:k.itemHeight*k.steps.count+"px"});k.$elts.content.parent().css({height:k.itemHeight*k.params.dispItems+"px"})}else{k.$elts.content.parent().css({height:k.itemHeight+"px"})}d(k);c.each(k.launchOnLoad,function(o,p){p()});if(k.params.autoSlide){window.setTimeout(function(){k.autoSlideInterval=window.setInterval(function(){b(k,e(k,"next"))},k.params.autoSlideInterval)},k.params.delayAutoSlide)}})})};function a(j){j.$elts.nextBtn.add(j.$elts.prevBtn).bind("enable",function(){var k=c(this).unbind("click").bind("click",function(){b(j,e(j,(k.is(".next")?"next":"prev")));g(j)}).removeClass("disabled");if(j.params.combinedClasses){k.removeClass("next-disabled previous-disabled")}}).bind("disable",function(){var k=c(this).unbind("click").addClass("disabled");if(j.params.combinedClasses){if(k.is(".next")){k.addClass("next-disabled")}else{if(k.is(".previous")){k.addClass("previous-disabled")}}}}).hover(function(){c(this).toggleClass("hover")})}function i(j){j.$elts.pagination=c('<div class="center-wrap"><div class="carousel-pagination"><p></p></div></div>')[((j.params.paginationPosition=="outside")?"insertAfter":"appendTo")](j.$elts.carousel).find("p");j.$elts.paginationBtns=c([]);j.$elts.content.find("li").each(function(k){if(k%j.params.dispItems==0){j.$elts.paginationBtns=j.$elts.paginationBtns.add(c('<a role="button"><span>'+j.params.tabLabel(j.$elts.paginationBtns.length+1)+"</span></a>").data("firstStep",k))}});j.$elts.paginationBtns.each(function(){c(this).appendTo(j.$elts.pagination)});j.$elts.paginationBtns.slice(0,1).addClass("active");j.launchOnLoad.push(function(){j.$elts.paginationBtns.click(function(k){b(j,c(this).data("firstStep"));g(j)})})}function h(j){if(j.params.useAddress&&c.isFunction(c.fn.address)){c.address.init(function(l){var k=c.address.pathNames();if(k[0]===j.params.adressIdentifier&&!!k[1]){b(j,k[1]-1)}else{c.address.value("/"+j.params.adressIdentifier+"/1")}}).change(function(l){var k=c.address.pathNames();if(k[0]===j.params.adressIdentifier&&!!k[1]){b(j,k[1]-1)}})}else{j.params.useAddress=false}}function b(j,k){j.params.callback(k);f(j,k);j.steps.first=k;d(j);if(j.params.useAddress){c.address.value("/"+j.params.adressIdentifier+"/"+(k+1))}}function e(k,j){if(j=="prev"){if(!k.params.showEmptyItems){if(k.steps.first==0){return((k.params.loop)?(k.steps.count-k.params.dispItems):false)}else{return Math.max(0,k.steps.first-k.params.dispItems)}}else{if((k.steps.first-k.params.dispItems)>=0){return k.steps.first-k.params.dispItems}else{return((k.params.loop)?(k.steps.count-k.params.dispItems):false)}}}else{if(j=="next"){if((k.steps.first+k.params.dispItems)<k.steps.count){if(!k.params.showEmptyItems){return Math.min(k.steps.first+k.params.dispItems,k.steps.count-k.params.dispItems)}else{return k.steps.first+k.params.dispItems}}else{return((k.params.loop)?0:false)}}}}function f(j,k){switch(j.params.effect){case"no":if(j.params.direction=="vertical"){j.$elts.content.css("top",-(j.itemHeight*k)+"px")}else{j.$elts.content.css("left",-(j.itemWidth*k)+"px")}break;case"fade":if(j.params.direction=="vertical"){j.$elts.content.hide().css("top",-(j.itemHeight*k)+"px").fadeIn(j.params.animSpeed)}else{j.$elts.content.hide().css("left",-(j.itemWidth*k)+"px").fadeIn(j.params.animSpeed)}break;default:if(j.params.direction=="vertical"){j.$elts.content.stop().animate({top:-(j.itemHeight*k)+"px"},j.params.animSpeed,j.params.slideEasing)}else{j.$elts.content.stop().animate({left:-(j.itemWidth*k)+"px"},j.params.animSpeed,j.params.slideEasing)}break}}function d(j){if(e(j,"prev")!==false){j.$elts.prevBtn.trigger("enable")}else{j.$elts.prevBtn.trigger("disable")}if(e(j,"next")!==false){j.$elts.nextBtn.trigger("enable")}else{j.$elts.nextBtn.trigger("disable")}if(j.params.pagination){j.$elts.paginationBtns.removeClass("active").filter(function(){return(c(this).data("firstStep")==j.steps.first)}).addClass("active")}}function g(j){if(!!j.autoSlideInterval){window.clearInterval(j.autoSlideInterval)}}})(jQuery);
+/*
+ * 	loopedCarousel 0.5 - jQuery plugin
+ *	written by Nathan Searles, based on loopedSlider (http://github.com/nathansearles/loopedSlider)	
+ *	http://github.com/nathansearles/loopedCarousel
+ *
+ *	Copyright (c) 2009 Nathan Searles (http://nathansearles.com/)
+ *	Dual licensed under the MIT (MIT-LICENSE.txt)
+ *	and GPL (GPL-LICENSE.txt) licenses.
+ *
+ *	Built for jQuery library
+ *	http://jquery.com
+ *
+ */
+
+/*
+ *	markup example for $("#loopedCarousel").loopedCarousel();
+ *
+ *	<div id="loopedCarousel">	
+ *		<div class="container">
+ *			<div class="slides">
+ *				<div>1</div>
+ *				<div>2</div>
+ *				<div>3</div>
+ *				<div>4</div>
+ *				<div>5</div>
+ *				<div>6</div>
+ *				<div>7</div>
+ *				<div>8</div>
+ *				<div>9</div>
+ *				<div>10</div>
+ *				<div>11</div>
+ *				<div>12</div>
+ *				<div>13</div>
+ *				<div>14</div>
+ *				<div>15</div>
+ *			</div>
+ *		</div>
+ *		<a href="#" class="previous">previous</a>
+ *		<a href="#" class="next">next</a>	
+ *	</div>
+ *
+ */
+
+(function($) {
+	$.fn.loopedCarousel = function(options) {
+		
+	var defaults = {			
+		container: '.container',
+		slides: '.slides',
+		pagination: '.pagination',
+		autoStart: 0, // Set to positive number for auto interval and interval time
+		slidespeed: 300, // Speed of slide animation
+		fadespeed: 300, // Speed of fade animation
+		items: 3, // Items show
+		padding: 10, // Padding between items
+		showPagination: true, // Shows pagination links
+		vertical: false
+	};
+		
+	this.each(function() {	
+		var obj = $(this);
+		var o = $.extend(defaults, options);
+		var i = o.items;
+		var m = 0;
+		var t = 1;
+		var s = $(o.slides,obj).children().size();
+		var w = $(o.slides,obj).children().outerWidth()+o.padding;
+		var h = $(o.slides,obj).children().outerHeight()+o.padding;
+		var c = Math.ceil($(o.slides,obj).children().size()/i);
+		var pd = o.padding/2;
+		var p = 0;
+		var u = false;
+		var n = 0;
+		var pt = 0;
+		var os = i*c-s;
+		var params = {}; 
+		
+		if (o.vertical===true) { w = h; }
+			
+		if(o.showPagination){
+			var buttons = s/i;
+			$(obj).append('<ul class="pagination">');
+			$(o.slides,obj).children().each(function(){
+				if (n<buttons) {
+					$(o.pagination,obj).append('<li><a rel="'+(n+1)+'" href="#" >'+(n+1)+'</a></li>');
+					n = n+1;
+				} else {
+					n = 0;
+					return false;
+				}
+				$(o.pagination+' li a:eq(0)',obj).parent().addClass('active');
+			});
+		}
+		
+		if (o.vertical===true) {
+			$(o.container,obj).css({height:(w*i)});
+			$(o.slides,obj).css({height:(s*w)});
+		} else {
+			$(o.container,obj).css({width:(w*i)});
+			$(o.slides,obj).css({width:(s*w)});
+		}
+		
+		$(o.slides,obj).children().each(function(){
+			if (o.vertical===true) {
+				$(this).css({position:'absolute',top:p+pd,display:'block'});
+			} else {
+				$(this).css({position:'absolute',left:p+pd,display:'block'});
+			}
+			p=p+w;
+		});
+
+		$(o.slides,obj).children().each(function(){
+			pt = pt+1;
+			if (pt<i+1) {
+				params[o.vertical ? 'top' : 'left'] = (-w*pt)+pd-(w*os);
+				$(o.slides,obj).children(':eq('+(s-pt)+')').css(params);
+			}
+			if (pt===i+2) {
+				pt = 0;
+				return false;
+			}
+		});
+		
+		$('.next',obj).click(function(){
+			if(u===false) {
+				animate('next',true);
+				if(o.autoStart){clearInterval(sliderIntervalID);}
+			}
+			return false;
+		});
+		
+		$('.previous',obj).click(function(){
+			if(u===false) {	
+				animate('prev',true);
+				if(o.autoStart){clearInterval(sliderIntervalID);}
+			} return false;
+		});
+		
+		$(o.pagination+' li a',obj).click(function(){
+			if ($(this).parent().hasClass('active')) {return false;}
+			else {
+				t = $(this).attr('rel');
+				$(o.pagination+' li a',obj).parent().siblings().removeClass('active');
+				$(this).parent().addClass('active');
+				animate('fade',t);
+				if(o.autoStart){clearInterval(sliderIntervalID);}
+			} return false;
+		});
+		
+		if (o.autoStart) {
+			sliderIntervalID = setInterval(function(){
+				if(u===false) {animate('next',true);}
+			}, o.autoStart);
+		}
+		
+		function current(t) {
+			if(t===c+1){t=1;}
+			if(t===0){t=c;}
+			$(o.pagination+' li a',obj).parent().siblings().removeClass('active');
+			$(o.pagination+' li a[rel="' + (t) + '"]',obj).parent().addClass('active');
+		}
+		
+		function animate(dir,clicked){	
+			u = true;	
+			switch(dir){
+				case 'next':
+					t = t+1;
+					m = (-(t*w-w)*i);
+					current(t);		
+					params[o.vertical ? 'top' : 'left'] = m;				
+					$(o.slides,obj).animate(params, o.slidespeed,function(){
+						if (t===c+1) {
+							t = 1;
+							params[o.vertical ? 'top' : 'left'] = 0;
+							$(o.slides,obj).css(params,function(){
+								$(o.slides,obj).animate(params);
+							});						
+							$(o.slides,obj).children().each(function(){	
+								if (pt<i) {
+									params[o.vertical ? 'top' : 'left'] = (w*pt)+pd;
+									$(o.slides,obj).children(':eq('+pt+')').css(params);
+									params[o.vertical ? 'top' : 'left'] = -(w*(pt+os+1)-pd);
+									$(o.slides,obj).children(':eq('+(s-(pt+1))+')').css(params);
+								} else {
+									pt = 0; 
+									return false;
+								}
+								pt = pt+1;
+							});	
+						}
+						if (t===c) {
+							$(o.slides,obj).children().each(function(){	
+								if (pt<i) {
+									params[o.vertical ? 'top' : 'left'] = w*(s+pt+os)+pd;
+									$(o.slides,obj).children(':eq('+(pt)+')').css(params);
+								} else {
+									pt = 0;
+									return false;
+								}
+								pt = pt+1;
+							});
+						}
+						if (t===2) {
+							$(o.slides,obj).children().each(function(){
+								pt = pt+1;
+								if (pt<i+1) {									
+									params[o.vertical ? 'top' : 'left'] = ((w*s)+pd)-(w*pt);
+									$(o.slides,obj).children(':eq('+(s-pt)+')').css(params);
+								} else {
+									pt = 0;
+									return false;
+								}
+							});
+						}
+						u = false;
+					});					
+					break; 
+				case 'prev':
+					t = t-1;
+					m = (-(t*w-w)*i);
+					current(t);
+					params[o.vertical ? 'top' : 'left'] = m;
+					$(o.slides,obj).animate(params, o.slidespeed,function(){
+						if (t===0) {
+							t = c;
+							params[o.vertical ? 'top' : 'left'] = -w*(s-i)-(w*os);
+							$(o.slides,obj).css(params);
+							$(o.slides,obj).children().each(function(){	
+								if (pt<i) {
+									params[o.vertical ? 'top' : 'left'] = w*(s+pt+os)+pd;
+									$(o.slides,obj).children(':eq('+pt+')').css(params);									
+									params[o.vertical ? 'top' : 'left'] = (s*w)+pd-(pt*w)-w;
+									$(o.slides,obj).children(':eq('+((s-1)-pt)+')').css(params);
+								} else {
+									pt = 0; 
+									return false;
+								}
+								pt = pt+1;
+							});
+						}
+						if (t===2) {
+							$(o.slides,obj).children().each(function(){	
+								if (pt<i) {
+									params[o.vertical ? 'top' : 'left'] = (w*pt)+pd;
+									$(o.slides,obj).children(':eq('+pt+')').css(params);
+								} else {
+									pt = 0; 
+									return false;
+								}
+								pt = pt+1;
+							});
+						}
+						if (t===1) {
+							$(o.slides,obj).children().each(function(){	
+								if (pt<i) {
+									params[o.vertical ? 'top' : 'left'] = -(w*pt)-w+pd-(w*os);
+									$(o.slides,obj).children(':eq('+((s-1)-pt)+')').css(params);
+								} else {
+									pt = 0; 
+									return false;
+								}
+								pt = pt+1;
+							});
+						}
+
+						u = false;
+					});
+					break;
+				case 'fade':
+					t = [t]*1;
+					m = (-(t*w-w)*i);
+					current(t);
+					$(o.slides,obj).children().fadeOut(o.fadespeed, function(){
+						params[o.vertical ? 'top' : 'left'] = m;
+						$(o.slides,obj).css(params);
+						$(o.slides,obj).children().each(function(){	
+							if (pt<i) {
+								params[o.vertical ? 'top' : 'left'] = (pt*w)+pd;
+								$(o.slides,obj).children(':eq('+pt+')').css(params);
+								params[o.vertical ? 'top' : 'left'] = w*(s-pt)-w+pd;
+								$(o.slides,obj).children(':eq('+((s-1)-pt)+')').css(params);
+							} else {
+								pt = 0; 
+								return false;
+							}
+							pt = pt+1;
+						});
+						
+						if(t===c){						
+							$(o.slides,obj).children().each(function(){	
+								if (pt<i) {
+									params[o.vertical ? 'top' : 'left'] = w*(s+pt+os)+pd;
+									$(o.slides,obj).children(':eq('+(pt)+')').css(params);
+								} else {
+									pt = 0;
+									return false;
+								}
+								pt = pt+1;
+							});
+						}
+						if(t===1){
+							$(o.slides,obj).children().each(function(){
+								pt = pt+1;
+								if (pt<i+1) {
+									params[o.vertical ? 'top' : 'left'] = -(w*pt)+pd-(w*os);
+									$(o.slides,obj).children(':eq('+(s-pt)+')').css(params);
+								} else {
+									pt = 0;
+									return false;
+								}
+							});
+						}
+						$(o.slides,obj).children().fadeIn(o.fadespeed);
+						u = false;
+					});
+					break; 
+				default:
+					break;
+				}					
+			}
+		});
+	};
+})(jQuery);
