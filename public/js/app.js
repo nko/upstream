@@ -11,8 +11,8 @@ $(function() {
   		scroll: true
   	});
     
-    $("#apartment_tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#chosen_apartment_tags'}));
-    $("#tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#chosen_tags'}));
+    $("#apartment_tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#tags_for_apartment'}));
+    $("#tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#tags_for_search'}));
   })();
          
   // transloadit
