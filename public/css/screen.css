@@ -745,10 +745,6 @@ form ul li {
 	text-shadow: 1px 1px 1px #054E66;
 }
 
-.ac_even {
-  background: #fff;
-  border: 1px solid ;
-}
 .ac_results {
 	padding: 0px;
 	border: 1px solid black;
@@ -758,7 +754,7 @@ form ul li {
 }
 
 .ac_results ul {
-	width: 100%;
+	width: 130px;
 	list-style-position: outside;
 	list-style: none;
 	padding: 0;
@@ -786,7 +782,7 @@ form ul li {
 }
 
 .ac_loading {
-	background: white url('indicator.gif') right center no-repeat;
+	background: white url('/img/indicator.gif') right center no-repeat;
 }
 
 .ac_odd {
@@ -794,6 +790,7 @@ form ul li {
 }
 
 .ac_over {
-	background-color: #0A246A;
-	color: white;
+	background-color: #fff;
+	width: 130px;
+	border-color: #0095BC;
 }
