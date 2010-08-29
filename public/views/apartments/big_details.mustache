@@ -39,7 +39,7 @@
 						Number of Rooms: {{number_of_rooms}}
 					</li>
 					<li class="item">
-						Date of Availability: {{date_of_availability}} 
+						Date of Availability: {{availability}} 
 					</li>
 					<li class="item">
 						Size: {{size}}
@@ -55,6 +55,8 @@
     </div>
     
     <div id="contact_request" style="display: none;">
+		<h2>Contact</h2>
+		
       {{#has_phone}}
         <p>Phone: {{phone}}</p>
       {{/has_phone}}
@@ -63,18 +65,17 @@
         <form method="POST" action="/messages">
           <input type="hidden" name="apartment_id" value="{{_id}}" />
           <p>
-            <label for="message">Message</label>
+	          <label for="message">Message:</label>
             <textarea name="message" id="message"></textarea>
           </p>
-        
           <p>
-            <input type="submit" value="Send request" />
+            <input type="submit" value="Send request" class="btn" />
           </p>
         </form>
       {{/has_email}}
       
       <p>
-        <a href="#" class="close_request">Close request</a>
+        <a href="#" class="close_request clearfix">Go back</a>
       </p>
     </div>
 	</div>

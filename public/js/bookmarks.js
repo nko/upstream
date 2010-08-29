@@ -18,6 +18,7 @@ $(function() {
         if(length_of_bookmarks === 0) {
           $('#bookmarks').trigger('bookmarks-loaded');
           $('#bookmarks').show();
+          $('#bookmarks_container').show();
         }
       });
     });

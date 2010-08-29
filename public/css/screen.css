@@ -426,8 +426,8 @@ label[for="s"] {
 #details {
   width: 950px;
   overflow: hidden;
-  
 }
+
 #filters {
   font-size: .75em;
   line-height: 1;
@@ -436,6 +436,12 @@ label[for="s"] {
   float: left;
   border-right: 1px solid #E0DFDF;
 }
+#filters p {
+  width: 250px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
 
 .slide_left_out {
   border-left: 1px solid #fff;
@@ -1017,10 +1023,26 @@ form ul li {
 .clearfix {display:block;}
 .hide { display: none !important; }
 
-.send_request {
-  font-size: 11px;
-  color: #333 !important;
-  text-decoration: underline !important;
+#contact_request {
+  padding: 24px;
+  width: 320px;
+  
+}
+
+#contact_request .btn {
+  float: left;
+}
+#contact_request label {
+  display: block;
+  margin-bottom: 12px;
+}
+#contact_request textarea {
+  width: 100%;
+  margin-bottom: 12px;
+} 
+#contact_request .close_request {
+  float: right;
+  margin-bottom: 24px;
 }
 
 

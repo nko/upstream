@@ -144,6 +144,9 @@ $(function() {
     }
     $.jStorage.set("w4lls.apartments", bookmarks);
     $(bookmark).parents('.bookmark:first').remove();
+    if(bookmarks.length === 0) {
+      $('#bookmarks_container').hide();
+    }
   };
   
   w4lls.add_bookmark = function(apartment) {
@@ -175,7 +178,8 @@ $(function() {
       
       if(remembered_apartments.length === 1) {
         $("#bookmarks").jcarousel();
-        $('#bookmarks').show();        
+        $('#bookmarks').show();
+        $('#bookmarks_container').show();
       }
     });
   };
@@ -194,6 +198,7 @@ $(function() {
   $(window).trigger("resize");
   
   setTimeout(function() {
+    // TODO: chrome somehow cannot calculate the height correctly
     var filters = $('#filters');
     filters.find('.view_indicator').css('height', filters.find('ul').css('height'));    
   }, 750);
