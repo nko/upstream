@@ -230,6 +230,8 @@ $(function() {
       
       details_container.find('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); evt.preventDefault(); });
       
+      details_container.find('.facebook_like').replaceWith($('<iframe src="http://www.facebook.com/plugins/like.php?href=' + encodeURIComponent(location.href) + '&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>'));
+      
       if(callback) {
         callback(apartment);  
       };
