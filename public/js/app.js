@@ -59,7 +59,7 @@ $(function() {
   });
   
   w4lls.hide_filters = function(filters) {
-    filters.animate({left: '-305px'});
+    filters.animate({left: '-299px'});
     filters.addClass('hidden');    
   };
   

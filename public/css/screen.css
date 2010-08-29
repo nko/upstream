@@ -406,7 +406,6 @@ label[for="s"] {
   float: left;
   background: rgba(0,0,0,0.5);
   background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
-  height: 370px;
   -webkit-border-top-right-radius: 6px;
   -moz-border-radius-topright: 6px;
   -o-border-top-right-radius: 6px;
@@ -485,6 +484,7 @@ label[for="s"] {
 .big {
   font-size: 2em;
   margin-top: 0px;
+  width: 24px;
 }
 .small {
   margin-top: 10px;
@@ -693,25 +693,68 @@ form ul li {
 }
 
 #tags {
-  width: 150px;
+  width: 130px;
   padding: 4px;
   float: left;
+  margin-bottom:12px;
 }
-#tags:after {
-  content:"";
-  border-right: 1px solid #aaa;
-  margin-left: 12px;
+
+#tags_for_search {
+  margin-top: 12px;
+  border-top: 1px solid #aaa;
+  clear: both;
 }
+
 .tag_search em {
   font-style: italic;
   display: block; 
   float: right;
   width: 80px;
   text-align: right;
-  border-left: 1px solid #aaa;
-  
+  height: 24px;
+  line-height: 24px;
+  background: url(/img/w4lls_vertical_sep.png) no-repeat 0 0;
+  margin-left: 12px;
+  padding-left: 12px;
 }
 #filters .tagEditor {
   float: none;
-  clear: both;
+  margin:0;
+  padding:12px 0;
+  border-top: 1px solid #fff;
+  width: 248px;
+  background: url(/img/w4lls_chosen_tags.png) no-repeat 198px -1px;
+  
+}
+.tagEditor li {
+  padding: 3px;
+  border: 1px solid #aaa;
+  background-color: #e2b7a3;
+}
+
+.tagEditor
+{
+	margin: 4px 0;
+	padding: 0;
+}
+
+.tagEditor li
+{
+	display: inline;
+	background-image: url(/img/minus_small.png);
+	background-color: #eef;
+	background-position: right center;
+	background-repeat: no-repeat;
+	list-style-type: none;
+	padding: 0 18px 0 6px;
+	margin: 0 4px;	
+	cursor: pointer;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.tagEditor li:hover
+{
+	background-color: #eee;
 }
