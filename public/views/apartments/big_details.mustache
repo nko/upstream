@@ -1,12 +1,17 @@
 <div id="details_centering">
 	<div id="details_rightflow">
 		<div id="details">
+			<a href="" class="view_indicator slide_right_out"></a>
 		
 			<div class="left_column">
         {{#images}}
           <img src="{{middle}}" />
         {{/images}}
-
+				
+				<a href="" title="cancel" class="action_link cancel_link textlink left">Cancel!</a>
+				
+				<a href="" title="Bookmark apartment" class="check_link action_link textlink right">Bookmark!</a>
+				
 				<ul>
 					<li class="item">
 						Price: {{price}}
@@ -40,11 +45,6 @@
 				<p>
 					{{description}}
 				</p>
-
-	      <p>
-					<a href="#" title="Bookmark apartment" class="check_link action_link">Bookmark</a>
-					<a href="#" title="cancel" class="action_link cancel_link">Cancel</a>
-	      </p>
 			</div>
 
 
@@ -56,7 +56,8 @@
       {{/has_phone}}
       
       {{#has_email}}
-        <form method="POST" action="/contact_requests">
+        <form method="POST" action="/messages">
+          <input type="hidden" name="apartment_id" value="{{_id}}" />
           <p>
             <label for="message">Message</label>
             <textarea name="message" id="message"></textarea>
