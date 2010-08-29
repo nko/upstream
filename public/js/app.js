@@ -198,8 +198,10 @@ $(function() {
   $(window).trigger("resize");
   
   setTimeout(function() {
+    // TODO: chrome somehow cannot calculate the height correctly
     var filters = $('#filters');
-    filters.find('.view_indicator').css('height', filters.find('ul').css('height'));    
+    filters.find('.view_indicator').css('height', '257px');
+    // filters.find('.view_indicator').css('height', filters.find('ul').css('height'));    
   }, 750);
   
   var details_container = $('#details_container');
