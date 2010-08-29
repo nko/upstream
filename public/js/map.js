@@ -32,7 +32,7 @@ $(function() {
     w4lls.apartments.push(marker);
 
     function build_info_window() {
-      var content = w4lls.mustache(w4lls.show_template, apartment);
+      var content = Mustache.to_html(w4lls.show_template, apartment);
       var infowindow = new google.maps.InfoWindow({ content: content });
 
       google.maps.event.addListener(marker, 'click', function() {

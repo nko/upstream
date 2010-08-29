@@ -1,45 +1,5 @@
-w4lls.app = $.sammy(function() {
-  this.use(Sammy.Mustache);
-  this.element_selector = '#wrapper';
-  
-  this.get('#/', function() {});
-  
-  this.swap = function(content) {
-    this.$element().append(content);
-    this.trigger('done-swapping');
-  };
-  
-  this.get('#/apartments/new', function(context) {
-    var stringified_transloadit_params = JSON.stringify(w4lls.transloadit_params),
-      form = $('#new_apartment form');
-    
-    form.find('#transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
-    form.find('#apartment_availability').datepicker();
-    
-    form.transloadit({
-      wait: true,
-      autoSubmit: false,
-      onSuccess: function(assembly) {          
-        form.prepend($('<input type="hidden" name="transloadit"/>').val(JSON.stringify(assembly)));
-        form.ajaxSubmit({
-          no_file_uploads: true,
-          success: function(apartment) {
-            if(apartment && apartment.lat && apartment.lng) {
-              w4lls.show_apartment(apartment, w4lls.map);
-            }
-            $('#new_apartment').remove();
-            context.redirect('#/');
-          }
-        });
-      }
-    });      
-  });
-});
-
-$(function() {  
-  w4lls.app.run('#/');
-  
-  w4lls.transloadit_params = {
+$(function() {
+  var transloadit_params = {
     auth: {
       key: '4c791226c09040dd98af27d472ec3211'
     },
@@ -51,4 +11,32 @@ $(function() {
     },
     redirect_url: 'http://' + w4lls.host + '/apartments'
   }
+  
+  var stringified_transloadit_params = JSON.stringify(transloadit_params);
+  var form = $('#new_apartment form');
+  
+  form.find('#transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
+  form.find('#apartment_availability').datepicker();
+  
+  form.transloadit({
+    wait: true,
+    autoSubmit: false,
+    onSuccess: function(assembly) {          
+      form.prepend($('<input type="hidden" name="transloadit"/>').val(JSON.stringify(assembly)));
+      form.ajaxSubmit({
+        no_file_uploads: true,
+        success: function(apartment) {
+          if(apartment && apartment.lat && apartment.lng) {
+            w4lls.show_apartment(apartment, w4lls.map);
+          }
+          $("#top_slider").slideUp("normal");
+        }
+      });
+    }
+  });      
+  
+  $("#big_add_link").click(function () {
+    $("#top_slider").slideToggle("normal");
+    return false;
+  });
 });
