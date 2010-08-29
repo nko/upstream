@@ -68,6 +68,7 @@ h4 img, h5 img, h6 img {
 .item {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #aaa;
+  list-style:none;
 }
 .item:first-child {
   border-top: none;
