@@ -73,6 +73,19 @@ $(function() {
       });
     });
   };
-
+  
   w4lls.load_map();
+  
+  $(window).bind('reload-apartments', (function() {
+    var counter = 0;
+    return function() {
+      counter += 1;
+      window.setTimeout(function() {
+        counter -= 1;
+        if(counter == 0) {
+          w4lls.load_apartments();
+        };
+      }, 400);
+    };
+  })());
 });
