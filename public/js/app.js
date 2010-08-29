@@ -115,8 +115,18 @@ $(function() {
     }
     return false;
   });
+
+  w4lls.delete_bookmark = function(apartment, bookmark) {
+    var bookmarks = $.jStorage.get("w4lls.apartments", []),
+      index = bookmarks.indexOf(apartment);
+    if(index >= 0) {
+      bookmarks.splice(index, 1);
+    }
+    $.jStorage.set("w4lls.apartments", bookmarks);
+    $(bookmark).parents('.bookmark:first').remove();
+  };
   
-  w4lls.remember_this = function(apartment) {
+  w4lls.add_bookmark = function(apartment) {
     var remembered_apartments = $.jStorage.get("w4lls.apartments", []);
     remembered_apartments.push(apartment);
     $.jStorage.set("w4lls.apartments", remembered_apartments);
@@ -124,15 +134,13 @@ $(function() {
     w4lls.template('show', 'bookmarks', function() {
       $('#bookmarks ul').append(Mustache.to_html(w4lls.show_template, apartment));
       $('#bookmarks ul .bookmark:last a.details').click(function() {
-        w4lls.show_details(apartment);
+        w4lls.show_details(apartment, function(apartment) {
+          $('.remember_this').click(function(evt) { w4lls.add_bookmark(apartment); evt.stopPropagation(); evt.preventDefault(); });
+          $('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); evt.preventDefault(); });
+        });
       });
       $('#bookmarks ul .bookmark:last a.delete_bookmark').click(function() {
-        var remembered_apartments = $.jStorage.get("w4lls.apartments", []),
-          index = remembered_apartments.indexOf(apartment);
-        if(index >= 0) {
-          remembered_apartments.splice(index, 1);
-        }
-        $.jStorage.set("w4lls.apartments", remembered_apartments);        
+        w4lls.delete_bookmark(apartment, this);
       });
       $('#bookmarks').show();
     });
