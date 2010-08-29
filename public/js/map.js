@@ -33,8 +33,8 @@ $(function() {
 
     google.maps.event.addListener(marker, 'click', function() {
       w4lls.show_details(apartment, function(apartment) {
-        $('.remember_this').click(function(evt) { w4lls.remember_this(apartment); evt.stopPropagation(); });
-        $('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); });
+        $('.remember_this').click(function(evt) { w4lls.remember_this(apartment); evt.stopPropagation(); evt.preventDefault(); });
+        $('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); evt.preventDefault(); });
       });
     });
     
