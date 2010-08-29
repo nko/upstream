@@ -19,7 +19,8 @@ $(function() {
 		step: 50,
 		values: [10, 2000],
 		slide: function(event, ui) {
-			$("#price_amount").text('€' + ui.values[0] + ' - €' + ui.values[1]);			
+			$("#price_amount").text('€' + ui.values[0] + ' - €' + ui.values[1]);
+			w4lls.load_apartments();
 		}
 	});
 	
@@ -32,6 +33,7 @@ $(function() {
 		values: [10, 2000],
 		slide: function(event, ui) {
 			$("#space_amount").text(ui.values[0] + ' m²' + ' - ' + ui.values[1] + ' m²');
+			w4lls.load_apartments();
 		}
 	});
 	
