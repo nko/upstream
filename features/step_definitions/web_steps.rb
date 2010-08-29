@@ -119,7 +119,7 @@ end
 When /^(?:|I )attach the file "([^\"]*)" to "([^\"]*)"(?: within "([^\"]*)")?$/ do |path, field, selector|
   patiently do
     with_scope(selector) do
-      attach_file(field, path)
+      attach_file(field, File.dirname(__FILE__) + "/../fixtures/path")
     end
   end
 end
