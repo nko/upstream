@@ -105,9 +105,9 @@
 
     this.assemblyId = this.uuid();
 
-    // if(this._options.beforeStart) {
-    //   if(!this._options.beforeStart()) { return false; }
-    // }
+    if(this._options.beforeStart) {
+      if(!this._options.beforeStart()) { return false; }
+    }
 
     var $params = this.$form.find('input[name=params]');
     if (!$params.length) {
@@ -394,19 +394,17 @@
     });
 
     this.$modal.$error.hide();
-alert("3");
-    // var self = this
-    //   , expose =
-    //       this.$modal.expose
-    //       ( { api: true
-    //         , maskId: 'transloadit_expose'
-    //         , opacity: 0.9
-    //         , loadSpeed: 250
-    //         , closeOnEsc: false
-    //         , closeOnClick: false
-    //         }
-    //       ).load();
-alert("4");
+    var self = this
+      , expose =
+          this.$modal.expose
+          ( { api: true
+            , maskId: 'transloadit_expose'
+            , opacity: 0.9
+            , loadSpeed: 250
+            , closeOnEsc: false
+            , closeOnClick: false
+            }
+          ).load();
     this.$modal.$close.click(function() {
       self.cancel();
       return false;
