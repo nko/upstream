@@ -5,8 +5,8 @@ $(function() {
       separator: ',',
       completeOnSeparator: true
     };
-    $("#apartment_tags").tagEditor(options);
-    $("#tags").tagEditor(options);
+    $("#apartment_tags").tagEditor(_(options).extend({appendTagsTo: '#partment_tags_div'}));
+    $("#tags").tagEditor(_(options).extend({appendTagsTo: '#tags_div'}));
   })();
          
   // transloadit
