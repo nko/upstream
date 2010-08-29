@@ -126,7 +126,7 @@ $(function() {
     filters.animate({left: '-3px'});    
   };
   
-  $('.view_indicator').click(function() {
+  $('#filters .view_indicator').click(function() {
     filters = $('#filters');
     if(filters.hasClass('hidden')) {
       w4lls.show_filters(filters);
@@ -206,6 +206,11 @@ $(function() {
         details_container.unbind('click');
       }
       details_container.click(w4lls.close_details_container);
+      details_container.find('.view_indicator').click(function(evt) {
+        w4lls.close_details_container();
+        evt.preventDefault();
+        evt.stopPropagation();
+      });
       
       callback(apartment);
     };
