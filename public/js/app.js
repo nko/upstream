@@ -147,6 +147,8 @@ $(function() {
   };
   
   w4lls.add_bookmark = function(apartment) {
+    $('#details_container .remember_this').replaceWith($('<p>Already bookmarked</p>'));
+    
     var remembered_apartments = $.jStorage.get("w4lls.apartments", []);
     remembered_apartments.push(apartment);
     $.jStorage.set("w4lls.apartments", remembered_apartments);
@@ -198,6 +200,8 @@ $(function() {
       details_container.html(Mustache.to_html(w4lls.big_details_template, apartment));
       w4lls.hide_filters(filters);
       details_container.css('right', '-' + width);
+      var height = parseInt(details_container.css('height'), 10);
+      details_container.find('.view_indicator').css('height', height + 24);
       details_container.animate({right: '-3px'});
 
       w4lls.close_details_container = function() {
@@ -216,7 +220,20 @@ $(function() {
         evt.stopPropagation();
       });
       
-      callback(apartment);
+      var bookmarks = $.jStorage.get("w4lls.apartments", []);
+      
+      if(!_(bookmarks).detect(function(bookmark) {return bookmark._id == apartment._id;})) {
+        details_container.find('.remember_this').click(function(evt) { w4lls.add_bookmark(apartment); evt.stopPropagation(); evt.preventDefault(); });
+      } else {
+        details_container.find('.remember_this').replaceWith($('<p>Already bookmarked</p>'));
+      };
+      
+      details_container.find('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); evt.preventDefault(); });
+      
+      if(callback) {
+        callback(apartment);  
+      };
+      
     };
     
     w4lls.template('big_details', 'apartments', show_big_details);

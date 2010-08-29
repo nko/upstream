@@ -82,10 +82,7 @@ $(function() {
       var apartment = _(w4lls.apartments).detect(function(marker) {
         return marker.apartment._id == apartment_id;
       }).apartment;
-      w4lls.show_details(apartment, function(apartment) {
-        $('.remember_this').click(function(evt) { w4lls.add_bookmark(apartment); evt.stopPropagation(); evt.preventDefault(); });
-        $('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); evt.preventDefault(); });
-      });
+      w4lls.show_details(apartment);
     };
   });
 
