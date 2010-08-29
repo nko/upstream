@@ -582,13 +582,13 @@ label[for="s"] {
   border-top-left-radius: 6px;
   border: 2px solid #fff;
   border-bottom: 0;
-  height: 84px;
+  height: 112px;
 }
 
 .carousel-control {
   display: block;
   width: 2em;
-  height: 84px;
+  height: 100px;
   position: absolute;
   background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
   background-repeat: no-repeat, repeat;
@@ -644,7 +644,7 @@ label[for="s"] {
   display: block;
   float: left;
   padding: 6px;
-  height: 72px;
+  height: 92px;
   width: 100px;
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
   position: relative;
@@ -671,6 +671,7 @@ label[for="s"] {
 
 .bookmark img {
   border: 2px solid #FFF;
+  width: 75%;
 }
 
 
@@ -749,6 +750,28 @@ select:focus {
   -moz-box-shadow: inset 0 2px 3px #999;
   -webkit-box-shadow: inset 0 2px 3px #999;
   box-shadow: inset 0 2px 3px #999;
+}
+
+input[type="text"].error,
+input[type="password"].error,
+textarea.error,
+select.error {
+  border: 1px solid #D16A3C;
+  color: #D16A3C;
+  -moz-box-shadow: inset 0 2px 5px #D16A3C;
+  -webkit-box-shadow: inset 0 2px 5px #D16A3C;
+  box-shadow: inset 0 2px 5px #D16A3C;
+}
+
+#new_apartment #errors {
+  color: #D16A3C;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+#errors li {
+  display: inline-block;
+  margin.right: .25em;
 }
 
 form ul {
