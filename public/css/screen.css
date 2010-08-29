@@ -868,6 +868,9 @@ form ul li {
 #details h2 {
   line-height: 1;
 }
+#details h2 + p {
+  float: right;
+}
 #details address {
   padding: 12px;
   clear: left;
