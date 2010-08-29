@@ -215,7 +215,7 @@ a:focus {
   height: 32px;
   display: block;
   text-indent: -9999px;
-  background: transparent url(/img/w4lls_cancel_link.png) no-repeat 0 0;
+  background: transparent url(/img/w4lls_icons.png) no-repeat 0 0;
 }
 .action_link.show {
   width: auto;
@@ -585,10 +585,41 @@ label[for="s"] {
   width: 2em;
   height: 84px;
   position: absolute;
-  background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
+  background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
+  background-repeat: no-repeat, repeat;
+  background-position: 7px 50%, 0 0;
+  background-color: transparent;
   cursor: pointer;
-/*  text-indent: -9999px; */
+  text-indent: -9999px;
 }
+
+.previous {
+  left: 0;
+}
+
+.next {
+  right: 0;
+  background-position: -55px 50%, 0 0;
+}
+
+.previous.hover {
+  background-position: -232px 50%, 0 0;
+  
+}
+
+.next.hover {
+  background-position: -296px 50%, 0 0;
+}
+
+.previous.disabled {
+  background-position: -110px 50%, 0 0;
+  
+}
+
+.next.disabled {
+  background-position: -175px 50%, 0 0;
+}
+
 
 .carousel-wrap {
   overflow: visible !important;
@@ -599,29 +630,26 @@ label[for="s"] {
 }
 
 .carousel-wrap ul {
-  width: 90% !important;
+  width: 886 !important;
   list-style: none;
-  margin: 0 5em;
+  margin: 0 0 0 32px;
 }
 
 .carousel-wrap ul li {
   display: block;
   float: left;
-  padding: .25em;
-  border: 2px solid #FFF;
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  border-radius: 12px;
+  padding: 6px;
+  height: 72px;
+  width: 72px;
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
+  
 }
 
-
-.next {
-  right: 0;
+.bookmark {
+  border-left: 1px solid #FFF;
+  border-right: 1px solid #AAA;  
 }
 
-.prev {
-  left: 0;
-}
 
 /* footer */
 
