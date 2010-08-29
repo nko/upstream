@@ -3,7 +3,10 @@ $(function() {
   (function() {
     var tag_editor_options = {
       separator: ',',
-      completeOnSeparator: true
+      completeOnSeparator: true,
+      afterAppend: function() {
+        $('#filters .view_indicator').css('height', $('#filters ul').css('height'));
+      }
     };
     
     $("#apartment_tags, #tags").autocomplete("/tags", {
@@ -54,7 +57,7 @@ $(function() {
   });
   
   $("#big_add_link, .cancel_link").click(function () {
-    $("#top_slider").slideToggle("normal");
+    $("#top_slider").slideToggle("slow");
     return false;
   });
   
