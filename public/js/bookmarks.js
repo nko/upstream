@@ -1,6 +1,7 @@
 $(function() {
   var bookmarks = $.jStorage.get("w4lls.apartments", []);
   if(bookmarks.length > 0) {
+    var length_of_bookmarks = bookmarks.length;
     bookmarks.forEach(function(bookmark) {
       w4lls.template('show', 'bookmarks', function() {
         $('#bookmarks .slides').append(Mustache.to_html(w4lls.show_template, bookmark));
@@ -13,11 +14,16 @@ $(function() {
         $('#bookmarks .slides .bookmark:last a.delete_bookmark').click(function() {
           w4lls.delete_bookmark(bookmark, this);
         });
-        $('#bookmarks').show();
-      });      
+        length_of_bookmarks -= 1;
+        if(length_of_bookmarks === 0) {
+          $('#bookmarks').trigger('bookmarks-loaded');
+          $('#bookmarks').show();
+        }
+      });
     });
-    $('#bookmarks').show();
   }
   
-  $("#bookmarks").loopedCarousel();
+  $('#bookmarks').bind('bookmarks-loaded', function() {
+    $("#bookmarks").loopedCarousel();
+  });
 });
