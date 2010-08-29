@@ -698,6 +698,11 @@ form ul li {
   float: left;
   margin-bottom:12px;
 }
+#tags:focus {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
 #tags_for_search {
   margin-top: 12px;
@@ -721,7 +726,7 @@ form ul li {
   float: none;
   margin:0;
   border-top: 1px solid #fff;
-  width: 248px;
+  width: 255px;
   background: url(/img/w4lls_chosen_tags.png) no-repeat 198px -1px;
   overflow: hidden;
   padding: 6px 0 12px 0;
@@ -747,14 +752,15 @@ form ul li {
 
 .ac_results {
 	padding: 0px;
-	border: 1px solid black;
+	border: 1px solid #0095BC;
 	background-color: white;
 	overflow: hidden;
 	z-index: 99999;
+	border-top:0;
+	margin-top: -1px;
 }
 
 .ac_results ul {
-	width: 100%;
 	list-style-position: outside;
 	list-style: none;
 	padding: 0;
@@ -785,12 +791,7 @@ form ul li {
 	background: white url('/img/indicator.gif') 106px center no-repeat;
 }
 
-.ac_odd {
-	background-color: #eee;
-}
-
 .ac_over {
 	background-color: #fff;
-	width: 130px;
 	border-color: #0095BC;
 }
