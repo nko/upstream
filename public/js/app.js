@@ -144,6 +144,9 @@ $(function() {
     }
     $.jStorage.set("w4lls.apartments", bookmarks);
     $(bookmark).parents('.bookmark:first').remove();
+    if(bookmarks.length === 0) {
+      $('#bookmarks_container').hide();
+    }
   };
   
   w4lls.add_bookmark = function(apartment) {
@@ -175,7 +178,8 @@ $(function() {
       
       if(remembered_apartments.length === 1) {
         $("#bookmarks").jcarousel();
-        $('#bookmarks').show();        
+        $('#bookmarks').show();
+        $('#bookmarks_container').show();
       }
     });
   };
