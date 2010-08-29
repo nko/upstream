@@ -30,18 +30,10 @@ $(function() {
     });
     w4lls.apartments.push(marker);
 
-    function build_info_window() {
-      var content = Mustache.to_html(w4lls.small_details_template, apartment);
-      var infowindow = new google.maps.InfoWindow({ content: content });
-
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map, marker);
-        $('.remember_this').click(function() { w4lls.remember_this(apartment); });
-        $('.show_details').click(function() { w4lls.show_details(apartment); });
-      });
-    }
-
-    w4lls.template('small_details', 'apartments', build_info_window);
+    google.maps.event.addListener(marker, 'click', function() {
+      w4lls.show_details(apartment);
+      $('.remember_this').click(function() { w4lls.remember_this(apartment); });
+    });
     
     marker.setMap(map);
   };

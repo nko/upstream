@@ -3,15 +3,15 @@
     <div id="new_apartment">
       <div class="new_apartment_form_head">
         <a href="#" title="cancel" class="cancel_link">Cancel</a>          
-        <h2 class="close">New Flat</h2>
-        <p>You have a flat or a room in a shared flat to offer? Great! </p>  
+        <h2 class="close">New Apartment</h2>
+        <p>You have a apartment or a room in a shared apartment to offer? Great! </p>  
       </div>
       
       <form action="http://api2.transloadit.com/assemblies" enctype="multipart/form-data" method="POST">
         <div class="form_wrapper">
           <p class="checkbox">
             <input type="checkbox" name="apartment[shared_apartment]" id="apartment_shared_apartment" />
-            <label for="apartment_shared_apartment">Shared Flat</label>
+            <label for="apartment_shared_apartment">Shared Apartment</label>
           </p>
           <input type="hidden" id="transloadit_params" name="params" />
         
@@ -122,7 +122,7 @@
     <a href="/" title="Home">Four Walls</a>
   </h1>
 
-  <p id="big_add_link"><a href="#">Add flat</a></p>
+  <p id="big_add_link"><a href="#">Add apartment</a></p>
 
 	<form role="search" action="" id="searchform" method="get">
 		<label for="s" accesskey="1">Search:</label>
@@ -137,9 +137,9 @@
 		<ul>
 			<li class="flat_type item">
 				<input type="checkbox" name="shared" class="reload_apartments shared" />
-				<label for="shared">Shared Flat</label>
+				<label for="shared">Shared Apartment</label>
 				<input type="checkbox" name="entire" class="reload_apartments entire" />
-				<label for="entire">Entire Flat</label>
+				<label for="entire">Entire Apartment</label>
 			</li>
 			<li class="ui_slider item">
 				<em class="small">&euro;</em><div id="price_range"></div><em class="big">&euro;</em>

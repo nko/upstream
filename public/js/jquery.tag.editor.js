@@ -90,6 +90,9 @@ Joost Elfering
                 });
 
                 listBase.append(item);
+                if(options.afterAppend) {
+                  options.afterAppend();
+                }
                 return true;
             }
 
