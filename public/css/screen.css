@@ -106,6 +106,7 @@ h4 img, h5 img, h6 img {
   width: 33.3%;
   float: left;
   padding-top: .5em;
+  margin-top: 10px;
 }
 
 #big_add_link a:before {
@@ -164,7 +165,8 @@ h4 img, h5 img, h6 img {
   float: right;
   font-size: .6875em;
   color: #777;
-  width: 40%;
+  width: 33.3%;
+  margin-top: 24px;
 }
 
 .nav a,
@@ -289,19 +291,15 @@ a:focus {
   border-right: 0;
 }
 .nav a {
-  padding: 5px 10px;
+  padding: 4px 7px;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -o-border-radius: 8px;
-  -moz-transition: background-color color 0.5s ease-in;
-  -webkit-transition: background-color color 0.5s ease-in;
-  -o-transition: background-color color 0.5s ease-in;
-  transition: background-color color 0.5s ease-in;
 }
 .nav a:hover {
   background-color: #fff;
-  padding: 5px 7px;
+  padding: 4px 4px;
   margin: 0 3px;
   text-decoration: none;
 }
@@ -789,7 +787,7 @@ form ul li {
 }
 
 #new_apartment .inline_inputs {
-  padding: .5em 2em;
+  padding: 12px 2em;
 }
 
 #new_apartment .inline_inputs label {
@@ -813,7 +811,7 @@ form ul li {
   border-bottom: 2px solid #FFF;
   text-align: center;
   padding-top: 1em;
-  padding: .5em;
+  padding: 12px .5em;
   text-align: center;
   background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
 }
@@ -823,8 +821,13 @@ form ul li {
   background-color: #FFF;
 }
 
+.new_apartment_form_head p {
+  margin-bottom: 6px;
+}
+
 #new_apartment h2 {
   margin-bottom: 0;
+  padding: 6px 0;
 }
 
 .btn_wrap {
@@ -1075,3 +1078,9 @@ form ul li {
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix {display:block;}
 .hide { display: none !important; }
+
+.send_request {
+  font-size: 11px;
+  color: #333 !important;
+  text-decoration: underline !important;
+}
