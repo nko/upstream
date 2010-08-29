@@ -4,12 +4,16 @@
       <div class="new_apartment_form_head">
         <a href="#" title="cancel" class="cancel_link">Cancel</a>          
         <h2 class="close">New Apartment</h2>
-        <p>You have a apartment or a room in a shared apartment to offer? Great! </p>  
+        <p>You have an apartment or a room in a shared apartment to offer? Great! </p>  
       </div>
       
       <form action="http://api2.transloadit.com/assemblies" enctype="multipart/form-data" method="POST">
         <div class="form_wrapper">
-          <p class="checkbox item">
+          
+          <p class="checkbox item inline_inputs title_inputs">
+            <label for="apartment_title" class="hidden">Title</label>
+            <input type="text" name="apartment[title]" id="apartment_title" placeholder="Enter a title for your flat here, e.g. Nice, quite single flat in Kreuzberg" />
+            
             <input type="checkbox" name="apartment[shared_apartment]" id="apartment_shared_apartment" />
             <label for="apartment_shared_apartment">Shared Apartment</label>
           </p>
@@ -18,15 +22,6 @@
           <div class="item clearfix">
             <div class="third">
               <ul>
-                <li>
-                  <label for="apartment_title">Title</label>
-                  <input type="text" name="apartment[title]" id="apartment_title" />
-                </li>
-
-                <li>
-                  <label for="apartment_description">Description</label>
-                  <textarea name="apartment[description]" id="apartment_description"></textarea>
-                </li>
 
                 <li>
                   <label for="apartment_street">Street</label>
@@ -42,6 +37,12 @@
                   <label for="apartment_city">City</label>
                   <input type="text" disabled="disabled" name="apartment[city]" id="apartment_city" value="Berlin" />
                 </li>
+                
+                <li>
+                  <label for="apartment_description">Description</label>
+                  <textarea name="apartment[description]" id="apartment_description"></textarea>
+                </li>
+                  
               </ul>
             </div>
         
@@ -95,9 +96,9 @@
             </div>
           </div>
           
-          <p class="item clearfix">
+          <p class="item inline_inputs clearfix">
             <label for="apartment_tags">Tags</label>
-            <input name="apartment[tags]" id="apartment_tags" class=""/>
+            <input type="text" name="apartment[tags]" id="apartment_tags" class=""/>
             (separate with commas)
             <div id="tags_for_apartment"></div>
           </p>
