@@ -203,6 +203,7 @@ $(function() {
       w4lls.close_details_container = function() {
         w4lls.show_filters(filters);
         details_container.animate({right: '-' + width});
+        details_container.unbind('click');
       }
       details_container.click(w4lls.close_details_container);
       

@@ -561,7 +561,8 @@ label[for="s"] {
 
 #bookmarks_container {
   background: url(../img/map_bottom.png) repeat-x;
-  padding-top: 3em;
+  padding-top: 36px;
+  overflow: hidden;
 }
 
 #bookmarks {
@@ -634,6 +635,7 @@ label[for="s"] {
   overflow: hidden;
   list-style: none;
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
+  height: 92px;
 }
 
 .carousel-wrap ul li {
@@ -663,6 +665,7 @@ label[for="s"] {
   z-index: 100;
   top: -.875em;
   right: -.875em;
+  overflow: visible !important;
 }
 
 .bookmark img {
