@@ -53,14 +53,22 @@ $(function() {
     return false;
   });
   
+  w4lls.hide_filters = function(filters) {
+    filters.animate({left: '-305px'});
+    filters.addClass('hidden');    
+  };
+  
+  w4lls.show_filters = function(filters) {
+    filters.removeClass('hidden');
+    filters.animate({left: '-3px'});    
+  };
+  
   $('.view_indicator').click(function() {
     filters = $('#filters');
     if(filters.hasClass('hidden')) {
-      filters.removeClass('hidden');
-      filters.animate({left: '-3px'});
+      w4lls.show_filters(filters);
     } else {
-      filters.animate({left: '-305px'});
-      filters.addClass('hidden');
+      w4lls.hide_filters(filters);
     }
     return false;
   });
@@ -79,12 +87,23 @@ $(function() {
     });
   };
   
+  var details_container = $('#details_container');
+  var width = details_container.css('width');
+  details_container.css('right', '-' + width);
+  
   w4lls.show_details = function(apartment) {
     var show_big_details = function() {
-      $("#details_container").html(Mustache.to_html(w4lls.big_details_template, apartment));
-      $("#details_container").removeClass("hidden");
-      $("#details_container").click(function() {
-        $("#details_container").addClass("hidden");
+      var filters = $('#filters'),
+        details_container = $('#details_container'),
+        width = details_container.css('width');
+
+      details_container.html(Mustache.to_html(w4lls.big_details_template, apartment));
+      w4lls.hide_filters(filters);
+      details_container.animate({right: '-3px'});
+      
+      details_container.click(function() {
+        w4lls.show_filters(filters);
+        details_container.animate({right: '-' + width});
       });      
     };
     
