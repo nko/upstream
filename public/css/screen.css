@@ -224,12 +224,7 @@ a:focus {
   text-indent: 0;
   width: auto;
 }
-.action_link.textlink.left {
-  float: left;
-}
-.action_link.textlink.right {
-  float: right;
-}
+
 .cancel_link.textlink {
   color: #D16A3C;
 }
@@ -410,7 +405,7 @@ label[for="s"] {
   overflow: auto;
 }
 #details_rightflow {
-  width: 1000%;
+  width: 100%;
   position: absolute;
   z-index: 0;
   -moz-box-shadow: 1px 3px 3px #999;
@@ -1036,29 +1031,36 @@ form ul li {
 }
 .left_column img {
   border: 6px solid #fff;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 .right_column {
   float:left;
   width: 495px;
   margin: 24px 0;
-  
-}
-#details h2 {
-  line-height: 1;
 }
 
+#details h2 {
+  line-height: 1;
+  font-size: 16px;
+}
+#details p {
+  font-size: 11px;
+}
 #details address {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   padding: 12px;
   background: #fff;
+  clear: both;
+  font-size: 13px;
+  margin-top: 12px;
 }
 #details ul {
-  margin: 48px 0 12px 0;
-  clear: both;
+  margin: 12px 0;
+  font-size: 13px;
+  font-weight: bild;
 }
 #details li {
-  padding: 6px;
+  padding: 3px;
 }
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix {display:block;}
