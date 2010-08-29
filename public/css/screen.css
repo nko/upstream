@@ -88,7 +88,7 @@ h4 img, h5 img, h6 img {
   margin: 0 auto;
 }
 #header {
-  height: 56px;
+  height: 72px;
   padding-top: 18px;
   position: relative;
 }
@@ -651,14 +651,32 @@ label[for="s"] {
   float: left;
   padding: 6px;
   height: 72px;
-  width: 72px;
-  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
-  
+  width: 100px;
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
+  position: relative;
 }
 
 .bookmark {
   border-left: 1px solid #FFF;
-  border-right: 1px solid #AAA;  
+  border-right: 1px solid #AAA; 
+  text-align: center; 
+}
+
+.bookmark .details {
+  font-size: .75em;
+  margin-bottom: .5em;
+  display: block;
+}
+
+.bookmark .cancel_link {
+  position: absolute;
+  z-index: 100;
+  top: -.875em;
+  right: -.875em;
+}
+
+.bookmark img {
+  border: 2px solid #FFF;
 }
 
 
