@@ -24,6 +24,10 @@ module.exports = {
     var query = Query.build({size_min: '130', size_max: '40'});
     assert.equal('size<int>:[40 TO 130]', query);
   },
+  '#build parses min/max values correctly': function(assert) {
+    var query = Query.build({size_min: '09', size_max: '04'});
+    assert.equal('size<int>:[04 TO 09]', query);
+  },
   '#build with tags': function(assert) {
     var query = Query.build({tags: 'balcony,shower'});
     assert.equal('tags:"balcony" AND tags:"shower"', query);

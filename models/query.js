@@ -26,8 +26,7 @@ module.exports.Query = {
     return query.join(' AND ');
 
     function range_query(field, type, min, max) {
-      var parse_fn = type == 'int' ? parseInt : parseFloat;
-      var values = [min, max].sort(function(a,b) {return parse_fn(a) - parse_fn(b);});
+      var values = [min, max].sort(function(a,b) {return parseFloat(a) - parseFloat(b);});
       return field + '<' + type + '>:[' + values[0] + ' TO ' + values[1] + ']';
     }
   }
