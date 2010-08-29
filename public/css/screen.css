@@ -349,9 +349,6 @@ label[for="s"] {
   width: 100%;
   position: absolute;
 }
-#details_container.hidden {
-  display: none;
-}
 #details_centering {
   width: 950px;
   margin: 0 auto;
