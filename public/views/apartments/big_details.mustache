@@ -1,15 +1,14 @@
 <div id="details_centering">
 	<div id="details_rightflow">
 		<div id="details">
-			<a href="" class="view_indicator slide_right_out"></a>
+			<a class="view_indicator slide_right_out"></a>
 		
 			<div class="left_column">
         {{#images}}
           <img src="{{middle}}" />
         {{/images}}
 				
-				<a href="" title="Bookmark apartment" class="check_link action_link textlink right remember_this">Bookmark!</a>
-				<a href="" title="Send message" class="check_link action_link textlink right send_request">Send Message!</a>
+				<a href="" title="Bookmark apartment" class="check_link action_link textlink left remember_this">Bookmark!</a>
 				
 				<ul>
 					<li class="item">
@@ -33,6 +32,8 @@
 	        {{street}}<br />
 	        {{postcode}} {{city}}, {{country}}
 	      </address>
+				<a href="" title="Send message" class="send_request">Send a message…</a>
+	
       </div>
 			
 			<div class="right_column">
@@ -44,6 +45,7 @@
 				<p>
 					{{description}}
 				</p>
+				
 			</div>
 
 

@@ -314,12 +314,9 @@ a:focus {
 #searchform {
   position: absolute;
   z-index: 99;
-  bottom: -34px;
+  bottom: -33px;
   left: 345px;
-  -moz-box-shadow: 1px 1px 2px #aaa;
-  -webkit-box-shadow: 1px 1px 2px #aaa;
-  box-shadow: 1px 1px 2px #aaa;
-  -o-box-shadow: 1px 1px 2px #aaa;
+
   -webkit-border-bottom-right-radius: 6px;
   -moz-border-radius-bottomright: 6px;
   -o-border-bottom-right-radius: 6px;
@@ -330,7 +327,6 @@ a:focus {
   border-bottom-left-radius: 6px;
 }
 #s {
-  border-radius: 16px;
   border: 1px solid #E0DFDF;
   color: #0095BC;
   font-size: 1em;
@@ -345,9 +341,7 @@ a:focus {
   border-bottom-left-radius: 6px;
   border: 1px solid #aaa;
   border-top: 0;
-  -moz-box-shadow: inset 0px 0px 2px #999;
-  -webkit-box-shadow: inset 0px 0px 2px #999;
-  box-shadow: inset 0px 0px 2px #999;
+
   color: #999999;
   font-size: 11px;
   height: 24px;
