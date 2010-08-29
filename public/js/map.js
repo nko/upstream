@@ -29,13 +29,11 @@ $(function() {
       title: apartment.title,
       icon: new google.maps.MarkerImage('http://' + w4lls.host + '/img/w4lls_custom_marker.png')
     });
+    marker.apartment = apartment;
     w4lls.apartments.push(marker);
 
     google.maps.event.addListener(marker, 'click', function() {
-      w4lls.show_details(apartment, function(apartment) {
-        $('.remember_this').click(function(evt) { w4lls.add_bookmark(apartment); evt.stopPropagation(); evt.preventDefault(); });
-        $('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); evt.preventDefault(); });
-      });
+      location.hash = '/apartments/' + apartment._id;
     });
     
     marker.setMap(map);
@@ -72,10 +70,34 @@ $(function() {
       apartments.forEach(function(apartment) {
           w4lls.show_apartment(apartment, map);
       });
+      $(window).trigger('apartments-loaded');
     });
   };
   
   w4lls.load_map();
+  
+  $(window).bind('hashchange', function() {
+    if(location.hash.match(/apartments\/.+/)) {
+      var apartment_id = location.hash.split('/')[2];
+      var apartment = _(w4lls.apartments).detect(function(marker) {
+        return marker.apartment._id == apartment_id;
+      }).apartment;
+      w4lls.show_details(apartment, function(apartment) {
+        $('.remember_this').click(function(evt) { w4lls.add_bookmark(apartment); evt.stopPropagation(); evt.preventDefault(); });
+        $('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); evt.preventDefault(); });
+      });
+    };
+  });
+
+  $(window).bind('apartments-loaded', (function() {
+    var first = true;
+    return function() {
+      if(first) {
+        $(window).trigger('hashchange');
+        first = false;
+      };
+    };
+  })())
   
   $(window).bind('reload-apartments', (function() {
     var counter = 0;

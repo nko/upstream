@@ -126,7 +126,7 @@ $(function() {
     filters.animate({left: '-3px'});    
   };
   
-  $('.view_indicator').click(function() {
+  $('#filters .view_indicator').click(function() {
     filters = $('#filters');
     if(filters.hasClass('hidden')) {
       w4lls.show_filters(filters);
@@ -153,12 +153,11 @@ $(function() {
     
     w4lls.template('show', 'bookmarks', function() {
       $('#bookmarks ul').append(Mustache.to_html(w4lls.show_template, apartment));
+      
       $('#bookmarks ul .bookmark:last a.details').click(function() {
-        w4lls.show_details(apartment, function(apartment) {
-          $('.remember_this').click(function(evt) { w4lls.add_bookmark(apartment); evt.stopPropagation(); evt.preventDefault(); });
-          $('.send_request').click(function(evt) { w4lls.send_request(apartment); evt.stopPropagation(); evt.preventDefault(); });
-        });
+        location.hash = '/apartments/' + apartment._id;
       });
+      
       $('#bookmarks ul .bookmark:last a.delete_bookmark').click(function() {
         w4lls.delete_bookmark(apartment, this);
       });
@@ -186,7 +185,7 @@ $(function() {
   
   var details_container = $('#details_container');
   var width = details_container.css('width');
-  details_container.css('right', '-' + width);
+  details_container.css('right', '-2000px');
   w4lls.show_details = function(apartment, callback) {
     var show_big_details = function() {
       var filters = $('#filters'),
@@ -198,14 +197,24 @@ $(function() {
 
       details_container.html(Mustache.to_html(w4lls.big_details_template, apartment));
       w4lls.hide_filters(filters);
+      details_container.css('right', '-' + width);
       details_container.animate({right: '-3px'});
 
       w4lls.close_details_container = function() {
+        location.hash = '';
         w4lls.show_filters(filters);
         details_container.animate({right: '-' + width});
+        setTimeout(function() {
+          details_container.css('right', '-2000px');
+        }, 500);
         details_container.unbind('click');
       }
       details_container.click(w4lls.close_details_container);
+      details_container.find('.view_indicator').click(function(evt) {
+        w4lls.close_details_container();
+        evt.preventDefault();
+        evt.stopPropagation();
+      });
       
       callback(apartment);
     };
