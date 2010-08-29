@@ -56,7 +56,8 @@
       {{/has_phone}}
       
       {{#has_email}}
-        <form method="POST" action="/contact_requests">
+        <form method="POST" action="/messages">
+          <input type="hidden" name="apartment_id" value="{{_id}}" />
           <p>
             <label for="message">Message</label>
             <textarea name="message" id="message"></textarea>
