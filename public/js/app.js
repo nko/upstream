@@ -68,22 +68,32 @@ $(function() {
         $(id).addClass('error');
       }
       
-      if($('#apartment_title').val().length === 0) { error('#apartment_title', 'Title missing.'); }
+      if($('#apartment_title').val().length === 0 || $('#apartment_title').hasClass('placeholder')) {
+        error('#apartment_title', 'Title missing.');
+      }
       if($('#apartment_street').val().length === 0) { error('#apartment_street', 'Street missing.'); }
       if($('#apartment_price').val().length === 0) { error('#apartment_price', 'Price missing.'); }
       if($('#apartment_email').val().length === 0 && $('#apartment_phone').val().length === 0) {
         error('#apartment_email', 'Please provide either an email or a phone number.');
       }
-      if($('#apartment_photos').attr('files').length === 0) {
+      var files = $('#apartment_photos').attr('files');
+      if(files.length === 0) {
         error('#apartment_photos', 'You need to provide at least one photo.');
+      } else {
+        for(var i = 0; i < files.length; i++) {
+          if(!files.item(i).type.match(/image/)) {
+            error('#apartment_photos', 'You can only upload photos.');
+          }
+        }
       }
       
       if(errors.length > 0) {
-        $('#new_apartment .form_wrapper').prepend('<ul id="errors"></ul>');
         var errors_ul = $('#new_apartment #errors');
+        errors_ul.html('');
         errors.forEach(function(error) {
           errors_ul.append('<li>' + error.msg + '</li>');
         });
+        errors_ul.show();
       }
       
       return errors.length === 0;
