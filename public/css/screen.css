@@ -525,8 +525,13 @@ label[for="s"] {
 }
 
 #new_apartment {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
   margin: -1.5em auto 1.5em auto;
   font-size: .75em;
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
+  
   border: 2px solid #FFF;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
