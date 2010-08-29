@@ -105,6 +105,7 @@ h4 img, h5 img, h6 img {
   text-align: center;
   width: 33.3%;
   float: left;
+  padding-top: .5em;
 }
 
 #big_add_link a:before {
@@ -622,6 +623,7 @@ form ul li {
 
 .new_apartment_form_head {
   padding-top: 1.5em;
+  background-color: #FFF;
 }
 
 .btn_wrap {
@@ -645,9 +647,12 @@ form ul li {
   top: 2em;
 }
 
+#new_apartment p.item {
+  padding: .5em 2em;
+}
+
 #new_apartment .checkbox label {
-  width: auto;
-  text-align: left;
+  display: inline;
 }
 
 #new_apartment ul {
@@ -795,3 +800,7 @@ form ul li {
 	background-color: #fff;
 	border-color: #0095BC;
 }
+
+
+.clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+.clearfix, .container {display:block;}
