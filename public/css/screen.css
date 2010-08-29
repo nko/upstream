@@ -565,7 +565,7 @@ label[for="s"] {
 }
 
 #bookmarks {
-  width: 950px;
+  width: 940px;
   margin: 0 auto;
   position: relative;
   -moz-box-shadow: 1px 3px 3px #999;
@@ -587,7 +587,7 @@ label[for="s"] {
 
 .carousel-control {
   display: block;
-  width: 2em;
+  width: 26px;
   height: 100px;
   position: absolute;
   background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
@@ -637,7 +637,8 @@ label[for="s"] {
 .carousel-wrap ul {
   width: 886 !important;
   list-style: none;
-  margin: 0 0 0 32px;
+  margin: 0 0 0 26px;
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
 }
 
 .carousel-wrap ul li {
