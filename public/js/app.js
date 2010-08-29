@@ -152,13 +152,13 @@ $(function() {
     $.jStorage.set("w4lls.apartments", remembered_apartments);
     
     w4lls.template('show', 'bookmarks', function() {
-      $('#bookmarks .slides').append(Mustache.to_html(w4lls.show_template, apartment));
+      $('#bookmarks').append(Mustache.to_html(w4lls.show_template, apartment));
       
-      $('#bookmarks .slides .bookmark:last a.details').click(function() {
+      $('#bookmarks .bookmark:last a.details').click(function() {
         location.hash = '/apartments/' + apartment._id;
       });
       
-      $('#bookmarks .slides .bookmark:last a.delete_bookmark').click(function() {
+      $('#bookmarks .bookmark:last a.delete_bookmark').click(function() {
         w4lls.delete_bookmark(apartment, this);
       });
       $('#bookmarks').show();
