@@ -129,8 +129,8 @@ $(function() {
     //     $.jStorage.set("w4lls.apartments", remembered_apartments);
     //     
     //   });
-    //   $('#bookmarks').show();
-    // });
+      $('#bookmarks').show();
+    });
   };
   
   $(window).resize(function() {
