@@ -17,9 +17,8 @@ $(function() {
     };
     
     w4lls.map = new google.maps.Map(document.getElementById("map"), myOptions);
-    google.maps.event.addListener(w4lls.map, 'dragend', function() {
-      w4lls.load_apartments();
-    });
+    google.maps.event.addListener(w4lls.map, 'zoom_changed', w4lls.load_apartments);
+    google.maps.event.addListener(w4lls.map, 'dragend', w4lls.load_apartments);
     
     w4lls.load_apartments();
   };
