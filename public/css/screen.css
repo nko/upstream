@@ -370,7 +370,7 @@ label[for="s"] {
   z-index: 99;
 }
 #filters {
-  left: -3px;
+  left: 0;
   -moz-box-shadow: 1px 3px 3px #999;
   -webkit-box-shadow: 1px 3px 3px #999;
   -o-box-shadow: 1px 3px 3px #999;
@@ -384,6 +384,7 @@ label[for="s"] {
   -o-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px;
   border: 2px solid #fff;
+  border-left:0;
   overflow: hidden;
 }
 #price_amount,#space_amount {
@@ -675,11 +676,6 @@ label[for="s"] {
 
 
 /* footer */
-
-#footer,.push {
-  font-size: 11px;
-  color: #999;
-}
 
 #footer .wrapper {
   padding-top: 6em;
