@@ -627,15 +627,15 @@ label[for="s"] {
 
 
 .carousel-wrap {
-  overflow: visible !important;
-  height: auto !important;
+/*  overflow: visible !important;
+  height: auto !important; */
   display: block;
   position: absolute;
   background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
 }
 
 .carousel-wrap ul {
-  width: 886 !important;
+/*  width: 886 !important; */
   list-style: none;
   margin: 0 0 0 26px;
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
@@ -772,7 +772,7 @@ select.error {
 
 #errors li {
   display: inline-block;
-  margin.right: .25em;
+  margin-right: .25em;
 }
 
 form ul {
@@ -1063,6 +1063,15 @@ form ul li {
 #details li {
   padding: 6px;
 }
+
+/* help overlay */
+#help {
+  position: fixed;
+  top: 3em;
+  z-index: 9999;
+  background: white;
+}
+
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix {display:block;}
 .hide { display: none !important; }
