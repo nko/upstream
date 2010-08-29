@@ -42,7 +42,7 @@ $(function() {
       });
     }
 
-    w4lls.template('small_details', build_info_window);
+    w4lls.template('small_details', 'apartments', build_info_window);
     
     marker.setMap(map);
   };
@@ -71,8 +71,8 @@ $(function() {
     }
     
     $.get(url, function(apartments) {
+      w4lls.clear_apartments();
       apartments.forEach(function(apartment) {
-          w4lls.clear_apartments();
           w4lls.show_apartment(apartment, map);
       });
     });

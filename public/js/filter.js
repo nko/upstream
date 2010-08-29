@@ -5,7 +5,7 @@ $(function() {
   $(window).trigger("resize");
 
   var reload_with_given_address = function(evt) {
-    $.get('/geolocation?q=' + $('#searchform #s').val(), function(geolocation) {
+    $.get('/geolocation?q=' + escape($('#searchform #s').val()), function(geolocation) {
       var location = new google.maps.LatLng(geolocation.lat, geolocation.lng);
       w4lls.map.setCenter(location);
       w4lls.map.setZoom(15);
