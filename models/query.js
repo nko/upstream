@@ -22,10 +22,12 @@ module.exports.Query = {
         query.push('tags:"' + tag + '"');
       });
     };
+
     return query.join(' AND ');
 
     function range_query(field, type, min, max) {
-      var values = [min, max].sort();
+      var parse_fn = type == 'int' ? parseInt : parseFloat;
+      var values = [min, max].sort(function(a,b) {return parse_fn(a) - parse_fn(b);});
       return field + '<' + type + '>:[' + values[0] + ' TO ' + values[1] + ']';
     }
   }
