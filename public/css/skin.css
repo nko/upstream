@@ -1,5 +1,4 @@
 .jcarousel-skin-bookmarks .jcarousel-container {
-    background: red;;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-container-horizontal {
@@ -8,29 +7,25 @@
     padding: 0;
 }
 
+/*
 .jcarousel-skin-bookmarks .jcarousel-container-vertical {
     width: 75px;
     height: 245px;
     padding: 40px 20px;
 }
+*/
 
 .jcarousel-skin-bookmarks .jcarousel-clip-horizontal {
     width:  950px;
     height: 100px;
 }
 
+/*
 .jcarousel-skin-bookmarks .jcarousel-clip-vertical {
     width:  75px;
     height: 245px;
 }
-
-.jcarousel-skin-bookmarks .jcarousel-item {
-
-}
-
-.jcarousel-skin-bookmarks .jcarousel-item-horizontal {
-
-}
+*/
 
 .jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-item-horizontal {
   margin-left: 10px;
