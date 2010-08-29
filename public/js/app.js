@@ -4,6 +4,7 @@ $(function() {
     var tag_editor_options = {
       separator: ',',
       completeOnSeparator: true,
+      completeOnBlur: true,
       afterAppend: function() {
         $('#filters .view_indicator').css('height', $('#filters ul').css('height'));
       }

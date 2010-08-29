@@ -20,6 +20,10 @@ module.exports = {
     var query = Query.build({size_min: '3', size_max: '4'});
     assert.equal('size<int>:[3 TO 4]', query);
   },
+  '#build with tags': function(assert) {
+    var query = Query.build({tags: 'balcony,shower'});
+    assert.equal('tags:"balcony" AND tags:"shower"', query);
+  },
   '#build with geolocation': function(assert) {
     var query = Query.build({north: '5.0', south: '3.0', east: '6.0', west: '1.0'});
     assert.equal('lat<float>:[3.0 TO 5.0] AND lng<float>:[1.0 TO 6.0]', query);
@@ -31,6 +35,5 @@ module.exports = {
   '#build with multiple attributes': function(assert) {
     var query = Query.build({size_min: '3', size_max: '4', rooms_min: '6', rooms_max: '8'});
     assert.equal('size<int>:[3 TO 4] AND rooms<int>:[6 TO 8]', query);
-  },
-  
+  }
 };
