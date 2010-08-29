@@ -622,7 +622,14 @@ form ul li {
   color: #AAA !important;
 }
 
-#new_apartment .title_inputs {
+#new_apartment .title_inputs label, 
+#new_apartment .title_inputs input[type="text"],
+#new_apartment .title_inputs input[type="checkbox"] {
+  font-size: 1.25em;
+}
+
+#new_apartment .inline_inputs {
+  padding: .5em 2em;
 }
 
 #new_apartment .inline_inputs label {
@@ -679,10 +686,6 @@ form ul li {
 
 #new_apartment .new_apartment_form_head .cancel_link {
   top: 2em;
-}
-
-#new_apartment p.item {
-  padding: .5em 2em;
 }
 
 #new_apartment .checkbox label {
