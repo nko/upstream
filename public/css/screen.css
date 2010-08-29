@@ -453,9 +453,7 @@ label[for="s"] {
   padding-top: 6px;
   display: block;
 }
-#filters .tag_search {
-  height: 200px;
-}
+
 #price_range,#space_range {
   width: 180px;
   float: left;
