@@ -42,7 +42,7 @@ $(function() {
       });
     }
 
-    w4lls.template('small_details', build_info_window);
+    w4lls.template('small_details', 'apartments', build_info_window);
     
     marker.setMap(map);
   };

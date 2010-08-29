@@ -41,8 +41,18 @@ $(function() {
     return false;
   });
   
-  w4lls.remember_this = function() {
+  w4lls.remember_this = function(apartment) {
+    var remembered_apartments = $.jStorage.get("w4lls.apartments", []);
+    remembered_apartments.push(apartment);
+    $.jStorage.set("w4lls.apartments", remembered_apartments);
     
+    w4lls.template('show', 'bookmarks', function() {
+      $('#bookmarks').append(Mustache.to_html(w4lls.show_template, apartment));
+      $('#bookmarks .bookmark:last a').click(function() {
+        w4lls.show_details(apartment);
+      });
+      $('#bookmarks').show();
+    });
   };
   
   w4lls.show_details = function(apartment) {
@@ -54,14 +64,14 @@ $(function() {
       });      
     };
     
-    w4lls.template('big_details', show_big_details);
+    w4lls.template('big_details', 'apartments', show_big_details);
   };
   
-  w4lls.template = function(template, callback) {
+  w4lls.template = function(template, path, callback) {
     if(w4lls[template + '_template']) {
       callback();
     } else {
-      $.get('/views/apartments/' + template + '.mustache', function(_template) {
+      $.get('/views/' + path + '/' + template + '.mustache', function(_template) {
         w4lls[template + '_template'] = _template;
         callback();
       });

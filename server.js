@@ -94,6 +94,19 @@ app.get('/tags', function(req, res) {
   })
 });
 
+app.get('/geolocation', function(req, res) {
+  var address = querystring.stringify({address: req.query.q + ', Berlin, Germany', sensor: 'false'});
+  
+  hl_http_client.get('maps.google.com', '/maps/api/geocode/json?' + address, function(err, body) {
+    if(err) {
+      send_error(res, err);
+    } else {
+      var location = JSON.parse(body).results[0].geometry.location;
+      res.send(location, 200);
+    }
+  });
+});
+
 app.post('/apartments', function(req, res) {
   var address = querystring.stringify({address: req.body.apartment.street + ', ' + req.body.apartment.postcode + ', Berlin, Germany', sensor: 'false'});
 
