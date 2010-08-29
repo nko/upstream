@@ -75,10 +75,9 @@ $(function() {
           '&west=' + bounds.L.b + '&east=' + bounds.L.c;
     }
     
-    w4lls.clear_apartments();
-
     $.get(url, function(apartments) {
       apartments.forEach(function(apartment) {
+          w4lls.clear_apartments();
           w4lls.show_apartment(apartment, map);
       });
     });
