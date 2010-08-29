@@ -8,7 +8,8 @@ var express = require('express/index'),
     connect = require('connect/index'),
     hl_http_client = require('./lib/highlevel_http_client'),
     querystring = require('querystring'),
-    sys     = require('sys');
+    sys     = require('sys'),
+    node_mail = require('./vendor/node-mail/lib/mail/index');
 
 var app = module.exports = express.createServer();
 
@@ -18,7 +19,8 @@ var couch_views = require('./lib/couch_views');
 var view_helpers = require('./lib/view_helpers');
 
 var Apartment = require('./models/apartment').Apartment,
-  Query = require('./models/query').Query;
+  Query = require('./models/query').Query,
+  Message = require('./models/message').Message;
 
 sys.puts('RUNNING IN ' + (process.env.EXPRESS_ENV || 'development') + ' environment')
 
@@ -89,7 +91,6 @@ app.get('/tags', function(req, res) {
     if(err) {
       send_error(res, err);
     } else {
-      console.log(results);
       res.send(results.rows.map(function(row) {return row.key}).join("\n"));
     }
   })
@@ -109,8 +110,6 @@ app.get('/geolocation', function(req, res) {
 });
 
 app.post('/apartments', function(req, res) {
-  console.log(req.body);
-  
   var address = querystring.stringify({address: req.body.apartment.street + ', ' + req.body.apartment.postcode + ', Berlin, Germany', sensor: 'false'});
 
   hl_http_client.get('maps.google.com', '/maps/api/geocode/json?' + address, function(err, body) {
@@ -151,7 +150,17 @@ app.get('/apartments', function(req, res) {
       }
     })
   };
-  
+});
+
+app.post('/messages', function(req, res) {
+  db.getDoc(req.body.apartment_id, function(err, apartment) {
+    if(err) {
+      send_error(res, err);
+    } else {
+      Message.send(apartment.email, req.body.message);
+      res.send(201);
+    }
+  });
 });
 
 function send_error(res, er) {
