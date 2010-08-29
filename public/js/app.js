@@ -117,11 +117,20 @@ $(function() {
     
     w4lls.template('show', 'bookmarks', function() {
       $('#bookmarks ul').append(Mustache.to_html(w4lls.show_template, apartment));
-      $('#bookmarks ul .bookmark:last a').click(function() {
+      $('#bookmarks ul .bookmark:last a.details').click(function() {
         w4lls.show_details(apartment);
       });
-      $('#bookmarks').show();
-    });
+    //   $('#bookmarks ul .bookmark:last a.delete_bookmark').click(function() {
+    //     var remembered_apartments = $.jStorage.get("w4lls.apartments", []),
+    //       index = remembered_apartments.indexOf(apartment);
+    //     if(index >= 0) {
+    //       remembered_apartments.splice(index, 1);
+    //     }
+    //     $.jStorage.set("w4lls.apartments", remembered_apartments);
+    //     
+    //   });
+    //   $('#bookmarks').show();
+    // });
   };
   
   $(window).resize(function() {
