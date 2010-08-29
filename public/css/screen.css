@@ -720,41 +720,80 @@ form ul li {
 #filters .tagEditor {
   float: none;
   margin:0;
-  padding:12px 0;
   border-top: 1px solid #fff;
   width: 248px;
   background: url(/img/w4lls_chosen_tags.png) no-repeat 198px -1px;
-  
+  overflow: hidden;
+  padding: 12px 0 12px 0;
 }
 .tagEditor li {
-  padding: 3px;
-  border: 1px solid #aaa;
-  background-color: #e2b7a3;
-}
-
-.tagEditor
-{
-	margin: 4px 0;
-	padding: 0;
-}
-
-.tagEditor li
-{
-	display: inline;
+  border: 1px solid #fff;
+  background-color: #2394B9;
+  display: block;
+  float:left;
 	background-image: url(/img/minus_small.png);
-	background-color: #eef;
 	background-position: right center;
 	background-repeat: no-repeat;
 	list-style-type: none;
-	padding: 0 18px 0 6px;
-	margin: 0 4px;	
+	padding: 4px 15px 4px 6px;
+	margin: 6px 4px 0 0;	
 	cursor: pointer;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 1px #054E66;
 }
 
-.tagEditor li:hover
-{
+.ac_even {
+  background: #fff;
+  border: 1px solid ;
+}
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
 	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
 }
