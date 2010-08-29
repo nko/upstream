@@ -572,8 +572,8 @@ label[for="s"] {
 }
 
 .bookmark {
-  width: 100px;
-  height: 100px;
+  width: 170px;
+  height: 110px;
   position: relative;
   margin-left: 0;
   
@@ -587,6 +587,7 @@ label[for="s"] {
 .bookmark .details {
   font-size: .75em;
   margin-bottom: .5em;
+  padding: 0 2em;
   display: block;
 }
 
@@ -600,7 +601,7 @@ label[for="s"] {
 
 .bookmark img {
   border: 2px solid #FFF;
-  width: 75%;
+  width: 60%;
 }
 
 

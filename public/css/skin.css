@@ -10,7 +10,9 @@
 
 .jcarousel-skin-bookmarks .jcarousel-clip-horizontal {
     width:  950px;
-    height: 100px;
+    height: 110px;
+    border-left: 1px solid #AAA;
+    border-right: 1px solid #FFF;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-item-horizontal {
@@ -36,7 +38,7 @@
     top: -2px;
     width: 26px;
     
-    height: 100px;
+    height: 110px;
     cursor: pointer;
     background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
     background-repeat: no-repeat, repeat;
@@ -51,18 +53,34 @@
 .jcarousel-skin-bookmarks .jcarousel-next-horizontal {
     right: -28px;
     border-left: none;
+    
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+    
+    -moz-box-shadow: 2px 2px 2px #999;
+    -webkit-box-shadow: 2px 2px 2px #999;  
+    box-shadow: 2px 2px 2px #999;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-prev-horizontal {
     left: -28px;
     background-position: 7px 50%, 0 0;
     border-right: none;
+    
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+    
+    -moz-box-shadow: -2px 2px 2px #999;
+    -webkit-box-shadow: -2px 2px 2px #999;  
+    box-shadow: -2px 2px 2px #999;
 }
 
 
 .jcarousel-skin-bookmarks .jcarousel-next-horizontal:active,
 .jcarousel-skin-bookmarks .jcarousel-next-horizontal:hover {
-    background-position: -296px 50%, 0 0;
+    background-position: -299px 50%, 0 0;
     
 }
 
@@ -71,7 +89,7 @@
 .jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal:hover,
 .jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal:active {
     cursor: default;
-    background-position: -175px 50%, 0 0;
+    background-position: -179px 50%, 0 0;
 }
 
 .jcarousel-skin-bookmarks .jcarousel-prev-horizontal:active,
@@ -84,5 +102,5 @@
 .jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal:hover,
 .jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal:active {
     cursor: default;
-    background-position: -110px 50%, 0 0;
+    background-position: -114px 50%, 0 0;
 }
