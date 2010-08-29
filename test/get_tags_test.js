@@ -27,7 +27,7 @@ module.exports = {
       {status: 200},
       function(res) {
         assert.eql(query, {startkey: 'ba', endkey: "ba\u9999", limit: 20, group: true})
-        assert.eql(JSON.parse(res.body), ['bathtub', 'balcony']);
+        assert.eql(res.body, "bathtub\nbalcony");
       });
   }
 };

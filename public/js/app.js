@@ -1,12 +1,18 @@
 $(function() {
   // tag editor
   (function() {
-    var options = {
+    var tag_editor_options = {
       separator: ' ',
       completeOnSeparator: true
     };
-    $("#apartment_tags").tagEditor(options);
-    $("#tags").tagEditor(options);
+    
+    $("#apartment_tags, #tags").autocomplete("/tags", {
+  		highlight: false,
+  		scroll: true
+  	});
+    
+    $("#apartment_tags").tagEditor(tag_editor_options);
+    $("#tags").tagEditor(tag_editor_options);
   })();
          
   // transloadit

@@ -20,7 +20,7 @@ var view_helpers = require('./lib/view_helpers');
 var Apartment = require('./models/apartment').Apartment,
   Query = require('./models/query').Query;
 
-sys.puts('RUNNING IN ' + (process.env.EXPRESS_ENV || 'development') + ' environemtn')
+sys.puts('RUNNING IN ' + (process.env.EXPRESS_ENV || 'development') + ' environment')
 
 // Configuration
 
@@ -89,7 +89,8 @@ app.get('/tags', function(req, res) {
     if(err) {
       send_error(res, err);
     } else {
-      res.send(results.rows.map(function(row) {return row.key}));
+      console.log(results);
+      res.send(results.rows.map(function(row) {return row.key}).join("\n"));
     }
   })
 });
