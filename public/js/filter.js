@@ -27,10 +27,10 @@ $(function() {
 	var space_slider = $('#space_range');
 	space_slider.slider({
 		range: true,
-		min: 10,
-		max: 2000,
-		step: 50,
-		values: [10, 2000],
+		min: 0,
+		max: 200,
+		step: 5,
+		values: [0, 200],
 		slide: function(event, ui) {
 			$("#space_amount").text(ui.values[0] + ' m²' + ' - ' + ui.values[1] + ' m²');
 			$(window).trigger('reload-apartments');

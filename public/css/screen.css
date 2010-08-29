@@ -1065,3 +1065,9 @@ form ul li {
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix {display:block;}
 .hide { display: none !important; }
+
+.send_request {
+  font-size: 11px;
+  color: #333 !important;
+  text-decoration: underline !important;
+}
