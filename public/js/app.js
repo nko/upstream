@@ -144,6 +144,9 @@ $(function() {
     }
     $.jStorage.set("w4lls.apartments", bookmarks);
     $(bookmark).parents('.bookmark:first').remove();
+    if(bookmarks.length === 0) {
+      $('#bookmarks_container').hide();
+    }
   };
   
   w4lls.add_bookmark = function(apartment) {
@@ -167,13 +170,16 @@ $(function() {
         location.hash = '/apartments/' + apartment._id;
       });
       
-      bookmark.find('a.delete_bookmark').click(function() {
+      bookmark.find('a.delete_bookmark').click(function(evt) {
         w4lls.delete_bookmark(apartment, this);
+        evt.stopPropagation();
+        evt.preventDefault();
       });
       
       if(remembered_apartments.length === 1) {
         $("#bookmarks").jcarousel();
-        $('#bookmarks').show();        
+        $('#bookmarks').show();
+        $('#bookmarks_container').show();
       }
     });
   };

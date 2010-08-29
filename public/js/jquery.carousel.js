@@ -581,7 +581,8 @@
                 c = e;
                 var d = this.dimension(e);
                 if (d == 0) {
-                    throw new Error('jCarousel: No width/height set for items. This will cause an infinite loop. Aborting...');
+                  d = 100;
+                    // throw new Error('jCarousel: No width/height set for items. This will cause an infinite loop. Aborting...');
                 }
 
                 if (this.options.wrap != 'circular' && this.options.size !== null && j > this.options.size)
