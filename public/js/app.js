@@ -24,6 +24,7 @@ $(function() {
   })();
          
   // transloadit
+  var form = $('#new_apartment form');
   var transloadit_params = {
     auth: {
       key: '4c791226c09040dd98af27d472ec3211'
@@ -34,17 +35,20 @@ $(function() {
       big: {robot: '/image/resize', width: 640, height: 480, use: ':original'},
       store: {robot: '/s3/store', use: ['small', 'middle', 'big']}
     },
-    redirect_url: 'http://' + w4lls.host + '/apartments',
-    beforeStart: function() {
-      return true;
-    }
+    redirect_url: 'http://' + w4lls.host + '/apartments'
   }
   
   var stringified_transloadit_params = JSON.stringify(transloadit_params);
-  var form = $('#new_apartment form');
   
   form.find('#transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
   form.find('#apartment_availability').datepicker();
+
+
+  // Uploader.prototype.start = function() {
+    // if(this._options.beforeStart) {
+    //   if(!this._options.beforeStart()) { return false; }
+    // }
+  // }
 
   // TODO: how to validate when transloadit seems to be always first?
   form.transloadit({
@@ -61,6 +65,20 @@ $(function() {
           $("#top_slider").slideUp("normal");
         }
       });
+    },
+    beforeStart: function() {
+      this._errors = [];
+      
+      if($('#apartment_street').val().length === 0) { this._errors.push('Street missing.'); }
+      if($('#apartment_price').val().length === 0) { this._errors.push('Price missing.'); }
+      if($('#apartment_email').val().length === 0 && $('#apartment_phone').val().length === 0) {
+        this._errors.push('Please provide either an email or a phone number.');
+      }
+      if($('#apartment_photos').attr('files').length === 0) {
+        this._errors.push('You need to provide at least one photo.');
+      }
+      
+      return this._errors.length === 0;
     }
   });
   
