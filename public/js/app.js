@@ -53,13 +53,13 @@ $(function() {
     }
   });
   
-  $("#big_add_link").click(function () {
+  $("#big_add_link, .cancel_link").click(function () {
     $("#top_slider").slideToggle("normal");
     return false;
   });
   
   w4lls.hide_filters = function(filters) {
-    filters.animate({left: '-305px'});
+    filters.animate({left: '-299px'});
     filters.addClass('hidden');    
   };
   

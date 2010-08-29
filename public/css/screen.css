@@ -119,6 +119,8 @@ h4 img, h5 img, h6 img {
   padding: 3px 10px;
   border: none;
   border-radius: 12px;
+  cursor: pointer;
+  
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   -o-border-radius: 12px;
@@ -133,6 +135,7 @@ h4 img, h5 img, h6 img {
   -o-transition: background-color color 0.5s ease-in;
   transition: background-color color 0.5s ease-in;
 }
+
 .btn:hover,
 .btn:focus,
 .btn:active,
@@ -204,6 +207,20 @@ a:focus {
   color: #0095BC;
   text-decoration: underline;
   outline: none;
+}
+
+.cancel_link {
+  width: 28px;
+  height: 32px;
+  display: block;
+  text-indent: -9999px;
+  background: transparent url(/img/w4lls_cancel_link.png) no-repeat 0 50%;
+}
+
+.cancel_link:hover,
+.cancel_link:focus,
+.cancel_link:active {
+  background-position: 100% 0;
 }
 
 .logo a:focus, .logo a:hover, .logo a:active {
@@ -389,7 +406,6 @@ label[for="s"] {
   float: left;
   background: rgba(0,0,0,0.5);
   background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
-  height: 370px;
   -webkit-border-top-right-radius: 6px;
   -moz-border-radius-topright: 6px;
   -o-border-top-right-radius: 6px;
@@ -453,9 +469,7 @@ label[for="s"] {
   padding-top: 6px;
   display: block;
 }
-#filters .tag_search {
-  height: 200px;
-}
+
 #price_range,#space_range {
   width: 180px;
   float: left;
@@ -470,6 +484,7 @@ label[for="s"] {
 .big {
   font-size: 2em;
   margin-top: 0px;
+  width: 24px;
 }
 .small {
   margin-top: 10px;
@@ -524,13 +539,12 @@ label[for="s"] {
 }
 
 #new_apartment {
+  width: 950px;
   position: fixed;
   top: 0;
   z-index: 1000;
   margin: -1.5em auto 1.5em auto;
-  font-size: .75em;
-  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
-  
+  font-size: .75em;  
   border: 2px solid #FFF;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -541,27 +555,28 @@ label[for="s"] {
   box-shadow: 1px 3px 3px #999;
 }
 
+#new_apartment .form_wrapper {
+  overflow: hidden;
+  background: #D0CFC5 url(/img/w4lls_bg.png) repeat;  
+}
+
 #new_apartment label {
-  display: inline-block;
-  float: left;
-  width: 72px;
-  padding-right: 1em;
-  text-align: right;
+  display: block;
 }
 
 #new_apartment input[type="text"],
 #new_apartment textarea {
-  width: 210px;
+  width: 100%;
 }
 
 
 /* forms */
 input[type="text"],
-input[type="password"],
+input[type="file"],
 textarea,
 select {
   border: 1px solid #BBB;
-  padding: 10px;
+  padding: .25em;
   font-size: 1em;
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
@@ -593,26 +608,51 @@ form ul li {
   padding-left: 156px;
 }
 
-#new_apartment h2,
+.new_apartment_form_head,
 .btn_wrap {
-  text-align: center;
-  clear: both;
-  padding: .5em;
-  font-size: 2em;
-  border-top: 2px solid #FFF;
-  background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
-}
-
-#new_apartment h2 {
+  position: relative;
   border-top: none;
   border-bottom: 2px solid #FFF;
   text-align: center;
   padding-top: 1em;
+  padding: .5em;
+  text-align: center;
+  background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
+}
+
+.new_apartment_form_head {
+  padding-top: 1.5em;
+}
+
+.btn_wrap {
+  clear: both;
+  padding: .5em;
+  border-top: 2px solid #FFF;
+  border-bottom: none;
+}
+
+.btn_wrap .btn {
+  font-size: 2em;
+}
+
+#new_apartment .cancel_link {
+  position: absolute;
+  top: 1em;
+  right: .5em;
+}
+
+#new_apartment .new_apartment_form_head .cancel_link {
+  top: 2em;
 }
 
 #new_apartment .checkbox label {
   width: auto;
   text-align: left;
+}
+
+#new_apartment ul {
+  padding: 0 2em;
+  margin-bottom: 1.5em;
 }
 
 #filters .ui-widget-content {
@@ -653,25 +693,107 @@ form ul li {
 }
 
 #tags {
-  width: 150px;
+  width: 130px;
   padding: 4px;
   float: left;
+  margin-bottom:12px;
 }
-#tags:after {
-  content:"";
-  border-right: 1px solid #aaa;
-  margin-left: 12px;
+
+#tags_for_search {
+  margin-top: 12px;
+  border-top: 1px solid #aaa;
+  clear: both;
 }
+
 .tag_search em {
   font-style: italic;
   display: block; 
   float: right;
   width: 80px;
   text-align: right;
-  border-left: 1px solid #aaa;
-  
+  height: 24px;
+  line-height: 24px;
+  background: url(/img/w4lls_vertical_sep.png) no-repeat 0 0;
+  margin-left: 12px;
+  padding-left: 12px;
 }
 #filters .tagEditor {
   float: none;
-  clear: both;
+  margin:0;
+  border-top: 1px solid #fff;
+  width: 248px;
+  background: url(/img/w4lls_chosen_tags.png) no-repeat 198px -1px;
+  overflow: hidden;
+  padding: 12px 0 12px 0;
+}
+.tagEditor li {
+  border: 1px solid #fff;
+  background-color: #2394B9;
+  display: block;
+  float:left;
+	background-image: url(/img/minus_small.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	list-style-type: none;
+	padding: 4px 15px 4px 6px;
+	margin: 6px 4px 0 0;	
+	cursor: pointer;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 1px #054E66;
+}
+
+.ac_even {
+  background: #fff;
+  border: 1px solid ;
+}
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
 }
