@@ -26,7 +26,8 @@ $(function() {
   w4lls.show_apartment = function(apartment, map) {
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(apartment.lat, apartment.lng),
-      title: apartment.title
+      title: apartment.title,
+      icon: new google.maps.MarkerImage('http://' + w4lls.host + '/img/w4lls_custom_marker.png')
     });
     w4lls.apartments.push(marker);
 
