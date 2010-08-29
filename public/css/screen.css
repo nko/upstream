@@ -105,6 +105,7 @@ h4 img, h5 img, h6 img {
   text-align: center;
   width: 33.3%;
   float: left;
+  padding-top: .5em;
 }
 
 #big_add_link a:before {
@@ -622,6 +623,7 @@ form ul li {
 
 .new_apartment_form_head {
   padding-top: 1.5em;
+  background-color: #FFF;
 }
 
 .btn_wrap {
@@ -645,9 +647,12 @@ form ul li {
   top: 2em;
 }
 
+#new_apartment p.item {
+  padding: .5em 2em;
+}
+
 #new_apartment .checkbox label {
-  width: auto;
-  text-align: left;
+  display: inline;
 }
 
 #new_apartment ul {
@@ -698,6 +703,11 @@ form ul li {
   float: left;
   margin-bottom:12px;
 }
+#tags:focus {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
 #tags_for_search {
   margin-top: 12px;
@@ -721,7 +731,7 @@ form ul li {
   float: none;
   margin:0;
   border-top: 1px solid #fff;
-  width: 248px;
+  width: 255px;
   background: url(/img/w4lls_chosen_tags.png) no-repeat 198px -1px;
   overflow: hidden;
   padding: 6px 0 12px 0;
@@ -747,14 +757,15 @@ form ul li {
 
 .ac_results {
 	padding: 0px;
-	border: 1px solid black;
+	border: 1px solid #0095BC;
 	background-color: white;
 	overflow: hidden;
 	z-index: 99999;
+	border-top:0;
+	margin-top: -1px;
 }
 
 .ac_results ul {
-	width: 100%;
 	list-style-position: outside;
 	list-style: none;
 	padding: 0;
@@ -785,12 +796,11 @@ form ul li {
 	background: white url('/img/indicator.gif') 106px center no-repeat;
 }
 
-.ac_odd {
-	background-color: #eee;
-}
-
 .ac_over {
 	background-color: #fff;
-	width: 130px;
 	border-color: #0095BC;
 }
+
+
+.clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+.clearfix, .container {display:block;}

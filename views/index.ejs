@@ -9,98 +9,101 @@
       
       <form action="http://api2.transloadit.com/assemblies" enctype="multipart/form-data" method="POST">
         <div class="form_wrapper">
-          <p class="checkbox">
+          <p class="checkbox item">
             <input type="checkbox" name="apartment[shared_apartment]" id="apartment_shared_apartment" />
             <label for="apartment_shared_apartment">Shared Apartment</label>
           </p>
           <input type="hidden" id="transloadit_params" name="params" />
         
-          <div class="third">
-            <ul>
-              <li>
-                <label for="apartment_title">Title</label>
-                <input type="text" name="apartment[title]" id="apartment_title" />
-              </li>
+          <div class="item clearfix">
+            <div class="third">
+              <ul>
+                <li>
+                  <label for="apartment_title">Title</label>
+                  <input type="text" name="apartment[title]" id="apartment_title" />
+                </li>
 
-              <li>
-                <label for="apartment_description">Description</label>
-                <textarea name="apartment[description]" id="apartment_description"></textarea>
-              </li>
+                <li>
+                  <label for="apartment_description">Description</label>
+                  <textarea name="apartment[description]" id="apartment_description"></textarea>
+                </li>
 
-              <li>
-                <label for="apartment_street">Street</label>
-                <input type="text" name="apartment[street]" id="apartment_street" />
-              </li>
+                <li>
+                  <label for="apartment_street">Street</label>
+                  <input type="text" name="apartment[street]" id="apartment_street" />
+                </li>
 
-              <li>
-                <label for="apartment_postcode">Postcode</label>
-                <input type="text" name="apartment[postcode]" id="apartment_postcode" />
-              </li>
+                <li>
+                  <label for="apartment_postcode">Postcode</label>
+                  <input type="text" name="apartment[postcode]" id="apartment_postcode" />
+                </li>
 
-              <li>
-                <label for="apartment_city">City</label>
-                <input type="text" disabled="disabled" name="apartment[city]" id="apartment_city" value="Berlin" />
-              </li>
-            </ul>
-          </div>
+                <li>
+                  <label for="apartment_city">City</label>
+                  <input type="text" disabled="disabled" name="apartment[city]" id="apartment_city" value="Berlin" />
+                </li>
+              </ul>
+            </div>
         
-          <div class="third">
-            <ul>
-              <li>
-                <label for="apartment_price">Price</label>
-                <input type="text" name="apartment[price]" id="apartment_price" />
-              </li>
+            <div class="third">
+              <ul>
+                <li>
+                  <label for="apartment_price">Price (&euro;)</label>
+                  <input type="text" name="apartment[price]" id="apartment_price" />
+                </li>
 
-              <li>
-                <label for="apartment_number_of_rooms">Number of Rooms</label>
-                <input type="text" name="apartment[number_of_rooms]" id="apartment_number_of_rooms" />
-              </li>
+                <li>
+                  <label for="apartment_number_of_rooms">Number of Rooms</label>
+                  <input type="text" name="apartment[number_of_rooms]" id="apartment_number_of_rooms" />
+                </li>
 
-              <li>
-                <label for="apartment_size">Size</label>
-                <input type="text" name="apartment[size]" id="apartment_size" />
-              </li>
+                <li>
+                  <label for="apartment_size">Size (sqm)</label>
+                  <input type="text" name="apartment[size]" id="apartment_size" />
+                </li>
 
-              <li>
-                <label for="apartment_availability">Date of Availability</label>
-                <input type="text" name="apartment[availability]" id="apartment_availability" />
-              </li>
+                <li>
+                  <label for="apartment_availability">Date of Availability</label>
+                  <input type="text" name="apartment[availability]" id="apartment_availability" />
+                </li>
 
-              <li>
-                <label for="apartment_duration">Duration</label>
-                <input type="text" name="apartment[duration]" id="apartment_duration" />
-              </li>
+                <li>
+                  <label for="apartment_duration">Duration</label>
+                  <input type="text" name="apartment[duration]" id="apartment_duration" />
+                </li>
 
-            </ul>
-          </div>
+              </ul>
+            </div>
         
-          <div class="third">
-            <ul>
-              <li>
-                <label for="apartment_email">Email</label>
-                <input type="text" name="apartment[email]" id="apartment_email" />
-              </li>
+            <div class="third">
+              <ul>
+                <li>
+                  <label for="apartment_email">Email</label>
+                  <input type="text" name="apartment[email]" id="apartment_email" />
+                </li>
 
-              <li>
-                <label for="apartment_phone">Phone</label>
-                <input type="text" name="apartment[phone]" id="apartment_phone" />
-              </li>
+                <li>
+                  <label for="apartment_phone">Phone</label>
+                  <input type="text" name="apartment[phone]" id="apartment_phone" />
+                </li>
 
-              <li>
-                <label for="apartment_photos">Photos</label>
-                <input type="file" multiple="multiple" name="apartment[photos]" value="Search" id="apartment_photos" />
-              </li>
-
-              <li>
-                <label for="apartment_tags">Tags</label>
-                <input name="apartment[tags]" id="apartment_tags" class=""/>
-                (separate with commas)
-                <div id="tags_for_apartment"></div>
-              </li>          
-            </ul>
+                <li>
+                  <label for="apartment_photos">Photos</label>
+                  <input type="file" multiple="multiple" name="apartment[photos]" value="Search" id="apartment_photos" />
+                </li>
+              </ul>
+            </div>
           </div>
+          
+          <p class="item clearfix">
+            <label for="apartment_tags">Tags</label>
+            <input name="apartment[tags]" id="apartment_tags" class=""/>
+            (separate with commas)
+            <div id="tags_for_apartment"></div>
+          </p>
 
         </div>
+
 
         <p class="btn_wrap">
           <a href="#" title="cancel" class="cancel_link">Cancel</a>          
@@ -153,8 +156,7 @@
 				<input type="text" id="space_amount" class="reload_apartments" />
 			</li>
 			<li class="tag_search item">
-					<em>Chosen Tags</em><input type="text" name="tags" id="tags" class="reload_apartments"/>
-					(separate with commas)
+					<em>Chosen Tags</em><input type="text" name="tags" id="tags" placeholder="tag1, tag2, …" class="reload_apartments"/>
 				<div id="tags_for_search"></div>
 			</li>
 		</ul>
