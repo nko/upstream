@@ -1,3 +1,5 @@
+var _ = require('../public/js/underscore')._;
+
 module.exports.Query = {
   build: function(params) {
     var query = [];
@@ -13,6 +15,12 @@ module.exports.Query = {
     };
     if(params.rooms_min) {
       query.push(range_query('rooms', 'int', params.rooms_min, params.rooms_max));
+    };
+    if(params.tags) {
+      var tags = params.tags.split(',');
+      _(tags).each(function(tag) {
+        query.push('tags:"' + tag + '"');
+      });
     };
     return query.join(' AND ');
 

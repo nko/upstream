@@ -105,6 +105,7 @@ h4 img, h5 img, h6 img {
   text-align: center;
   width: 33.3%;
   float: left;
+  padding-top: .5em;
 }
 
 #big_add_link a:before {
@@ -572,7 +573,6 @@ label[for="s"] {
 
 /* forms */
 input[type="text"],
-input[type="file"],
 textarea,
 select {
   border: 1px solid #BBB;
@@ -604,6 +604,23 @@ form ul li {
   padding: .5em 0;
 }
 
+.placeholder {
+  color: #AAA !important;
+}
+
+#new_apartment .title_inputs {
+}
+
+#new_apartment .inline_inputs label {
+  display: inline;
+  width: 100px;
+}
+
+#new_apartment .inline_inputs input[type="text"] {
+  width: 584px;
+  margin-right: 3em;
+}
+
 .checkbox {
   padding-left: 156px;
 }
@@ -622,6 +639,11 @@ form ul li {
 
 .new_apartment_form_head {
   padding-top: 1.5em;
+  background-color: #FFF;
+}
+
+#new_apartment h2 {
+  margin-bottom: 0;
 }
 
 .btn_wrap {
@@ -645,9 +667,12 @@ form ul li {
   top: 2em;
 }
 
+#new_apartment p.item {
+  padding: .5em 2em;
+}
+
 #new_apartment .checkbox label {
-  width: auto;
-  text-align: left;
+  display: inline;
 }
 
 #new_apartment ul {
@@ -698,6 +723,11 @@ form ul li {
   float: left;
   margin-bottom:12px;
 }
+#tags:focus {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
 #tags_for_search {
   margin-top: 12px;
@@ -721,22 +751,22 @@ form ul li {
   float: none;
   margin:0;
   border-top: 1px solid #fff;
-  width: 248px;
+  width: 255px;
   background: url(/img/w4lls_chosen_tags.png) no-repeat 198px -1px;
   overflow: hidden;
-  padding: 12px 0 12px 0;
+  padding: 6px 0 12px 0;
 }
 .tagEditor li {
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   background-color: #2394B9;
   display: block;
-  float:left;
+  float:right;
 	background-image: url(/img/minus_small.png);
 	background-position: right center;
 	background-repeat: no-repeat;
 	list-style-type: none;
 	padding: 4px 15px 4px 6px;
-	margin: 6px 4px 0 0;	
+	margin: 6px 0 0 4px;	
 	cursor: pointer;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -745,20 +775,17 @@ form ul li {
 	text-shadow: 1px 1px 1px #054E66;
 }
 
-.ac_even {
-  background: #fff;
-  border: 1px solid ;
-}
 .ac_results {
 	padding: 0px;
-	border: 1px solid black;
+	border: 1px solid #0095BC;
 	background-color: white;
 	overflow: hidden;
 	z-index: 99999;
+	border-top:0;
+	margin-top: -1px;
 }
 
 .ac_results ul {
-	width: 100%;
 	list-style-position: outside;
 	list-style: none;
 	padding: 0;
@@ -771,14 +798,14 @@ form ul li {
 	cursor: default;
 	display: block;
 	/* 
-	if width will be 100% horizontal scrollbar will apear 
+	if width will be 100% horizontal scrollbar will appear 
 	when scroll mode will be used
 	*/
 	/*width: 100%;*/
 	font: menu;
 	font-size: 12px;
 	/* 
-	it is very important, if line-height not setted or setted 
+	it is very important, if line-height not set or set 
 	in relative units scroll will be broken in firefox
 	*/
 	line-height: 16px;
@@ -786,14 +813,15 @@ form ul li {
 }
 
 .ac_loading {
-	background: white url('indicator.gif') right center no-repeat;
-}
-
-.ac_odd {
-	background-color: #eee;
+	background: white url('/img/indicator.gif') 106px center no-repeat;
 }
 
 .ac_over {
-	background-color: #0A246A;
-	color: white;
+	background-color: #fff;
+	border-color: #0095BC;
 }
+
+
+.clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+.clearfix {display:block;}
+.hidden { display: none !important; }

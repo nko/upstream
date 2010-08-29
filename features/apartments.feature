@@ -5,7 +5,7 @@ Feature: Apartments
   
   Scenario: add an apartment
     When I go to the start page
-      And I follow "Add flat"
+      And I follow "Add apartment"
       And I fill in "Title" with "Meine Wohnung"
       And I fill in "Description" with "Schön sonnig, ruhige Lage"
       And I fill in "Street" with "Tasdorferstr. 24"
