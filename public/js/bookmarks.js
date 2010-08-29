@@ -25,6 +25,7 @@ $(function() {
 
     $('#bookmarks').bind('bookmarks-loaded', function() {
       $("#bookmarks").jcarousel();
+      $(window).trigger("resize");
     });
   }
 });
