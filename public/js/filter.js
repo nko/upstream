@@ -19,7 +19,7 @@ $(function() {
 		step: 50,
 		values: [10, 2000],
 		slide: function(event, ui) {
-			$("#price_amount").val('€' + ui.values[0] + ' - €' + ui.values[1]);			
+			$("#price_amount").text('€' + ui.values[0] + ' - €' + ui.values[1]);			
 		}
 	});
 	
@@ -31,17 +31,17 @@ $(function() {
 		step: 50,
 		values: [10, 2000],
 		slide: function(event, ui) {
-			$("#space_amount").val('m²' + ui.values[0] + ' - m²' + ui.values[1]);			
+			$("#space_amount").text(ui.values[0] + ' m²' + ' - ' + ui.values[1] + ' m²');
 		}
 	});
 	
 	var min = price_slider.slider("values", 0),
 	  max = price_slider.slider("values", 1);
-	$("#price_amount").val('€' + min + ' - €' + max);
+	$("#price_amount").text('€' + min + ' - €' + max);
 
 	var min = space_slider.slider("values", 0),
 	  max = space_slider.slider("values", 1);
-	$("#space_amount").val('m²' + min + ' - m²' + max);
+	$("#space_amount").text(min + ' m²' + ' - ' + max + ' m²');
 	
 	$('.reload_apartments').change(function() {
 	  w4lls.load_apartments();
