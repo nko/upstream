@@ -73,7 +73,10 @@
 		var n = 0;
 		var pt = 0;
 		var os = i*c-s;
-		var params = {}; 
+		var params = {};
+		
+		console.log($('#bookmarks .slides .bookmark').get());
+		console.log($('#bookmarks .slides .bookmark').length);
 		
 		if (o.vertical===true) { w = h; }
 			
@@ -96,6 +99,7 @@
 			$(o.container,obj).css({height:(w*i)});
 			$(o.slides,obj).css({height:(s*w)});
 		} else {
+		  console.log(w, i, s);
 			$(o.container,obj).css({width:(w*i)});
 			$(o.slides,obj).css({width:(s*w)});
 		}
