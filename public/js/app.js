@@ -10,32 +10,29 @@ w4lls.app = $.sammy(function() {
   };
   
   this.get('#/apartments/new', function(context) {
-    w4lls.app.bind('done-swapping', function() {
-      var stringified_transloadit_params = JSON.stringify(w4lls.transloadit_params),
-        form = $('#new_apartment form');
-      
-      form.find('#transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
-      form.find('#apartment_availability').datepicker();
-      
-      form.transloadit({
-        wait: true,
-        autoSubmit: false,
-        onSuccess: function(assembly) {          
-          form.prepend($('<input type="hidden" name="transloadit"/>').val(JSON.stringify(assembly)));
-          form.ajaxSubmit({
-            no_file_uploads: true,
-            success: function(apartment) {
-              if(apartment && apartment.lat && apartment.lng) {
-                w4lls.show_apartment(apartment, w4lls.map);
-              }
-              $('#new_apartment').remove();
-              context.redirect('#/');
+    var stringified_transloadit_params = JSON.stringify(w4lls.transloadit_params),
+      form = $('#new_apartment form');
+    
+    form.find('#transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
+    form.find('#apartment_availability').datepicker();
+    
+    form.transloadit({
+      wait: true,
+      autoSubmit: false,
+      onSuccess: function(assembly) {          
+        form.prepend($('<input type="hidden" name="transloadit"/>').val(JSON.stringify(assembly)));
+        form.ajaxSubmit({
+          no_file_uploads: true,
+          success: function(apartment) {
+            if(apartment && apartment.lat && apartment.lng) {
+              w4lls.show_apartment(apartment, w4lls.map);
             }
-          });
-        }
-      });      
-    });
-    this.partial('../views/apartments/new.mustache');
+            $('#new_apartment').remove();
+            context.redirect('#/');
+          }
+        });
+      }
+    });      
   });
 });
 
