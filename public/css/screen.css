@@ -760,7 +760,8 @@ form ul li {
   border: 2px solid #fff;
   background-color: #2394B9;
   display: block;
-  float:right;
+  float: right;
+  clear: none;
 	background-image: url(/img/minus_small.png);
 	background-position: right center;
 	background-repeat: no-repeat;
@@ -836,4 +837,4 @@ form ul li {
 
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix {display:block;}
-.hidden { display: none !important; }
+.hide { display: none !important; }

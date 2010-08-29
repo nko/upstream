@@ -132,6 +132,7 @@ Joost Elfering
 
                 textBase.val('');
                 buildArray();
+                $(textBase).trigger('tags-changed');
             }
 
             function handleKeys(ev) {
