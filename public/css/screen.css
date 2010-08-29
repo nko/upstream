@@ -217,10 +217,21 @@ a:focus {
   text-indent: -9999px;
   background: transparent url(/img/w4lls_cancel_link.png) no-repeat 0 0;
 }
-.action_link.show {
-  width: auto;
-  padding-left: 33px;
+.action_link.textlink {
+  display:block;
   line-height: 32px;
+  padding-left: 33px;
+  text-indent: 0;
+  width: auto;
+}
+.action_link.textlink.left {
+  float: left;
+}
+.action_link.textlink.right {
+  float: right;
+}
+.cancel_link.textlink {
+  color: #D16A3C;
 }
 
 .cancel_link {
@@ -982,7 +993,8 @@ form ul li {
   background: #fff;
 }
 #details ul {
-  margin-bottom: 24px;
+  margin: 48px 0 12px 0;
+  clear: both;
 }
 #details li {
   padding: 6px;
