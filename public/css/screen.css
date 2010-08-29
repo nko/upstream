@@ -85,9 +85,11 @@ form ul li,
 
 .nav {
   float: right;
-  font-size: .875em;
-  color: #777;
+  font-size: .75em;
   margin-top: 24px;
+}
+.nav a {
+  color: #555 !important;
 }
 
 .logo {
@@ -152,8 +154,8 @@ a:focus {
 
 .nav li {
   float:left;
-  border-right: 1px solid #fff;
-  border-left: 1px solid #E0DFDF;
+  border-right: 1px solid #aaa;
+  border-left: 1px solid #fff;
   list-style:none;
 }
 .nav li:first-child {
@@ -182,18 +184,33 @@ a:focus {
 #searchform {
   position: absolute;
   z-index: 99;
-  bottom: -16px;
+  bottom: -34px;
   left: 345px;
+  -moz-box-shadow:  1px 1px 2px #aaa;
+  -webkit-box-shadow:  1px 1px 2px #aaa;
+  box-shadow:  1px 1px 2px #aaa;
+  -o-box-shadow:  1px 1px 2px #aaa;
+  -webkit-border-bottom-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -o-border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -o-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 #s {
-  -moz-box-shadow: inset 0 2px 3px #999;
-  -webkit-box-shadow: inset 0 2px 3px #999;
-  box-shadow: inset 0 2px 3px #999;
-  -o-box-shadow: inset 0 2px 3px #999;
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  border-radius: 12px;
-  border: 1px solid #E0DFDF;
+  -webkit-border-bottom-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -o-border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -o-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: 1px solid #aaa;
+  border-top:0;
+
   color: #999999;
   font-size: 11px;
   height: 24px;
