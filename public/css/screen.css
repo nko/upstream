@@ -217,10 +217,21 @@ a:focus {
   text-indent: -9999px;
   background: transparent url(/img/w4lls_icons.png) no-repeat 0 0;
 }
-.action_link.show {
-  width: auto;
-  padding-left: 33px;
+.action_link.textlink {
+  display:block;
   line-height: 32px;
+  padding-left: 33px;
+  text-indent: 0;
+  width: auto;
+}
+.action_link.textlink.left {
+  float: left;
+}
+.action_link.textlink.right {
+  float: right;
+}
+.cancel_link.textlink {
+  color: #D16A3C;
 }
 
 .cancel_link {
@@ -480,16 +491,16 @@ label[for="s"] {
   top: 45%;
 }
 .view_indicator.slide_left_out:after {
-  border-top: 20px solid transparent;
+  border-top: 14px solid transparent;
   border-right: 14px solid transparent;
-  border-bottom: 20px solid transparent;
+  border-bottom: 14px solid transparent;
   right: 0;
 }
 .hidden .view_indicator.slide_left_out:after {
   left: 0;
-  border-top: 20px solid transparent;
+  border-top: 14px solid transparent;
   border-left: 14px solid transparent;
-  border-bottom: 20px solid transparent;
+  border-bottom: 14px solid transparent;
 }
 .view_indicator.slide_left_out:hover:after {
   border-right: 14px solid #fff;
@@ -501,16 +512,16 @@ label[for="s"] {
 }
 /* --------------- */
 .view_indicator.slide_right_out:after {
-  border-top: 20px solid transparent;
+  border-top: 14px solid transparent;
   border-left: 14px solid transparent;
-  border-bottom: 20px solid transparent;
+  border-bottom: 14px solid transparent;
   left: 0;
 }
 .hidden .view_indicator.slide_right_out:after {
   right: 0;
-  border-top: 20px solid transparent;
+  border-top: 14px solid transparent;
   border-right: 14px solid transparent;
-  border-bottom: 20px solid transparent;
+  border-bottom: 14px solid transparent;
 }
 .view_indicator.slide_right_out:hover:after {
   border-left: 14px solid #fff;
@@ -1010,7 +1021,8 @@ form ul li {
   background: #fff;
 }
 #details ul {
-  margin-bottom: 24px;
+  margin: 48px 0 12px 0;
+  clear: both;
 }
 #details li {
   padding: 6px;

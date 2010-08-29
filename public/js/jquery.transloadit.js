@@ -31,7 +31,6 @@
       , method
       , upload
       , r;
-
     if (args.length == 1 && typeof args[0] == 'object' || args[0] === undefined) {
       args.unshift('init');
     }
@@ -85,7 +84,6 @@
   Uploader.prototype.init = function($form, options) {
     this.$form = $form;
     this.options($.extend({}, OPTIONS, options || {}));
-
     var self = this;
     $form.bind('submit.transloadit', function() {
       self.start();
@@ -106,10 +104,10 @@
     this.results = {};
 
     this.assemblyId = this.uuid();
-    
-    if(this._options.beforeStart) {
-      if(!this._options.beforeStart()) { return; }
-    }
+
+    // if(this._options.beforeStart) {
+    //   if(!this._options.beforeStart()) { return false; }
+    // }
 
     var $params = this.$form.find('input[name=params]');
     if (!$params.length) {
@@ -396,19 +394,19 @@
     });
 
     this.$modal.$error.hide();
-
-    var self = this
-      , expose =
-          this.$modal.expose
-          ( { api: true
-            , maskId: 'transloadit_expose'
-            , opacity: 0.9
-            , loadSpeed: 250
-            , closeOnEsc: false
-            , closeOnClick: false
-            }
-          ).load();
-
+alert("3");
+    // var self = this
+    //   , expose =
+    //       this.$modal.expose
+    //       ( { api: true
+    //         , maskId: 'transloadit_expose'
+    //         , opacity: 0.9
+    //         , loadSpeed: 250
+    //         , closeOnEsc: false
+    //         , closeOnClick: false
+    //         }
+    //       ).load();
+alert("4");
     this.$modal.$close.click(function() {
       self.cancel();
       return false;
