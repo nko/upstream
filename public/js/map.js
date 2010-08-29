@@ -65,9 +65,12 @@ $(function() {
         max_price = $("#price_range").slider("values", 1),
         min_space = $('#space_range').slider("values", 0),
         max_space = $('#space_range').slider("values", 1),
-        tags = $('#filters #tags').val(),
+        tags = $('.tagEditor li').map(function() { return $(this).text(); }).toArray().join(','),
         url = '/apartments?north=' + bounds.T.b + '&south=' + bounds.T.c + 
-          '&west=' + bounds.L.b + '&east=' + bounds.L.c;
+          '&west=' + bounds.L.b + '&east=' + bounds.L.c +
+          '&price_min=' + min_price + '&price_max=' + max_price +
+          '&size_min=' + min_space + '&size_max=' + max_space +
+          '&tags=' + tags;
     }
     
     $.get(url, function(apartments) {
