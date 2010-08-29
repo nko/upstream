@@ -271,6 +271,10 @@ a:focus {
   border-bottom-left-radius: 6px;
   border: 1px solid #aaa;
   border-top:0;
+  
+  -moz-box-shadow: inset 0px 0px 2px #999;
+  -webkit-box-shadow: inset 0px 0px 2px #999;  
+  box-shadow: inset 0px 0px 2px #999;
 
   color: #999999;
   font-size: 11px;
