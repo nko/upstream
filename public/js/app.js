@@ -93,8 +93,8 @@ $(function() {
     $.jStorage.set("w4lls.apartments", remembered_apartments);
     
     w4lls.template('show', 'bookmarks', function() {
-      $('#bookmarks').append(Mustache.to_html(w4lls.show_template, apartment));
-      $('#bookmarks .bookmark:last a').click(function() {
+      $('#bookmarks ul').append(Mustache.to_html(w4lls.show_template, apartment));
+      $('#bookmarks ul .bookmark:last a').click(function() {
         w4lls.show_details(apartment);
       });
       $('#bookmarks').show();
@@ -114,8 +114,10 @@ $(function() {
   });
   $(window).trigger("resize");
   
-  var filters = $('#filters');
-  filters.find('.view_indicator').css('height', filters.find('ul').css('height'));
+  setTimeout(function() {
+    var filters = $('#filters');
+    filters.find('.view_indicator').css('height', filters.find('ul').css('height'));    
+  }, 750);
   
   var details_container = $('#details_container');
   var width = details_container.css('width');

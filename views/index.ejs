@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div id="new_apartment">
       <div class="new_apartment_form_head">
-        <a href="#" title="cancel" class="cancel_link">Cancel</a>          
+        <a href="#" title="cancel" class="action_link cancel_link">Cancel</a>          
         <h2 class="close">New Apartment</h2>
         <p>You have an apartment or a room in a shared apartment to offer? Great! </p>  
       </div>
@@ -28,12 +28,12 @@
                   <input type="text" name="apartment[street]" id="apartment_street" />
                 </li>
 
-                <li>
+                <li class="half half_input last">
                   <label for="apartment_postcode">Postcode</label>
                   <input type="text" name="apartment[postcode]" id="apartment_postcode" />
                 </li>
 
-                <li>
+                <li class="half half_input last">
                   <label for="apartment_city">City</label>
                   <input type="text" disabled="disabled" name="apartment[city]" id="apartment_city" value="Berlin" />
                 </li>
@@ -48,19 +48,19 @@
         
             <div class="third">
               <ul>
-                <li>
+                <li class="third third_input">
                   <label for="apartment_price">Price (&euro;)</label>
                   <input type="text" name="apartment[price]" id="apartment_price" />
                 </li>
 
-                <li>
-                  <label for="apartment_number_of_rooms">Number of Rooms</label>
-                  <input type="text" name="apartment[number_of_rooms]" id="apartment_number_of_rooms" />
-                </li>
-
-                <li>
+                <li class="third third_input">
                   <label for="apartment_size">Size (sqm)</label>
                   <input type="text" name="apartment[size]" id="apartment_size" />
+                </li>
+                
+                <li class="third third_input last">
+                  <label for="apartment_number_of_rooms">No. of Rooms</label>
+                  <input type="text" name="apartment[number_of_rooms]" id="apartment_number_of_rooms" />
                 </li>
 
                 <li>
@@ -107,7 +107,7 @@
 
 
         <p class="btn_wrap">
-          <a href="#" title="cancel" class="cancel_link">Cancel</a>          
+          <a href="#" title="cancel" class="action_link cancel_link">Cancel</a>          
           <input type="submit" value="Add apartment" class="btn" />
         </p>
         
@@ -169,9 +169,7 @@
 </div>
 
 <div id="bookmarks_container">
-	<div id="bookmarks">
-		<ul>
-			<li>item 1</li>
-    </ul>
+	<div id="bookmarks" style="display: none">
+		<ul></ul>
 	</div>
 </div>
