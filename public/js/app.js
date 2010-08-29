@@ -1,12 +1,18 @@
 $(function() {
   // tag editor
   (function() {
-    var options = {
-      separator: ',',
+    var tag_editor_options = {
+      separator: ' ',
       completeOnSeparator: true
     };
-    $("#apartment_tags").tagEditor(_(options).extend({appendTagsTo: '#tags_for_apartment'}));
-    $("#tags").tagEditor(_(options).extend({appendTagsTo: '#tags_for_search'}));
+    
+    $("#apartment_tags, #tags").autocomplete("/tags", {
+  		highlight: false,
+  		scroll: true
+  	});
+    
+    $("#apartment_tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#tags_for_apartment'}));
+    $("#tags").tagEditor(_(tag_editor_options).extend({appendTagsTo: '#tags_for_search'}));
   })();
          
   // transloadit
