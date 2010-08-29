@@ -217,6 +217,11 @@ a:focus {
   text-indent: -9999px;
   background: transparent url(/img/w4lls_cancel_link.png) no-repeat 0 0;
 }
+.action_link.show {
+  width: auto;
+  padding-left: 33px;
+  line-height: 32px;
+}
 
 .cancel_link {
   background-position: 0 0;
@@ -418,8 +423,9 @@ label[for="s"] {
   overflow: visible;
 }
 #details {
-  width: 902px;
-  padding: 24px;
+  width: 950px;
+  overflow: hidden;
+  
 }
 #filters {
   font-size: .75em;
@@ -429,11 +435,9 @@ label[for="s"] {
   float: left;
   border-right: 1px solid #E0DFDF;
 }
-#filters .view_indicator {
-  width: 26px;
-  float: left;
-  background: rgba(0,0,0,0.5);
-  background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
+
+.slide_left_out {
+  border-left: 1px solid #fff;
   -webkit-border-top-right-radius: 6px;
   -moz-border-radius-topright: 6px;
   -o-border-top-right-radius: 6px;
@@ -442,41 +446,83 @@ label[for="s"] {
   -moz-border-radius-bottomright: 6px;
   -o-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px;
-  border-left: 1px solid #fff;
+}
+.slide_right_out {
+  border-right: 1px solid #fff;
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -o-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -o-border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  
+  min-height: 400px;
+}
+
+.view_indicator {
+  width: 26px;
+  float: left;
+  background: rgba(0,0,0,0.5);
+  background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
   position: relative;
 }
-#filters .view_indicator:after {
+
+
+
+.view_indicator:hover {
+  cursor: pointer;
+}
+.view_indicator:after {
   content: "";
   position: absolute;
   top: 45%;
-  right: 0;
+}
+.view_indicator.slide_left_out:after {
   border-top: 20px solid transparent;
   border-right: 14px solid transparent;
   border-bottom: 20px solid transparent;
+  right: 0;
 }
-#filters.hidden .view_indicator:after {
-  content: "";
-  position: absolute;
-  top: 45%;
+.hidden .view_indicator.slide_left_out:after {
   left: 0;
   border-top: 20px solid transparent;
   border-left: 14px solid transparent;
   border-bottom: 20px solid transparent;
 }
-#filters .view_indicator:hover {
-  cursor: pointer;
-}
-#filters.hidden .view_indicator:hover {
-  cursor: e-resize;
-}
-#filters .view_indicator:hover:after {
+.view_indicator.slide_left_out:hover:after {
   border-right: 14px solid #fff;
   border-left-color: transparent;
 }
-#filters.hidden .view_indicator:hover:after {
+.hidden .view_indicator.slide_left_out:hover:after {
   border-left: 14px solid #fff;
   border-right-color: transparent;
 }
+/* --------------- */
+.view_indicator.slide_right_out:after {
+  border-top: 20px solid transparent;
+  border-left: 14px solid transparent;
+  border-bottom: 20px solid transparent;
+  left: 0;
+}
+.hidden .view_indicator.slide_right_out:after {
+  right: 0;
+  border-top: 20px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+.view_indicator.slide_right_out:hover:after {
+  border-left: 14px solid #fff;
+  border-right-color: transparent;
+}
+.hidden .view_indicator.slide_right_out:hover:after {
+  border-right: 14px solid #fff;
+  border-left-color: transparent;
+}
+
+
+
 #filters > ul > li {
   padding: 12px 24px;
   background: #D0CFC5 url(/img/w4lls_bg.png) repeat;
@@ -864,16 +910,17 @@ form ul li {
 }
 .left_column {
   float:left;
-  width: 320px;
-  margin-right: 24px;
+  width: 332px;
+  margin: 24px;
 }
 .left_column img {
   border: 6px solid #fff;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 .right_column {
   float:left;
-  width: 534px;
+  width: 495px;
+  margin: 24px 0;
   
 }
 #details h2 {
@@ -888,12 +935,9 @@ form ul li {
 #details ul {
   margin-bottom: 24px;
 }
-.thumbs {
-  margin: 0 24px 24px 0;
-  
+#details li {
+  padding: 6px;
 }
-
-
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix {display:block;}
 .hide { display: none !important; }
