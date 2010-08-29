@@ -2,7 +2,7 @@ $(function() {
   // tag editor
   (function() {
     var options = {
-      separator: ' ',
+      separator: ',',
       completeOnSeparator: true
     };
     $("#apartment_tags").tagEditor(_(options).extend({appendTagsTo: '#partment_tags_div'}));
@@ -10,7 +10,6 @@ $(function() {
   })();
          
   // transloadit
-  
   var transloadit_params = {
     auth: {
       key: '4c791226c09040dd98af27d472ec3211'

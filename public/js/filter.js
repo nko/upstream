@@ -1,6 +1,6 @@
 $(function() {
   $(window).resize(function() {
-    $('#map').height($(window).height() - $("#header").height() - $("#footer").height() - $("#bookmarks").height());
+    $('#map').height(Math.max($('#filters').height() + 100, $(window).height() - $("#header").height() - $("#footer").height() - $("#bookmarks").height()));
   });
   $(window).trigger("resize");
 
