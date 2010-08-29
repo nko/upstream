@@ -62,7 +62,8 @@ $(function() {
   });
   
   w4lls.hide_filters = function(filters) {
-    filters.animate({left: '-299px'});
+    var left = '-' + filters.find('ul').css('width');
+    filters.animate({left: left});
     filters.addClass('hidden');    
   };
   
@@ -114,20 +115,26 @@ $(function() {
   var details_container = $('#details_container');
   var width = details_container.css('width');
   details_container.css('right', '-' + width);
-  w4lls.show_details = function(apartment) {
+  w4lls.show_details = function(apartment, callback) {
     var show_big_details = function() {
       var filters = $('#filters'),
         details_container = $('#details_container'),
         width = details_container.css('width');
 
+      apartment.has_phone = function() { return apartment.phone != undefined; }
+      apartment.has_email = function() { return apartment.email != undefined; }
+
       details_container.html(Mustache.to_html(w4lls.big_details_template, apartment));
       w4lls.hide_filters(filters);
       details_container.animate({right: '-3px'});
-      
-      details_container.click(function() {
+
+      w4lls.close_details_container = function() {
         w4lls.show_filters(filters);
         details_container.animate({right: '-' + width});
-      });      
+      }
+      details_container.click(w4lls.close_details_container);
+      
+      callback(apartment);
     };
     
     w4lls.template('big_details', 'apartments', show_big_details);
@@ -142,5 +149,35 @@ $(function() {
         callback();
       });
     }
-  }
+  };
+  
+  w4lls.send_request = function(apartment) {
+    var details_container = $('#details_container'),
+      contact_request = details_container.find('#contact_request');
+    
+    contact_request.find('.close_request').click(function(evt) {
+      contact_request.hide();
+      details_container.find('#details').show();
+      details_container.click(w4lls.close_details_container);
+      contact_request.find('.close_request').unbind('click');
+      evt.stopPropagation();
+    });
+    
+    contact_request.find('form').ajaxForm({
+      success: function() {
+        contact_request.hide();
+        contact_request.find('.close_request').unbind('click');
+        details_container.click(w4lls.close_details_container);
+        var details = details_container.find('#details');
+        details.show();
+        details.append('<div class="success">Your request was sent successfully.</div>');
+        details.find('.success').delay('4000').fadeOut(function() { $(this).remove(); });
+      }
+    });
+    
+    details_container.unbind('click');
+    
+    details_container.find('#details').hide();
+    contact_request.show();
+  };
 });

@@ -30,5 +30,28 @@
         <a href="#" class="remember_this">Remember this</a>
       </p>
     </div>
+    
+    <div id="contact_request" style="display: none;">
+      {{#has_phone}}
+        <p>Phone: {{phone}}</p>
+      {{/has_phone}}
+      
+      {{#has_email}}
+        <form method="POST" action="/contact_requests">
+          <p>
+            <label for="message">Message</label>
+            <textarea name="message" id="message"></textarea>
+          </p>
+        
+          <p>
+            <input type="submit" value="Send request" />
+          </p>
+        </form>
+      {{/has_email}}
+      
+      <p>
+        <a href="#" class="close_request">Close request</a>
+      </p>
+    </div>
 	</div>
 </div>
