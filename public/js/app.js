@@ -17,7 +17,8 @@ $(function() {
   
   form.find('#transloadit_params').val($('<div></div>').text(stringified_transloadit_params).html());
   form.find('#apartment_availability').datepicker();
-  
+
+  // TODO: how to validate when transloadit seems to be always first?
   form.transloadit({
     wait: true,
     autoSubmit: false,
@@ -33,10 +34,37 @@ $(function() {
         }
       });
     }
-  });      
+  });
   
   $("#big_add_link").click(function () {
     $("#top_slider").slideToggle("normal");
     return false;
   });
+  
+  w4lls.remember_this = function() {
+    
+  };
+  
+  w4lls.show_details = function(apartment) {
+    var show_big_details = function() {
+      $("#details_container").html(Mustache.to_html(w4lls.big_details_template, apartment));
+      $("#details_container").removeClass("hidden");
+      $("#details_container").click(function() {
+        $("#details_container").addClass("hidden");
+      });      
+    };
+    
+    w4lls.template('big_details', show_big_details);
+  };
+  
+  w4lls.template = function(template, callback) {
+    if(w4lls[template + '_template']) {
+      callback();
+    } else {
+      $.get('/views/apartments/' + template + '.mustache', function(_template) {
+        w4lls[template + '_template'] = _template;
+        callback();
+      });
+    }
+  }
 });

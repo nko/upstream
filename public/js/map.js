@@ -32,22 +32,17 @@ $(function() {
     w4lls.apartments.push(marker);
 
     function build_info_window() {
-      var content = Mustache.to_html(w4lls.show_template, apartment);
+      var content = Mustache.to_html(w4lls.small_details_template, apartment);
       var infowindow = new google.maps.InfoWindow({ content: content });
 
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map, marker);
-      });      
-    }
-    
-    if(w4lls.show_template) {
-      build_info_window();
-    } else {
-      $.get('/views/apartments/show.mustache', function(template) {
-        w4lls.show_template = template;
-        build_info_window();
+        $('.remember_this').click(function() { w4lls.remember_this(apartment); });
+        $('.show_details').click(function() { w4lls.show_details(apartment); });
       });
     }
+
+    w4lls.template('small_details', build_info_window);
     
     marker.setMap(map);
   };
