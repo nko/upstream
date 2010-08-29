@@ -536,9 +536,12 @@ label[for="s"] {
 
 .carousel-control {
   display: block;
+  width: 2em;
+  height: 84px;
   position: absolute;
   background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
   cursor: pointer;
+/*  text-indent: -9999px; */
 }
 
 .carousel-wrap {
