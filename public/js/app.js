@@ -156,14 +156,25 @@ $(function() {
     w4lls.template('show', 'bookmarks', function() {
       $('#bookmarks').append(Mustache.to_html(w4lls.show_template, apartment));
       
-      $('#bookmarks .bookmark:last a.details').click(function() {
+      var bookmark = $('#bookmarks .bookmark:last');
+      var number = remembered_apartments.length;
+      
+      bookmark.addClass('jcarousel-item jcarousel-item-horizontal')
+              .addClass(' jcarousel-item-' + number + ' jcarousel-item-' + number + '-horizontal')
+              .attr('jcarouselindex', number);
+              
+      bookmark.find('a.details').click(function() {
         location.hash = '/apartments/' + apartment._id;
       });
       
-      $('#bookmarks .bookmark:last a.delete_bookmark').click(function() {
+      bookmark.find('a.delete_bookmark').click(function() {
         w4lls.delete_bookmark(apartment, this);
       });
-      $('#bookmarks').show();
+      
+      if(remembered_apartments.length === 1) {
+        $("#bookmarks").jcarousel();
+        $('#bookmarks').show();        
+      }
     });
   };
   
