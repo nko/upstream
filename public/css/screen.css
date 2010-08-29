@@ -153,6 +153,9 @@ h4 img, h5 img, h6 img {
   width: 65%;
   text-align: center;
 }
+.page_intro_desc p {
+  margin-bottom: 1.5em;
+}
 
 .page_intro_desc {
   padding: 1em 2em;
