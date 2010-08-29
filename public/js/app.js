@@ -71,7 +71,17 @@ $(function() {
       if($('#apartment_title').val().length === 0 || $('#apartment_title').hasClass('placeholder')) {
         error('#apartment_title', 'Title missing.');
       }
+      if($('#apartment_title').val().length > 40) {
+        error('#apartment_title', 'Title can only be 40 characters long. Be creative!');
+      }
+      if($('#apartment_description').val().length === 0) {
+        error('#apartment_description', 'Description missing.');
+      }
+      if($('#apartment_description').val().length > 140) {
+        error('#apartment_description', 'Description can only be 140 characters long. Be creative!');
+      }
       if($('#apartment_street').val().length === 0) { error('#apartment_street', 'Street missing.'); }
+      if($('#apartment_size').val().length === 0) { error('#apartment_size', 'Size missing.'); }
       if($('#apartment_price').val().length === 0) { error('#apartment_price', 'Price missing.'); }
       if($('#apartment_email').val().length === 0 && $('#apartment_phone').val().length === 0) {
         error('#apartment_email', 'Please provide either an email or a phone number.');
