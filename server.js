@@ -61,7 +61,7 @@ app.helpers({
 });
 
 if(!process.env.SKIP_UPDATE_VIEWS) {
-  sys.puts('updating view. set SKIP_UPDATE_VIEWS to skip this');
+  sys.puts('updating views. set SKIP_UPDATE_VIEWS to skip this');
   couch_views.update_views(db, _);
 };
 
@@ -109,6 +109,8 @@ app.get('/geolocation', function(req, res) {
 });
 
 app.post('/apartments', function(req, res) {
+  console.log(req.body);
+  
   var address = querystring.stringify({address: req.body.apartment.street + ', ' + req.body.apartment.postcode + ', Berlin, Germany', sensor: 'false'});
 
   hl_http_client.get('maps.google.com', '/maps/api/geocode/json?' + address, function(err, body) {
