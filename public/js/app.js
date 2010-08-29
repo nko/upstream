@@ -34,7 +34,10 @@ $(function() {
       big: {robot: '/image/resize', width: 640, height: 480, use: ':original'},
       store: {robot: '/s3/store', use: ['small', 'middle', 'big']}
     },
-    redirect_url: 'http://' + w4lls.host + '/apartments'
+    redirect_url: 'http://' + w4lls.host + '/apartments',
+    beforeStart: function() {
+      return true;
+    }
   }
   
   var stringified_transloadit_params = JSON.stringify(transloadit_params);
@@ -56,6 +59,8 @@ $(function() {
             w4lls.show_apartment(apartment, w4lls.map);
           }
           $("#top_slider").slideUp("normal");
+          form.find('input:text:enabled, input:checkbox:enabled, input:radio:enabled, input:file:enabled').val('');
+          form.find('ul.tagEditor *').remove();
         }
       });
     }
