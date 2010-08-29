@@ -406,6 +406,7 @@ label[for="s"] {
 #details_centering {
   width: 950px;
   margin: 0 auto;
+  overflow: auto;
 }
 #details_rightflow {
   width: 1000%;
@@ -473,11 +474,8 @@ label[for="s"] {
   background: transparent url(../img/w4lls_bg_stripes.png) repeat 0 0;
   position: relative;
 }
-
-
-
 .view_indicator:hover {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 .view_indicator:after {
   content: "";
