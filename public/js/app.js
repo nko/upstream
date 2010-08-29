@@ -57,7 +57,7 @@ $(function() {
   });
   
   $("#big_add_link, .cancel_link").click(function () {
-    $("#top_slider").slideToggle("normal");
+    $("#top_slider").slideToggle("slow");
     return false;
   });
   
