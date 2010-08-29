@@ -1152,3 +1152,42 @@ form ul li {
     cursor: default;
     background-position: -114px 50%, 0 0;
 }
+
+
+/* kill ugly datepicker */
+.ui-widget {
+  font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;;
+  font-size: .75em !important;
+}
+
+.ui-widget-content,
+.ui-widget-header {
+  background: #0095BC !important;
+}
+
+.ui-widget-content {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow: 0px 0px 2px #999;
+  -webkit-box-shadow: 0px 0px 2px #999;  
+  box-shadow: 0px 0px 2px #999;
+}
+
+.ui-datepicker-header,
+.ui-widget-content th {
+  text-shadow: 1px 1px 1px #4C3E4A !important;  
+}
+
+.ui-datepicker-header {
+  border: none !important;
+  border-bottom: 1px solid #FFF !important;
+  -moz-border-radius: none !important;
+  -webkit-border-radius: none !important;
+  border-radius: none !important;
+}
+
+.ui-datepicker-current-day a {
+  background: #0095BC !important;
+  text-shadow: 1px 1px 1px #4C3E4A !important;  
+}
