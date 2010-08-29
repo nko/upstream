@@ -2,49 +2,52 @@
 	<div id="details_rightflow">
 		<div id="details">
 		
-			<div class="thumbs">
+			<div class="left_column">
         {{#images}}
           <img src="{{middle}}" />
         {{/images}}
+
+				<ul>
+					<li class="item">
+						Price: {{price}}
+					</li> 
+					<li class="item">
+						Number of Rooms: {{number_of_rooms}}
+					</li>
+					<li class="item">
+						Date of Availability: {{date_of_availability}} 
+					</li>
+					<li class="item">
+						Size: {{size}}
+					</li>
+					<li class="item">
+						Duration: {{duration}}
+					</li>
+				</ul>
+
+				<address>
+	        {{street}}<br />
+	        {{postcode}} {{city}}, {{country}}
+	      </address>
       </div>
-
-      <h2>
-        {{title}}
+			
+			<div class="right_column">
+	      <h2>
+	        {{title}}
         
-      </h2>
+	      </h2>
 			
-			<p>
-				{{description}}
-			</p>
-			
-			<address>
-        {{street}}<br />
-        {{postcode}} {{city}}, {{country}}
-      </address>
-			
-			<ul>
-				<li class="item">
-					Price: {{price}}
-				</li> 
-				<li class="item">
-					Number of Rooms: {{number_of_rooms}}
-				</li>
-				<li class="item">
-					Date of Availability: {{date_of_availability}} 
-				</li>
-				<li class="item">
-					Size: {{size}}
-				</li>
-				<li class="item">
-					Duration: {{duration}}
-				</li>
-			</ul>
+				<p>
+					{{description}}
+				</p>
+
+	      <p>
+					<a href="#" title="Bookmark apartment" class="check_link action_link">Bookmark</a>
+					<a href="#" title="cancel" class="action_link cancel_link">Cancel</a>
+	      </p>
+			</div>
 
 
-      <p>
-        <a href="#" class="send_request">Send request</a>
-        <a href="#" class="remember_this">Remember this</a>
-      </p>
     </div>
     
     <div id="contact_request" style="display: none;">

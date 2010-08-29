@@ -149,7 +149,7 @@ h4 img, h5 img, h6 img {
 .page_intro {
   margin: 6.5em auto 0 auto;
   padding-bottom: 3em;
-  width: 50%;
+  width: 65%;
   text-align: center;
 }
 
@@ -210,18 +210,32 @@ a:focus {
   outline: none;
 }
 
-.cancel_link {
-  width: 28px;
+.action_link{
+  width: 29px;
   height: 32px;
   display: block;
   text-indent: -9999px;
-  background: transparent url(/img/w4lls_cancel_link.png) no-repeat 0 50%;
+  background: transparent url(/img/w4lls_cancel_link.png) no-repeat 0 0;
+}
+
+.cancel_link {
+  background-position: 0 0;
+}
+
+.check_link {
+  background-position: 0 -48px;
 }
 
 .cancel_link:hover,
 .cancel_link:focus,
 .cancel_link:active {
   background-position: 100% 0;
+}
+
+.check_link:hover,
+.check_link:focus,
+.check_link:active {
+  background-position: 100% -48px;
 }
 
 .logo a:focus, .logo a:hover, .logo a:active {
@@ -234,7 +248,7 @@ a:focus {
   background: transparent url(/img/w4lls_logo_big.png) no-repeat 50% 0;
   display: block;
   float: none;
-  margin: 0 auto 4.5em auto;
+  margin: 0 auto 3em auto;
   font-size: 1em;
 }
 
@@ -710,11 +724,42 @@ form ul li {
 }
 
 
+/* 2cols */
+.half {
+  width: 50%;
+  float: left;
+  overflow: hidden;
+  clear: none;
+}
+
+.half_input {
+  width: 46.5%;
+  margin-right: 3%;
+}
+
+.half_input.last {
+  width: 50%;
+}
+
 /* 3 cols */
 .third {
   width: 33.3%;
   float: left;
   overflow: hidden;
+  clear: none;
+}
+
+.third_input {
+  width: 30%;
+  margin-right: 3%;
+}
+
+.third_input.last {
+  width: 33%;
+}
+
+.last {
+  margin-right: 0;
 }
 
 #tags {
@@ -817,21 +862,35 @@ form ul li {
 	background-color: #fff;
 	border-color: #0095BC;
 }
+.left_column {
+  float:left;
+  width: 320px;
+  margin-right: 24px;
+}
+.left_column img {
+  border: 6px solid #fff;
+  margin-bottom: 48px;
+}
+.right_column {
+  float:left;
+  width: 534px;
+  
+}
 #details h2 {
   line-height: 1;
 }
+
 #details address {
+  margin-bottom: 24px;
   padding: 12px;
-  clear: left;
-  float: left;
+  background: #fff;
 }
 #details ul {
-  float: left;
+  margin-bottom: 24px;
 }
 .thumbs {
-  float: left;
   margin: 0 24px 24px 0;
-  border: 3px solid #fff;
+  
 }
 
 
