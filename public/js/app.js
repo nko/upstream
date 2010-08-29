@@ -200,6 +200,8 @@ $(function() {
       details_container.html(Mustache.to_html(w4lls.big_details_template, apartment));
       w4lls.hide_filters(filters);
       details_container.css('right', '-' + width);
+      var height = parseInt(details_container.css('height'), 10);
+      details_container.find('.view_indicator').css('height', height + 24);
       details_container.animate({right: '-3px'});
 
       w4lls.close_details_container = function() {
