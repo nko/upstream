@@ -1,29 +1,44 @@
 <div id="details_centering">
 	<div id="details_rightflow">
 		<div id="details">
+		
 			<div class="thumbs">
         {{#images}}
           <img src="{{middle}}" />
         {{/images}}
       </div>
-      <h2>
-        {{title}}<br />
-        {{description}}
-      </h2>
 
-      <p>
+      <h2>
+        {{title}}
+        
+      </h2>
+			
+			<p>
+				{{description}}
+			</p>
+			
+			<address>
         {{street}}<br />
         {{postcode}} {{city}}, {{country}}
-      </p>
-
-      <p>
-        Price: {{price}} <br />
-        Number of Rooms: {{number_of_rooms}} <br />
-        Size: {{size}} <br />
-        Date of Availability: {{date_of_availability}} <br />
-        Duration: {{duration}}
-      </p>
-
+      </address>
+			
+			<ul>
+				<li class="item">
+					Price: {{price}}
+				</li> 
+				<li class="item">
+					Number of Rooms: {{number_of_rooms}}
+				</li>
+				<li class="item">
+					Date of Availability: {{date_of_availability}} 
+				</li>
+				<li class="item">
+					Size: {{size}}
+				</li>
+				<li class="item">
+					Duration: {{duration}}
+				</li>
+			</ul>
 
 
       <p>

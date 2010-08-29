@@ -362,6 +362,19 @@ label[for="s"] {
   border: 2px solid #fff;
   overflow: hidden;
 }
+#price_amount,#space_amount {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 99%;
+  text-align: center;
+  clear: left;
+  font-size: .75em;
+  padding: 0;
+  padding-top: 6px;
+  display: block;
+}
+
 #details_container {
   width: 100%;
   position: absolute;
@@ -458,19 +471,6 @@ label[for="s"] {
 #filters .flat_type {
   height: 20px;
 }
-#filters .ui_slider input {
-  border: none;
-  outline: none;
-  background: transparent;
-  width: 99%;
-  text-align: center;
-  clear: left;
-  font-size: .75em;
-  padding: 0;
-  padding-top: 6px;
-  display: block;
-}
-
 #price_range,#space_range {
   width: 180px;
   float: left;
@@ -818,6 +818,14 @@ form ul li {
 }
 #details h2 {
   line-height: 1;
+}
+#details address {
+  padding: 12px;
+  clear: left;
+  float: left;
+}
+#details ul {
+  float: left;
 }
 .thumbs {
   float: left;
