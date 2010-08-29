@@ -764,14 +764,12 @@ form ul li {
 	border-top:0;
 	margin-top: -1px;
 }
-
 .ac_results ul {
 	list-style-position: outside;
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
-
 .ac_results li {
 	margin: 0px;
 	padding: 2px 5px;
@@ -791,14 +789,20 @@ form ul li {
 	line-height: 16px;
 	overflow: hidden;
 }
-
 .ac_loading {
 	background: white url('/img/indicator.gif') 106px center no-repeat;
 }
-
 .ac_over {
 	background-color: #fff;
 	border-color: #0095BC;
+}
+#details h2 {
+  line-height: 1;
+}
+.thumbs {
+  float: left;
+  margin: 0 24px 24px 0;
+  border: 3px solid #fff;
 }
 
 
