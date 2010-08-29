@@ -6,6 +6,9 @@ require 'test/unit/assertions'
 include Test::Unit::Assertions
 require 'httparty'
 
+ENV['EXPRESS_ENV'] = 'test'
+ENV['SKIP_UPDATE_VIEWS'] = ''
+
 Capybara.app = nil
 Capybara.app_host = 'http://127.0.0.1:3000'
 Capybara.javascript_driver = :selenium
@@ -33,8 +36,9 @@ def patiently(&block)
 end
 
 Before do
+  url = 'http://w44ls:upstream@langalex.couchone.com'
   @db_name = 'w4lls_test'
-  HTTParty.delete "http://127.0.0.1:5984/#{@db_name}" rescue nil
-  HTTParty.put "http://127.0.0.1:5984/#{@db_name}"
+  HTTParty.delete "#{url}/#{@db_name}" rescue nil
+  HTTParty.put "#{url}/#{@db_name}"
   HTTParty.put Capybara.app_host + "/update_views"
 end
