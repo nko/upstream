@@ -724,19 +724,19 @@ form ul li {
   width: 248px;
   background: url(/img/w4lls_chosen_tags.png) no-repeat 198px -1px;
   overflow: hidden;
-  padding: 12px 0 12px 0;
+  padding: 6px 0 12px 0;
 }
 .tagEditor li {
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   background-color: #2394B9;
   display: block;
-  float:left;
+  float:right;
 	background-image: url(/img/minus_small.png);
 	background-position: right center;
 	background-repeat: no-repeat;
 	list-style-type: none;
 	padding: 4px 15px 4px 6px;
-	margin: 6px 4px 0 0;	
+	margin: 6px 0 0 4px;	
 	cursor: pointer;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -745,10 +745,6 @@ form ul li {
 	text-shadow: 1px 1px 1px #054E66;
 }
 
-.ac_even {
-  background: #fff;
-  border: 1px solid ;
-}
 .ac_results {
 	padding: 0px;
 	border: 1px solid black;
@@ -786,7 +782,7 @@ form ul li {
 }
 
 .ac_loading {
-	background: white url('indicator.gif') right center no-repeat;
+	background: white url('/img/indicator.gif') 106px center no-repeat;
 }
 
 .ac_odd {
@@ -794,6 +790,7 @@ form ul li {
 }
 
 .ac_over {
-	background-color: #0A246A;
-	color: white;
+	background-color: #fff;
+	width: 130px;
+	border-color: #0095BC;
 }
