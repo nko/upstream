@@ -426,8 +426,8 @@ label[for="s"] {
 #details {
   width: 950px;
   overflow: hidden;
-  
 }
+
 #filters {
   font-size: .75em;
   line-height: 1;
@@ -436,6 +436,12 @@ label[for="s"] {
   float: left;
   border-right: 1px solid #E0DFDF;
 }
+#filters p {
+  width: 250px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
 
 .slide_left_out {
   border-left: 1px solid #fff;
@@ -572,8 +578,8 @@ label[for="s"] {
 }
 
 .bookmark {
-  width: 100px;
-  height: 100px;
+  width: 170px;
+  height: 110px;
   position: relative;
   margin-left: 0;
   
@@ -587,6 +593,7 @@ label[for="s"] {
 .bookmark .details {
   font-size: .75em;
   margin-bottom: .5em;
+  padding: 0 2em;
   display: block;
 }
 
@@ -600,7 +607,7 @@ label[for="s"] {
 
 .bookmark img {
   border: 2px solid #FFF;
-  width: 75%;
+  width: 60%;
 }
 
 
@@ -1036,4 +1043,112 @@ form ul li {
 #contact_request .close_request {
   float: right;
   margin-bottom: 24px;
+}
+
+
+.jcarousel-skin-bookmarks .jcarousel-container {
+}
+
+.jcarousel-skin-bookmarks .jcarousel-container-horizontal {
+    width: 950px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+.jcarousel-skin-bookmarks .jcarousel-clip-horizontal {
+    width:  950px;
+    height: 110px;
+    border-left: 1px solid #AAA;
+    border-right: 1px solid #FFF;
+}
+
+.jcarousel-skin-bookmarks .jcarousel-direction-rtl .jcarousel-item-horizontal {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.jcarousel-skin-bookmarks .jcarousel-item-vertical {
+    margin-bottom: 10px;
+}
+
+.jcarousel-skin-bookmarks .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+}
+
+/**
+ *  Horizontal Buttons
+ */
+.jcarousel-skin-bookmarks .jcarousel-next-horizontal,
+.jcarousel-skin-bookmarks .jcarousel-prev-horizontal {
+    position: absolute;
+    top: -2px;
+    width: 26px;
+    
+    height: 110px;
+    cursor: pointer;
+    background-image: url(../img/w4lls_icons_arrows.png), url(../img/w4lls_bg_stripes.png);
+    background-repeat: no-repeat, repeat;
+    background-position: -59px 50%, 0 0;
+    background-color: transparent;
+    cursor: pointer;
+    text-indent: -9999px;
+    border: 2px solid #FFF;
+} 
+ 
+ 
+.jcarousel-skin-bookmarks .jcarousel-next-horizontal {
+    right: -30px;
+    border-left: none;
+    
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+    
+    -moz-box-shadow: 2px 2px 2px #999;
+    -webkit-box-shadow: 2px 2px 2px #999;  
+    box-shadow: 2px 2px 2px #999;
+}
+
+.jcarousel-skin-bookmarks .jcarousel-prev-horizontal {
+    left: -28px;
+    background-position: 7px 50%, 0 0;
+    border-right: none;
+    
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+    
+    -moz-box-shadow: -2px 2px 2px #999;
+    -webkit-box-shadow: -2px 2px 2px #999;  
+    box-shadow: -2px 2px 2px #999;
+}
+
+
+.jcarousel-skin-bookmarks .jcarousel-next-horizontal:active,
+.jcarousel-skin-bookmarks .jcarousel-next-horizontal:hover {
+    background-position: -299px 50%, 0 0;
+    
+}
+
+
+.jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal,
+.jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal:hover,
+.jcarousel-skin-bookmarks .jcarousel-next-disabled-horizontal:active {
+    cursor: default;
+    background-position: -179px 50%, 0 0;
+}
+
+.jcarousel-skin-bookmarks .jcarousel-prev-horizontal:active,
+.jcarousel-skin-bookmarks .jcarousel-prev-horizontal:hover {
+  background-position: -232px 50%, 0 0;
+}
+
+
+.jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal,
+.jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal:hover,
+.jcarousel-skin-bookmarks .jcarousel-prev-disabled-horizontal:active {
+    cursor: default;
+    background-position: -114px 50%, 0 0;
 }
