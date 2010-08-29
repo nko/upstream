@@ -228,19 +228,19 @@ a:focus {
 }
 
 .check_link {
-  background-position: 0 -48px;
+  background-position: 0 -98px;
 }
 
 .cancel_link:hover,
 .cancel_link:focus,
 .cancel_link:active {
-  background-position: 100% 0;
+  background-position: 0 -49px;
 }
 
 .check_link:hover,
 .check_link:focus,
 .check_link:active {
-  background-position: 100% -48px;
+  background-position: 0 -147px;
 }
 
 .logo a:focus, .logo a:hover, .logo a:active {
