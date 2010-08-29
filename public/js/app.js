@@ -1,4 +1,16 @@
 $(function() {
+  // tag editor
+  (function() {
+    var options = {
+      separator: ' ',
+      completeOnSeparator: true
+    };
+    $("#apartment_tags").tagEditor(options);
+    $("#tags").tagEditor(options);
+  })();
+         
+  // transloadit
+  
   var transloadit_params = {
     auth: {
       key: '4c791226c09040dd98af27d472ec3211'
